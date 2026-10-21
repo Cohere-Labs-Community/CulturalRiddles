@@ -339,7 +339,7 @@ Every riddle is original human writing by native speakers writing for their own 
 
 ## Intended use and terms
 
-The data is released under the terms in [LICENSE](LICENSE): Creative Commons Attribution 4.0 attribution terms combined with an evaluation-only restriction.
+The data is released under the terms in [LICENSE](https://huggingface.co/datasets/{REPO_ID}/blob/main/LICENSE): Creative Commons Attribution 4.0 attribution terms combined with an evaluation-only restriction.
 
 **This data must not be used to train, fine-tune, or distill models, nor as seeds for synthetic data generation.** It is an evaluation benchmark; training on it contaminates future measurement. This applies to the model answers and labels as much as to the riddles.
 

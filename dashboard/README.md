@@ -59,5 +59,5 @@ uv run python -m dashboard.compute
 ```
 
 For prerequisites, deployment, and browser smoke checks, see
-[Rebuild and publish the dashboard](DEPLOY.md). There is no nested Python project
+[Rebuild and publish the dashboard](https://github.com/Cohere-Labs-Community/CulturalRiddles/blob/main/dashboard/DEPLOY.md). There is no nested Python project
 or lockfile.
