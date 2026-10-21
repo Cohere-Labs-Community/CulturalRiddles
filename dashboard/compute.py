@@ -162,11 +162,15 @@ def verify(d: dict | None = None) -> None:
                 row[column],
             )
 
-    for group in ("resource", "subregion"):
+    # Resource levels pool every human-evaluated community; subregions keep the coverage rule.
+    for group, expected in (
+        ("resource", len(communities)),
+        ("subregion", d["eligible_communities"]),
+    ):
         check(
-            f"{group} eligible communities",
+            f"{group} communities",
             sum(x["communities"] for x in d[group]),
-            d["eligible_communities"],
+            expected,
         )
         for row in d[group]:
             percentage(f"{group} {row['group']}", row["pooled_accuracy"])

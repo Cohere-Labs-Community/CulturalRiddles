@@ -18,7 +18,7 @@ claude-opus-4-7-thinking,Claude Opus 4.7 [high],adaptive,high,,,proprietary,http
 deepseek-v4-pro,DeepSeek V4 Pro [default],high,unspecified,1600,49,open-weight,https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro,not publicly disclosed
 deepseek-v4-pro-thinking,DeepSeek V4 Pro [high],unspecified,high,1600,49,open-weight,https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro,not publicly disclosed
 gemini-3.1-pro-preview,Gemini 3.1 Pro Preview,high,unspecified,,,proprietary,https://deepmind.google/models/model-cards/gemini-3-1-pro/,2025-01
-gemma-4-31b,Gemma 4 31B IT,N/A,unspecified,31,,open-weight,https://huggingface.co/google/gemma-4-31B-it,not publicly disclosed
+gemma-4-31b,Gemma 4 31B IT,unspecified,unspecified,31,,open-weight,https://huggingface.co/google/gemma-4-31B-it,not publicly disclosed
 swiss-ai/Apertus-70B-Instruct-2509,Apertus 70B Instruct,N/A,unspecified,70,,open-source,https://huggingface.co/swiss-ai/Apertus-70B-Instruct-2509,not publicly disclosed
 swiss-ai/Apertus-8B-Instruct-2509,Apertus 8B Instruct,N/A,unspecified,8,,open-source,https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509,not publicly disclosed
 swiss-ai/Apertus-v1.5-70B,Apertus v1.5 70B,N/A,unspecified,70,,open-source,https://huggingface.co/swiss-ai/Apertus-v1.5-70B,not publicly disclosed
