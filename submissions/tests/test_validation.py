@@ -231,3 +231,80 @@ def test_numeric_number_spelling_normalizes_to_the_same_id(intake):
     assert not result.errors
     incoming = app._new_rows(result.metadata, result.frame, [])
     assert incoming[0]["riddle_id"] == "example_country_politics_001"
+
+
+def test_author_properties_and_comments_block_until_cleaned(intake, capsys):
+    path, _, _, save = intake
+    save()
+    from openpyxl.comments import Comment
+
+    book = load_workbook(path)
+    book.properties.creator = "Contributor Example"
+    book.properties.lastModifiedBy = "Contributor Example"
+    book["Riddles"]["C2"].comment = Comment("check", "Contributor Example")
+    book.save(path)
+    errors = validate(path).errors
+    assert any("creator" in e and "comments" in e and "submissions clean" in e for e in errors)
+    assert app.main(["clean", str(path)]) == 0
+    assert "creator" in capsys.readouterr().out
+    assert validate(path).errors == []
+
+
+def test_formatted_blank_rows_below_the_data_are_ignored(intake):
+    path, _, _, save = intake
+    save()
+    book = load_workbook(path)
+    book["Riddles"].cell(130, 2).value = " "
+    book["Riddles"].cell(131, 1).number_format = "0"
+    book.save(path)
+    assert validate(path).errors == []
+
+
+def test_invisible_characters_and_case_in_topics_are_normalized(intake):
+    path, _, rows, save = intake
+    rows.loc[0, "Topic"] = "Politics​"
+    rows.loc[1, "Topic"] = "politics"
+    save()
+    result = validate(path)
+    assert result.errors == []
+    assert any("matched to their template spelling" in w for w in result.warnings)
+    assert set(result.frame["Topic"].head(10)) == {"Politics"}
+
+
+def test_wildcard_topics_without_ascii_spelling_get_positional_ids(intake):
+    path, _, rows, save = intake
+    rows.loc[rows["Topic"].eq("Food"), "Topic"] = "Кухня"
+    rows.loc[rows["Topic"].eq("Traditions"), "Topic"] = "Café"
+    save()
+    result = validate(path)
+    assert result.errors == []
+    ids = {row["riddle_id"] for row in app._new_rows(result.metadata, result.frame, [])}
+    assert "example_country_wildcard_1_081" in ids
+    assert "example_country_cafe_091" in ids
+
+
+def test_existing_community_key_warns_before_replacement(intake, monkeypatch, capsys):
+    path, _, _, save = intake
+    save()
+    monkeypatch.setattr(app, "load_rows", lambda: [{"community": "example_country"}] * 3)
+    assert app.main(["check", str(path)]) == 0
+    assert "already exists with 3 riddles" in capsys.readouterr().out
+
+
+def test_answer_in_riddle_repeated_riddles_and_codes_warn(intake):
+    path, metadata, rows, save = intake
+    rows.loc[0, "Riddle (Original Language)"] = "I am Answer 1. What am I?"
+    rows.loc[2, "Riddle (Original Language)"] = rows.loc[3, "Riddle (Original Language)"]
+    metadata.loc[0, "language_code"] = "English"
+    metadata.loc[0, "country_code"] = "xx"
+    save()
+    result = validate(path)
+    assert result.errors == []
+    warnings = " ".join(result.warnings)
+    assert "appears in its own riddle at worksheet rows [2]" in warnings
+    assert "same riddle text appears at worksheet row groups [[4, 5]]" in warnings
+    assert "ISO 639-3" in warnings and "ISO 3166-1" in warnings
+
+
+def test_community_list_is_current():
+    assert app.main(["communities", "--check"]) == 0

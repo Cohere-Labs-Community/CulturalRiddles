@@ -4,9 +4,11 @@ Submit an anonymous workbook through a pull request from your fork. Automated ch
 
 ## Before you begin
 
+Check [the list of communities](docs/communities.md) already in the benchmark. If yours is not there, open an [Add my community](https://github.com/Cohere-Labs-Community/CulturalRiddles/issues/new?template=add-community.yml) issue before you start writing, so that others can see it is in progress and maintainers can confirm the community key. If your community is already listed, open an issue to discuss improvements instead of submitting a replacement: an import replaces the community's whole set.
+
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/), clone your fork, and run `uv sync --frozen` from the repository root. These checks run locally without API keys or network downloads after dependency installation.
 
-Do not include personal names, email addresses, contributor identities, or per-riddle attribution in sheet columns, cell contents, filenames, comments, or workbook author properties. The template has blank author properties. Structural validation rejects identity columns but cannot determine whether free text contains personal information; review the complete workbook before making it public.
+Do not include personal names, email addresses, contributor identities, or per-riddle attribution in sheet columns, cell contents, filenames, comments, or workbook author properties. The template has blank author properties, but Excel and other spreadsheet apps add your name to them when you save. The check fails while the workbook stores a name in its document properties (author, last modified by, company, manager) or has cell comments, which record their author. Structural validation rejects identity columns but cannot determine whether free text contains personal information; review the complete workbook before making it public.
 
 ## Prepare and check a workbook
 
@@ -25,7 +27,15 @@ Do not include personal names, email addresses, contributor identities, or per-r
    uv run python -m submissions check data/submissions/YOUR_WORKBOOK.xlsx
    ```
 
-   `PASS` exits with code 0. `FAIL` exits with code 1 and lists blocking issues, including worksheet row numbers for missing values. Review `WARNING` messages as well: duplicate answers are allowed, but can indicate copying mistakes. Missing optional columns, unimported extra columns, and changes to the template's topic assignments are also reported for review. A file that cannot be read is rejected with a repair hint. Both `check` and `import` require an `.xlsx` workbook with `Community` and `Riddles` sheets; CSV is not a complete intake format.
+   If the check reports personal information stored outside the cells, remove it and check again:
+
+   ```bash
+   uv run python -m submissions clean data/submissions/YOUR_WORKBOOK.xlsx
+   ```
+
+   `clean` rewrites the workbook in place without its author properties and cell comments. It does not change cell text.
+
+   `PASS` exits with code 0. `FAIL` exits with code 1 and lists blocking issues, including worksheet row numbers for missing values. Review `WARNING` messages as well: duplicate answers are allowed, but can indicate copying mistakes. Warnings also flag a riddle whose reference answer appears in its own text, repeated riddle text, language and country codes in an unexpected format, and a community key that already exists. Missing optional columns, unimported extra columns, and changes to the template's topic assignments are also reported for review. A file that cannot be read is rejected with a repair hint. Both `check` and `import` require an `.xlsx` workbook with `Community` and `Riddles` sheets; CSV is not a complete intake format.
 
 For the full list of checks, see [Validation contract](submissions/README.md#validation-contract).
 

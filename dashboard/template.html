@@ -620,11 +620,12 @@ function register(fn) { renderers.push(fn); fn(); }
               [c.countries, 'countries'], [c.writers, 'riddle writers'], [n0(D.routing.responses), 'model answers scored']];
   $('#kpis').innerHTML = kp.map(([v, l]) => `<div class="kpi"><div class="v num">${v}</div><div class="l">${l}</div></div>`).join('');
   const L = D.links, out = [];
-  if (L.paper) out.push(`<a class="btn primary" href="${L.paper}">Read the paper</a>`);
-  if (L.dataset) out.push(`<a class="btn${L.paper ? '' : ' primary'}" href="${L.dataset}">Get the dataset</a>`);
+  if (L.play) out.push(`<a class="btn primary" href="${L.play}">Play the riddles</a>`);
+  if (L.paper) out.push(`<a class="btn${L.play ? '' : ' primary'}" href="${L.paper}">Read the paper</a>`);
+  if (L.dataset) out.push(`<a class="btn${L.play || L.paper ? '' : ' primary'}" href="${L.dataset}">Get the dataset</a>`);
   if (L.code) out.push(`<a class="btn" href="${L.code}">Code</a>`);
   $('#links').innerHTML = out.join('');
-  $('#foot-links').innerHTML = [L.paper && `<a href="${L.paper}">Paper</a>`, L.dataset && `<a href="${L.dataset}">Dataset</a>`, L.code && `<a href="${L.code}">Code</a>`].filter(Boolean).join(' · ');
+  $('#foot-links').innerHTML = [L.play && `<a href="${L.play}">Play the riddles</a>`, L.paper && `<a href="${L.paper}">Paper</a>`, L.dataset && `<a href="${L.dataset}">Dataset</a>`, L.code && `<a href="${L.code}">Code</a>`].filter(Boolean).join(' · ');
 })();
 
 /* ---------- barcode ---------- */
