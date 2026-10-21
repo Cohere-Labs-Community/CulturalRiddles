@@ -159,7 +159,10 @@ def export() -> dict:
     grouping = community_accuracy()
     out["eligible_communities"] = len(grouping)
     out["excluded_from_groups"] = sorted(evaluated - set(grouping["community"]))
-    resource = summarize_grouping(grouping, "language_resourcedness").set_index("group")
+    # Resource levels pool every human-evaluated community, as in accuracy_by_resourcedness.csv.
+    resource = summarize_grouping(
+        community_accuracy(min_human_responses=1), "language_resourcedness"
+    ).set_index("group")
     out["resource"] = records(
         resource.loc[["high", "medium", "low", "extremely-low"]].reset_index()
     )
