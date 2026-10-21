@@ -1,0 +1,36 @@
+comparison,group,community,shared_models,accuracy,group_range,language_code,language_resourcedness,un_m49_subregion
+same_language,ben,bengali_bangladesh,28,0.384,0.054,ben,medium,South Asia
+same_language,ben,bengali_india,28,0.438,0.054,ben,medium,South Asia
+same_language,eng,english_canada,28,0.501,0.158,eng,high,North America
+same_language,eng,english_usa,28,0.659,0.158,eng,high,North America
+same_language,fra,french_canada,28,0.473,0.096,fra,high,North America
+same_language,fra,french_france,28,0.57,0.096,fra,high,Western Europe
+same_language,por,brazilian_portuguese,28,0.513,0.113,por,high,Latin America
+same_language,por,portuguese_portugal,28,0.4,0.113,por,high,Southern Europe
+same_language,spa,spanish_argentina,28,0.265,0.196,spa,high,Latin America
+same_language,spa,spanish_cuba,28,0.461,0.196,spa,high,Caribbean
+same_language,spa,spanish_peru,28,0.409,0.196,spa,high,Latin America
+same_language,zho,chinese_china,28,0.262,0.258,zho,high,East Asia
+same_language,zho,chinese_malaysia,28,0.206,0.258,zho,high,Southeast Asia
+same_language,zho,chinese_simplified_china,28,0.285,0.258,zho,high,East Asia
+same_language,zho,chinese_singapore,28,0.463,0.258,zho,high,Southeast Asia
+same_country,CAN,english_canada,28,0.501,0.027,eng,high,North America
+same_country,CAN,french_canada,28,0.473,0.027,fra,high,North America
+same_country,CHN,cantonese_china,28,0.269,0.023,yue,extremely-low,East Asia
+same_country,CHN,chinese_china,28,0.262,0.023,zho,high,East Asia
+same_country,CHN,chinese_simplified_china,28,0.285,0.023,zho,high,East Asia
+same_country,IDN,bugisnese_indonesia,28,0.044,0.26,bug,extremely-low,Southeast Asia
+same_country,IDN,indonesian_indonesia,28,0.304,0.26,ind,high,Southeast Asia
+same_country,IDN,mongondow_indonesia,28,0.044,0.26,mog,extremely-low,Southeast Asia
+same_country,IND,assamese_india,28,0.185,0.253,asm,low,South Asia
+same_country,IND,bengali_india,28,0.438,0.253,ben,medium,South Asia
+same_country,IND,kannada_india,28,0.193,0.253,kan,medium,South Asia
+same_country,IND,konkani_india,28,0.202,0.253,kok,extremely-low,South Asia
+same_country,IND,malayalam_india,28,0.198,0.253,mal,medium,South Asia
+same_country,IND,marathi_india,28,0.374,0.253,mar,medium,South Asia
+same_country,IND,tamil_india,28,0.353,0.253,tam,medium,South Asia
+same_country,IND,telugu_india,28,0.278,0.253,tel,medium,South Asia
+same_country,MYS,chinese_malaysia,28,0.206,0.269,zho,high,Southeast Asia
+same_country,MYS,malay_malaysia,28,0.474,0.269,zsm,medium,Southeast Asia
+same_country,UGA,luganda_uganda,28,0.134,0.07,lug,extremely-low,Sub-Saharan Africa
+same_country,UGA,lumasaba_uganda,28,0.063,0.07,myx,extremely-low,Sub-Saharan Africa

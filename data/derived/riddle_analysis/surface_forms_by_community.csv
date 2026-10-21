@@ -1,0 +1,63 @@
+community,label,code_label,n,who_am_i,what_is_it,other_question,first_person_statement,third_person_description
+Overall,Overall,Overall,6082,17.05,7.33,15.62,16.64,43.36
+french_france,French (France),fra (FRA),100,93.0,0.0,0.0,7.0,0.0
+lumasaba_uganda,Lumasaba (Uganda),myx (UGA),100,100.0,0.0,0.0,0.0,0.0
+luganda_uganda,Luganda (Uganda),lug (UGA),100,98.0,2.0,0.0,0.0,0.0
+spanish_peru,Spanish (Peru),spa (PER),100,69.0,1.0,2.0,27.0,1.0
+arabic_morocco,Moroccan Arabic (Morocco),ary (MAR),100,0.0,0.0,1.0,90.0,9.0
+turkish_turkey,Turkish (Turkey),tur (TUR),100,0.0,0.0,0.0,88.0,12.0
+bugisnese_indonesia,Buginese (Indonesia),bug (IDN),100,69.0,1.0,3.0,18.0,9.0
+portuguese_portugal,Portuguese (Portugal),por (PRT),100,2.0,0.0,3.0,84.0,11.0
+brazilian_portuguese,Portuguese (Brazil),por (BRA),99,28.28,4.04,13.13,52.53,2.02
+french_canada,French (Canada),fra (CAN),100,64.0,7.0,1.0,13.0,15.0
+persian_iran,Persian (Iran),pes (IRN),100,3.0,2.0,2.0,73.0,20.0
+bulgarian_bulgaria,Bulgarian (Bulgaria),bul (BGR),100,40.0,14.0,2.0,32.0,12.0
+indonesian_indonesia,Indonesian (Indonesia),ind (IDN),100,66.0,5.0,27.0,2.0,0.0
+english_usa,English (United States),eng (USA),100,21.0,0.0,4.0,45.0,30.0
+spanish_argentina,Spanish (Argentina),spa (ARG),100,46.0,6.0,3.0,15.0,30.0
+swahili_kenya,Swahili (Kenya),swa (KEN),100,2.0,0.0,2.0,57.0,39.0
+tunisian_arabic_tunisia,Tunisian Arabic (Tunisia),aeb (TUN),100,50.0,30.0,12.0,6.0,2.0
+konkani_india,Konkani (India),kok (IND),100,24.0,22.0,0.0,31.0,23.0
+telugu_india,Telugu (India),tel (IND),94,34.04,2.13,9.57,17.02,37.23
+malayalam_india,Malayalam (India),mal (IND),100,34.0,4.0,22.0,16.0,24.0
+bengali_india,Bengali (India),ben (IND),99,1.01,2.02,3.03,44.44,49.49
+chinese_malaysia,Chinese (Malaysia),zho (MYS),100,3.0,0.0,5.0,42.0,50.0
+yoruba_nigeria,Yoruba (Nigeria),yor (NGA),100,4.0,4.0,4.0,41.0,47.0
+bengali_bangladesh,Bengali (Bangladesh),ben (BGD),99,8.08,8.08,9.09,32.32,42.42
+marathi_india,Marathi (India),mar (IND),99,1.01,1.01,25.25,31.31,41.41
+mongondow_indonesia,Mongondow (Indonesia),mog (IDN),99,24.24,16.16,50.51,3.03,6.06
+catalan_catalonia,Catalan (Spain),cat (ESP),100,25.0,1.0,52.0,2.0,20.0
+italian_italy,Italian (Italy),ita (ITA),100,0.0,0.0,4.0,24.0,72.0
+afaan_oromo_oromo,Afaan Oromo (Ethiopia),gaz (ETH),100,10.0,2.0,1.0,13.0,74.0
+dutch_netherlands,Dutch (Netherlands),nld (NLD),100,21.0,4.0,46.0,1.0,28.0
+hungarian_hungary,Hungarian (Hungary),hun (HUN),100,3.0,1.0,8.0,17.0,71.0
+tamil_india,Tamil (India),tam (IND),100,19.0,56.0,24.0,0.0,1.0
+vietnamese_vietnam,Vietnamese (Vietnam),vie (VNM),99,15.15,7.07,71.72,0.0,6.06
+assamese_india,Assamese (India),asm (IND),100,1.0,3.0,10.0,14.0,72.0
+urdu_pakistan,Urdu (Pakistan),urd (PAK),100,4.0,0.0,1.0,11.0,84.0
+sinhala_sri_lanka,Sinhala (Sri Lanka),sin (LKA),100,13.0,28.0,59.0,0.0,0.0
+nepali_nepal,Nepali (Nepal),nep (NPL),100,1.0,11.0,20.0,11.0,57.0
+kannada_india,Kannada (India),kan (IND),99,4.04,6.06,2.02,7.07,80.81
+chinese_simplified_china,Simplified Chinese (China),zho (CHN),99,2.02,0.0,22.22,8.08,67.68
+english_canada,English (Canada),eng (CAN),100,2.0,2.0,12.0,7.0,77.0
+serbian_serbia,Serbian (Serbia),srp (SRB),100,7.0,0.0,14.0,2.0,77.0
+malay_malaysia,Malay (Malaysia),zsm (MYS),100,0.0,1.0,4.0,8.0,87.0
+luxembourgish_luxembourg,Luxembourgish (Luxembourg),ltz (LUX),100,5.0,0.0,7.0,1.0,87.0
+polish_poland,Polish (Poland),pol (POL),100,4.0,2.0,51.0,2.0,41.0
+arabic_syria,Levantine Arabic (Syria),apc (SYR),100,5.0,38.0,37.0,0.0,20.0
+uzbek_uzbekistan,Uzbek (Uzbekistan),uzb (UZB),100,0.0,0.0,2.0,5.0,93.0
+belarusian_belarus,Belarusian (Belarus),bel (BLR),99,4.04,0.0,9.09,0.0,86.87
+arabic_sudan,Sudanese Arabic (Sudan),apd (SDN),100,3.0,5.0,62.0,1.0,29.0
+spanish_cuba,Spanish (Cuba),spa (CUB),99,1.01,0.0,13.13,2.02,83.84
+cantonese_china,Cantonese (China),yue (CHN),100,0.0,0.0,29.0,3.0,68.0
+arabic_egypt,Egyptian Arabic (Egypt),arz (EGY),100,2.0,0.0,38.0,1.0,59.0
+thai_thailand,Thai (Thailand),tha (THA),100,2.0,2.0,52.0,1.0,43.0
+chinese_china,Traditional Chinese (China),zho (CHN),100,1.0,0.0,17.0,2.0,80.0
+sindhi_india,Sindhi (India),snd (IND),100,0.0,0.0,2.0,2.0,96.0
+ukrainian_ukraine,Ukrainian (Ukraine),ukr (UKR),98,0.0,0.0,9.18,1.02,89.8
+chinese_singapore,Chinese (Singapore),zho (SGP),100,0.0,0.0,0.0,1.0,99.0
+gujarati_india,Gujarati (India),guj (IND),100,1.0,48.0,51.0,0.0,0.0
+german_germany,German (Germany),deu (DEU),100,0.0,0.0,4.0,0.0,96.0
+japanese_japan,Japanese (Japan),jpn (JPN),100,0.0,98.0,2.0,0.0,0.0
+arabic_lebanese,Levantine Arabic (Lebanon),apc (LBN),100,0.0,0.0,2.0,0.0,98.0
+russian_russia,Russian (Russia),rus (RUS),100,0.0,0.0,11.0,0.0,89.0

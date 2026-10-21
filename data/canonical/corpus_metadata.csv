@@ -1,0 +1,63 @@
+community,language_code,language,country,country_code,language_group,un_m49_subregion,language_resourcedness,language_family,script_family,is_human_evaluated,riddle_writers
+afaan_oromo_oromo,gaz,Afaan Oromo,Ethiopia,ETH,,Sub-Saharan Africa,low,Afro-Asiatic,Latin,True,2
+arabic_egypt,arz,Egyptian Arabic,Egypt,EGY,Arabic varieties,North Africa,high,Afro-Asiatic,Arabic,True,3
+arabic_lebanese,apc,Levantine Arabic,Lebanon,LBN,Arabic varieties,West Asia,high,Afro-Asiatic,Arabic,False,1
+arabic_morocco,ary,Moroccan Arabic,Morocco,MAR,Arabic varieties,North Africa,high,Afro-Asiatic,Arabic,True,3
+arabic_sudan,apd,Sudanese Arabic,Sudan,SDN,Arabic varieties,North Africa,high,Afro-Asiatic,Arabic,True,3
+arabic_syria,apc,Levantine Arabic,Syria,SYR,Arabic varieties,West Asia,high,Afro-Asiatic,Arabic,True,2
+assamese_india,asm,Assamese,India,IND,,South Asia,low,Indo-European,Bengali-Assamese,True,4
+belarusian_belarus,bel,Belarusian,Belarus,BLR,,Eastern Europe,medium,Indo-European,Cyrillic,True,4
+bengali_bangladesh,ben,Bengali,Bangladesh,BGD,Bengali,South Asia,medium,Indo-European,Bengali-Assamese,True,3
+bengali_india,ben,Bengali,India,IND,Bengali,South Asia,medium,Indo-European,Bengali-Assamese,True,3
+brazilian_portuguese,por,Portuguese,Brazil,BRA,Portuguese,Latin America,high,Indo-European,Latin,True,9
+bugisnese_indonesia,bug,Buginese,Indonesia,IDN,,Southeast Asia,extremely-low,Austronesian,Buginese,True,1
+bulgarian_bulgaria,bul,Bulgarian,Bulgaria,BGR,,Eastern Europe,medium,Indo-European,Cyrillic,True,1
+cantonese_china,yue,Cantonese,China,CHN,Chinese varieties,East Asia,extremely-low,Sino-Tibetan,Han,True,2
+catalan_catalonia,cat,Catalan,Spain,ESP,,Southern Europe,medium,Indo-European,Latin,True,5
+chinese_china,zho,Traditional Chinese,China,CHN,Chinese varieties,East Asia,high,Sino-Tibetan,Han,True,1
+chinese_malaysia,zho,Chinese,Malaysia,MYS,Chinese varieties,Southeast Asia,high,Sino-Tibetan,Han,True,2
+chinese_simplified_china,zho,Simplified Chinese,China,CHN,Chinese varieties,East Asia,high,Sino-Tibetan,Han,True,7
+chinese_singapore,zho,Chinese,Singapore,SGP,Chinese varieties,Southeast Asia,high,Sino-Tibetan,Han,True,2
+dutch_netherlands,nld,Dutch,Netherlands,NLD,,Western Europe,high,Indo-European,Latin,True,4
+english_canada,eng,English,Canada,CAN,English,North America,high,Indo-European,Latin,True,4
+english_usa,eng,English,United States,USA,English,North America,high,Indo-European,Latin,True,5
+french_canada,fra,French,Canada,CAN,French,North America,high,Indo-European,Latin,True,2
+french_france,fra,French,France,FRA,French,Western Europe,high,Indo-European,Latin,True,2
+german_germany,deu,German,Germany,DEU,,Western Europe,high,Indo-European,Latin,True,2
+gujarati_india,guj,Gujarati,India,IND,,South Asia,medium,Indo-European,Gujarati,False,3
+hungarian_hungary,hun,Hungarian,Hungary,HUN,,Eastern Europe,high,Uralic,Latin,True,1
+indonesian_indonesia,ind,Indonesian,Indonesia,IDN,,Southeast Asia,high,Austronesian,Latin,True,2
+italian_italy,ita,Italian,Italy,ITA,,Southern Europe,high,Indo-European,Latin,True,2
+japanese_japan,jpn,Japanese,Japan,JPN,,East Asia,high,Japonic,Han + Kana,True,1
+kannada_india,kan,Kannada,India,IND,,South Asia,medium,Dravidian,Kannada,True,2
+konkani_india,kok,Konkani,India,IND,,South Asia,extremely-low,Indo-European,Devanagari,True,2
+luganda_uganda,lug,Luganda,Uganda,UGA,,Sub-Saharan Africa,extremely-low,Atlantic-Congo,Latin,True,1
+lumasaba_uganda,myx,Lumasaba,Uganda,UGA,,Sub-Saharan Africa,extremely-low,Atlantic-Congo,Latin,True,1
+luxembourgish_luxembourg,ltz,Luxembourgish,Luxembourg,LUX,,Western Europe,low,Indo-European,Latin,True,2
+malay_malaysia,zsm,Malay,Malaysia,MYS,,Southeast Asia,medium,Austronesian,Latin,True,1
+malayalam_india,mal,Malayalam,India,IND,,South Asia,medium,Dravidian,Malayalam,True,2
+marathi_india,mar,Marathi,India,IND,,South Asia,medium,Indo-European,Devanagari,True,2
+mongondow_indonesia,mog,Mongondow,Indonesia,IDN,,Southeast Asia,extremely-low,Austronesian,Latin,True,1
+nepali_nepal,nep,Nepali,Nepal,NPL,,South Asia,medium,Indo-European,Devanagari,True,3
+persian_iran,pes,Persian,Iran,IRN,,South Asia,high,Indo-European,Arabic,True,10
+polish_poland,pol,Polish,Poland,POL,,Eastern Europe,high,Indo-European,Latin,True,2
+portuguese_portugal,por,Portuguese,Portugal,PRT,Portuguese,Southern Europe,high,Indo-European,Latin,True,1
+russian_russia,rus,Russian,Russia,RUS,,Eastern Europe,high,Indo-European,Cyrillic,True,5
+serbian_serbia,srp,Serbian,Serbia,SRB,,Southern Europe,medium,Indo-European,Cyrillic,True,4
+sindhi_india,snd,Sindhi,India,IND,,South Asia,low,Indo-European,Arabic,False,1
+sinhala_sri_lanka,sin,Sinhala,Sri Lanka,LKA,,South Asia,medium,Indo-European,Sinhala,True,1
+spanish_argentina,spa,Spanish,Argentina,ARG,Spanish,Latin America,high,Indo-European,Latin,True,3
+spanish_cuba,spa,Spanish,Cuba,CUB,Spanish,Caribbean,high,Indo-European,Latin,True,3
+spanish_peru,spa,Spanish,Peru,PER,Spanish,Latin America,high,Indo-European,Latin,True,3
+spanish_spain,spa,Spanish,Spain,ESP,Spanish,Southern Europe,high,Indo-European,Latin,False,5
+swahili_kenya,swa,Swahili,Kenya,KEN,,Sub-Saharan Africa,medium,Atlantic-Congo,Latin,True,3
+tamil_india,tam,Tamil,India,IND,,South Asia,medium,Dravidian,Tamil,True,1
+telugu_india,tel,Telugu,India,IND,,South Asia,medium,Dravidian,Telugu,True,8
+thai_thailand,tha,Thai,Thailand,THA,,Southeast Asia,medium,Kra-Dai,Thai,True,5
+tunisian_arabic_tunisia,aeb,Tunisian Arabic,Tunisia,TUN,Arabic varieties,North Africa,high,Afro-Asiatic,Arabic,True,2
+turkish_turkey,tur,Turkish,Turkey,TUR,,West Asia,high,Turkic,Latin,False,1
+ukrainian_ukraine,ukr,Ukrainian,Ukraine,UKR,,Eastern Europe,high,Indo-European,Cyrillic,True,3
+urdu_pakistan,urd,Urdu,Pakistan,PAK,,South Asia,medium,Indo-European,Arabic,True,1
+uzbek_uzbekistan,uzb,Uzbek,Uzbekistan,UZB,,Central Asia,medium,Turkic,Latin,True,1
+vietnamese_vietnam,vie,Vietnamese,Vietnam,VNM,,Southeast Asia,high,Austroasiatic,Latin,True,3
+yoruba_nigeria,yor,Yoruba,Nigeria,NGA,,Sub-Saharan Africa,low,Atlantic-Congo,Latin,True,4

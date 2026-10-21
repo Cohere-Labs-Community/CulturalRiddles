@@ -1,0 +1,52 @@
+runner_name: benchmark_v0
+
+dataset_path: data/canonical/riddles.jsonl
+dataset_version: canonical_v1
+
+prompt_template_id: riddle_master
+prompt_template_version: v1
+prompt_language: eng
+riddle_language_presented: source
+is_hint_provided: false
+
+reasoning_mode: high
+search_enabled: false
+response_format: free_form
+batch_mode: true
+batch_size: 12
+
+temperature: null
+max_output_tokens: 4096
+seed: null
+
+model_params:
+  reasoning:
+    effort: high
+
+cache_enabled: true
+cache_backend: cachesaver
+cache_namespace: multicultural_riddles/canonical_v1/deepseek-v4-pro-thinking/source_no_hint/master_v1
+cache_dir: .cache/cachesaver
+
+api_key_env_var: OPENROUTER_API_KEY
+base_url: https://openrouter.ai/api/v1
+
+runner_version: v1.0.0
+notes: DeepSeek V4 Pro with high reasoning routed via OpenRouter for V0 solver run
+strict_capability_check: true
+strict_uploadable_rows: true
+
+model_spec:
+  model_name: deepseek-v4-pro-thinking
+  model_id: deepseek-v4-pro-thinking
+  provider: openrouter
+  access_pattern: openrouter
+  provider_model_name: deepseek/deepseek-v4-pro
+  closed_source: false
+  notes: DeepSeek V4 Pro routed through OpenRouter with reasoning effort high
+  capabilities:
+    supports_reasoning: true
+    supports_search: false
+    supports_structured_output: true
+    supports_batch: true
+    supports_seed: false

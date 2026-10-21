@@ -1,0 +1,48 @@
+runner_name: benchmark_v0
+
+dataset_path: data/canonical/riddles.jsonl
+dataset_version: canonical_v1
+
+prompt_template_id: riddle_master
+prompt_template_version: v1
+prompt_language: eng
+riddle_language_presented: source
+is_hint_provided: false
+
+reasoning_mode: null
+search_enabled: false
+batch_mode: true
+batch_size: 12
+
+temperature: null
+max_output_tokens: 4096
+seed: null
+
+model_params: {}
+
+cache_enabled: true
+cache_backend: cachesaver
+cache_namespace: multicultural_riddles/canonical_v1/tiny-aya-global/source_no_hint/master_v1
+cache_dir: .cache/cachesaver
+
+api_key_env_var: COHERE_API_KEY
+base_url: null
+
+runner_version: v1.0.0
+notes: Cohere Tiny-Aya (tiny-aya-global) via Cohere API
+strict_capability_check: true
+
+model_spec:
+  model_name: tiny-aya-global
+  model_id: tiny-aya-global
+  provider: cohere
+  access_pattern: direct_api
+  provider_model_name: tiny-aya-global
+  closed_source: false
+  notes: Cohere Tiny-Aya global via Cohere API
+  capabilities:
+    supports_reasoning: false
+    supports_search: false
+    supports_structured_output: false
+    supports_batch: true
+    supports_seed: true

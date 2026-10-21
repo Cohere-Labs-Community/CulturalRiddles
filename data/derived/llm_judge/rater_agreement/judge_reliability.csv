@@ -1,0 +1,120 @@
+setting,units,riddles,level,raters,statistic,estimate,low,high,rater
+doubly annotated,4088,1068,binary,H1~DeepSeek,cohen_kappa,0.8022535852,0.7681081051,0.8351182448,
+doubly annotated,4088,1068,binary,H1~DeepSeek,observed_agreement,0.9584148728,0.9506211919,0.9656071453,
+doubly annotated,4088,1068,binary,H1~Gemini,cohen_kappa,0.8045800137,0.7746043958,0.8344650291,
+doubly annotated,4088,1068,binary,H1~Gemini,observed_agreement,0.9589041096,0.9521651062,0.9653861027,
+doubly annotated,4088,1068,binary,DeepSeek~Gemini,cohen_kappa,0.8493951524,0.8151296899,0.8807535278,
+doubly annotated,4088,1068,binary,DeepSeek~Gemini,observed_agreement,0.9672211350,0.9593190836,0.9743331840,
+doubly annotated,4088,1068,binary,H1~Ensemble,cohen_kappa,0.8304512935,0.7988899828,0.8626532732,
+doubly annotated,4088,1068,binary,H1~Ensemble,observed_agreement,0.9664872798,0.9597917273,0.9727528252,
+doubly annotated,4088,1068,score,H1~DeepSeek,cohen_kappa,0.8306211581,0.8053262445,0.8548120965,
+doubly annotated,4088,1068,score,H1~DeepSeek,observed_agreement,0.9119373777,0.9011225231,0.9224930651,
+doubly annotated,4088,1068,score,H1~Gemini,cohen_kappa,0.8205242105,0.7964472860,0.8436740076,
+doubly annotated,4088,1068,score,H1~Gemini,observed_agreement,0.9053326810,0.8940270632,0.9162271678,
+doubly annotated,4088,1068,score,DeepSeek~Gemini,cohen_kappa,0.8465003160,0.8198252164,0.8721191088,
+doubly annotated,4088,1068,score,DeepSeek~Gemini,observed_agreement,0.9288160470,0.9187797157,0.9394463885,
+doubly annotated,4088,1068,score,H1~Ensemble,cohen_kappa,0.8428333484,0.8178612764,0.8645738376,
+doubly annotated,4088,1068,score,H1~Ensemble,observed_agreement,0.9209882583,0.9104493704,0.9311860547,
+doubly annotated,4088,1068,fine,H1~DeepSeek,cohen_kappa,0.2559255608,0.2347408790,0.2785876880,
+doubly annotated,4088,1068,fine,H1~DeepSeek,observed_agreement,0.4476516634,0.4288804489,0.4663711424,
+doubly annotated,4088,1068,fine,H1~DeepSeek,within_score_kappa,0.1805142433,0.1549235811,0.2066997950,
+doubly annotated,4088,1068,fine,H1~Gemini,cohen_kappa,0.2965890267,0.2733633926,0.3191639325,
+doubly annotated,4088,1068,fine,H1~Gemini,observed_agreement,0.4782289628,0.4599331186,0.4960460600,
+doubly annotated,4088,1068,fine,H1~Gemini,within_score_kappa,0.2221147497,0.1934728765,0.2493590723,
+doubly annotated,4088,1068,fine,DeepSeek~Gemini,cohen_kappa,0.6446686634,0.6237339991,0.6675260181,
+doubly annotated,4088,1068,fine,DeepSeek~Gemini,observed_agreement,0.7592954990,0.7451532567,0.7741614968,
+doubly annotated,4088,1068,fine,DeepSeek~Gemini,within_score_kappa,0.6344471383,0.6057806271,0.6631601714,
+doubly annotated,4088,1068,fine,H1~Ensemble,cohen_kappa,0.2595941640,0.2378551403,0.2809736673,
+doubly annotated,4088,1068,fine,H1~Ensemble,observed_agreement,0.4518101761,0.4326340740,0.4699693498,
+doubly annotated,4088,1068,fine,H1~Ensemble,within_score_kappa,0.1823628009,0.1569423720,0.2075591119,
+doubly annotated,4088,1068,fine_tree,H1~DeepSeek,cohen_kappa,0.3811372522,0.3599404699,0.4032722138,
+doubly annotated,4088,1068,fine_tree,H1~DeepSeek,observed_agreement,0.4476516634,0.4288804489,0.4663711424,
+doubly annotated,4088,1068,fine_tree,H1~Gemini,cohen_kappa,0.4157196183,0.3945009908,0.4374340647,
+doubly annotated,4088,1068,fine_tree,H1~Gemini,observed_agreement,0.4782289628,0.4599331186,0.4960460600,
+doubly annotated,4088,1068,fine_tree,DeepSeek~Gemini,cohen_kappa,0.6811689469,0.6614011111,0.7037791840,
+doubly annotated,4088,1068,fine_tree,DeepSeek~Gemini,observed_agreement,0.7592954990,0.7451532567,0.7741614968,
+doubly annotated,4088,1068,fine_tree,H1~Ensemble,cohen_kappa,0.3865286274,0.3651087330,0.4098055136,
+doubly annotated,4088,1068,fine_tree,H1~Ensemble,observed_agreement,0.4518101761,0.4326340740,0.4699693498,
+doubly annotated,4088,1068,binary,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0281977083,0.0073819604,0.0513934216,
+doubly annotated,4088,1068,binary,H1~Ensemble - H1~Gemini,kappa_difference,0.0258712799,0.0065584526,0.0462728947,
+doubly annotated,4088,1068,score,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0122121903,-0.0009803187,0.0277019673,
+doubly annotated,4088,1068,score,H1~Ensemble - H1~Gemini,kappa_difference,0.0223091379,0.0042465530,0.0398414814,
+doubly annotated,4088,1068,fine,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0036686032,-0.0006379720,0.0084272692,
+doubly annotated,4088,1068,fine,H1~Ensemble - H1~Gemini,kappa_difference,-0.0369948626,-0.0537455584,-0.0190579128,
+doubly annotated,4088,1068,fine_tree,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0053913752,-0.0015589364,0.0128556276,
+doubly annotated,4088,1068,fine_tree,H1~Ensemble - H1~Gemini,kappa_difference,-0.0291909908,-0.0449584598,-0.0130878317,
+doubly annotated,4088,1068,,,correct_rate,0.1144814090,0.1030112983,0.1267901111,H1
+doubly annotated,4088,1068,,,mean_score,0.4637964775,0.4259118603,0.5048858726,H1
+doubly annotated,4088,1068,,,correct_rate,0.1242661448,0.1109694855,0.1389965649,DeepSeek
+doubly annotated,4088,1068,,,mean_score,0.4437377691,0.4016073062,0.4903134190,DeepSeek
+doubly annotated,4088,1068,,,correct_rate,0.1242661448,0.1123703291,0.1387204561,Gemini
+doubly annotated,4088,1068,,,mean_score,0.4980430528,0.4567661223,0.5438684827,Gemini
+doubly annotated,4088,1068,,,correct_rate,0.1078767123,0.0965506868,0.1210286526,Ensemble
+doubly annotated,4088,1068,,,mean_score,0.3975048924,0.3593402757,0.4392805282,Ensemble
+stratified,25370,4667,binary,H1~DeepSeek,cohen_kappa,0.8359527630,0.8239208716,0.8476316990,
+stratified,25370,4667,binary,H1~DeepSeek,observed_agreement,0.9457118614,0.9417597098,0.9495460324,
+stratified,25370,4667,binary,H1~Gemini,cohen_kappa,0.8337183912,0.8219368409,0.8447704536,
+stratified,25370,4667,binary,H1~Gemini,observed_agreement,0.9442067148,0.9403089523,0.9478849261,
+stratified,25370,4667,binary,DeepSeek~Gemini,cohen_kappa,0.8851479571,0.8759694231,0.8952235899,
+stratified,25370,4667,binary,DeepSeek~Gemini,observed_agreement,0.9617527285,0.9585965114,0.9649422150,
+stratified,25370,4667,binary,H1~Ensemble,cohen_kappa,0.8448182917,0.8328987211,0.8561671769,
+stratified,25370,4667,binary,H1~Ensemble,observed_agreement,0.9500010226,0.9462309111,0.9537084403,
+stratified,25370,4667,score,H1~DeepSeek,cohen_kappa,0.8336519598,0.8242160363,0.8420239859,
+stratified,25370,4667,score,H1~DeepSeek,observed_agreement,0.8778060241,0.8721708004,0.8828588861,
+stratified,25370,4667,score,H1~Gemini,cohen_kappa,0.8175010729,0.8085462936,0.8268395815,
+stratified,25370,4667,score,H1~Gemini,observed_agreement,0.8614731578,0.8558320382,0.8670813130,
+stratified,25370,4667,score,DeepSeek~Gemini,cohen_kappa,0.8672292261,0.8591863141,0.8748495312,
+stratified,25370,4667,score,DeepSeek~Gemini,observed_agreement,0.9048057309,0.9001161302,0.9095588690,
+stratified,25370,4667,score,H1~Ensemble,cohen_kappa,0.8371940990,0.8280586412,0.8454311071,
+stratified,25370,4667,score,H1~Ensemble,observed_agreement,0.8818320507,0.8766506886,0.8869972241,
+stratified,25370,4667,fine,H1~DeepSeek,cohen_kappa,0.3925724026,0.3827316508,0.4022179812,
+stratified,25370,4667,fine,H1~DeepSeek,observed_agreement,0.5230503432,0.5144758316,0.5310851826,
+stratified,25370,4667,fine,H1~DeepSeek,within_score_kappa,0.2992135079,0.2864567836,0.3120992130,
+stratified,25370,4667,fine,H1~Gemini,cohen_kappa,0.4056200218,0.3958185460,0.4153233069,
+stratified,25370,4667,fine,H1~Gemini,observed_agreement,0.5280498228,0.5196492782,0.5364039049,
+stratified,25370,4667,fine,H1~Gemini,within_score_kappa,0.3181734164,0.3040781410,0.3330904694,
+stratified,25370,4667,fine,DeepSeek~Gemini,cohen_kappa,0.6922117820,0.6833861029,0.7011868752,
+stratified,25370,4667,fine,DeepSeek~Gemini,observed_agreement,0.7695013318,0.7627805344,0.7764713575,
+stratified,25370,4667,fine,DeepSeek~Gemini,within_score_kappa,0.6929967539,0.6816613847,0.7045611434,
+stratified,25370,4667,fine,H1~Ensemble,cohen_kappa,0.3951397886,0.3849942442,0.4048207859,
+stratified,25370,4667,fine,H1~Ensemble,observed_agreement,0.5256184141,0.5169737480,0.5336727969,
+stratified,25370,4667,fine,H1~Ensemble,within_score_kappa,0.2977885166,0.2848466511,0.3107264303,
+stratified,25370,4667,fine_tree,H1~DeepSeek,cohen_kappa,0.5071960464,0.4981470707,0.5158819027,
+stratified,25370,4667,fine_tree,H1~DeepSeek,observed_agreement,0.5230503432,0.5144758316,0.5310851826,
+stratified,25370,4667,fine_tree,H1~Gemini,cohen_kappa,0.5141965429,0.5052463788,0.5227389435,
+stratified,25370,4667,fine_tree,H1~Gemini,observed_agreement,0.5280498228,0.5196492782,0.5364039049,
+stratified,25370,4667,fine_tree,DeepSeek~Gemini,cohen_kappa,0.7254177554,0.7167738100,0.7337559867,
+stratified,25370,4667,fine_tree,DeepSeek~Gemini,observed_agreement,0.7695013318,0.7627805344,0.7764713575,
+stratified,25370,4667,fine_tree,H1~Ensemble,cohen_kappa,0.5102191512,0.5011560646,0.5193425555,
+stratified,25370,4667,fine_tree,H1~Ensemble,observed_agreement,0.5256184141,0.5169737480,0.5336727969,
+stratified,25370,4667,binary,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0088655287,0.0035674100,0.0144779454,
+stratified,25370,4667,binary,H1~Ensemble - H1~Gemini,kappa_difference,0.0110999005,0.0029902515,0.0187673988,
+stratified,25370,4667,score,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0035421392,0.0001544881,0.0070704069,
+stratified,25370,4667,score,H1~Ensemble - H1~Gemini,kappa_difference,0.0196930261,0.0124733535,0.0269777728,
+stratified,25370,4667,fine,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0025673861,0.0002273103,0.0048502301,
+stratified,25370,4667,fine,H1~Ensemble - H1~Gemini,kappa_difference,-0.0104802331,-0.0175708323,-0.0035989190,
+stratified,25370,4667,fine_tree,H1~Ensemble - H1~DeepSeek,kappa_difference,0.0030231047,-0.0001189360,0.0061124646,
+stratified,25370,4667,fine_tree,H1~Ensemble - H1~Gemini,kappa_difference,-0.0039773917,-0.0102791497,0.0019218425,
+stratified,25370,4667,,,correct_rate,0.2114543989,0.2045965969,0.2189196131,H1
+stratified,25370,4667,,,mean_score,0.8085109170,0.7866710515,0.8310179558,H1
+stratified,25370,4667,,,correct_rate,0.2070305663,0.2000784759,0.2144343749,DeepSeek
+stratified,25370,4667,,,mean_score,0.7181560236,0.6966815107,0.7415719981,DeepSeek
+stratified,25370,4667,,,correct_rate,0.2150102342,0.2080590001,0.2220486334,Gemini
+stratified,25370,4667,,,mean_score,0.8335771420,0.8122866600,0.8561477950,Gemini
+stratified,25370,4667,,,correct_rate,0.1918967645,0.1851607733,0.1989016311,Ensemble
+stratified,25370,4667,,,mean_score,0.6804314572,0.6583673341,0.7029169679,Ensemble
+pending,33880,4298,binary,DeepSeek~Gemini,cohen_kappa,0.8432307271,0.8265337104,0.8601066502,
+pending,33880,4298,binary,DeepSeek~Gemini,observed_agreement,0.9700134151,0.9667361593,0.9731850694,
+pending,33880,4298,score,DeepSeek~Gemini,cohen_kappa,0.8359922526,0.8242672367,0.8482778529,
+pending,33880,4298,score,DeepSeek~Gemini,observed_agreement,0.9187731804,0.9138719822,0.9234602672,
+pending,33880,4298,fine,DeepSeek~Gemini,cohen_kappa,0.6574653389,0.6483623772,0.6672040719,
+pending,33880,4298,fine,DeepSeek~Gemini,observed_agreement,0.7722071705,0.7657508487,0.7785804622,
+pending,33880,4298,fine,DeepSeek~Gemini,within_score_kappa,0.6758846745,0.6642148140,0.6870153380,
+pending,33880,4298,fine_tree,DeepSeek~Gemini,cohen_kappa,0.6775352661,0.6677605247,0.6876880912,
+pending,33880,4298,fine_tree,DeepSeek~Gemini,observed_agreement,0.7722071705,0.7657508487,0.7785804622,
+pending,33880,4298,,,correct_rate,0.1084514822,0.1023854981,0.1145985202,DeepSeek
+pending,33880,4298,,,mean_score,0.4038193440,0.3847163685,0.4227213888,DeepSeek
+pending,33880,4298,,,correct_rate,0.1057684720,0.1003652382,0.1118355388,Gemini
+pending,33880,4298,,,mean_score,0.4779177736,0.4602180831,0.4964580179,Gemini
+pending,33880,4298,,,correct_rate,0.0921166846,0.0867517549,0.0978393259,Ensemble
+pending,33880,4298,,,mean_score,0.3627587658,0.3455895864,0.3810224652,Ensemble

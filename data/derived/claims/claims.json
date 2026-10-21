@@ -1,0 +1,472 @@
+{
+  "numcommunities": {
+    "value": 62,
+    "unit": null,
+    "latex": "62"
+  },
+  "numlang": {
+    "value": 51,
+    "unit": null,
+    "latex": "51"
+  },
+  "numcountries": {
+    "value": 45,
+    "unit": null,
+    "latex": "45"
+  },
+  "numriddles": {
+    "value": 6191,
+    "unit": null,
+    "latex": "6,191"
+  },
+  "numbenchmarkedriddles": {
+    "value": 6090,
+    "unit": null,
+    "latex": "6,090"
+  },
+  "numbenchmarkedcommunities": {
+    "value": 61,
+    "unit": null,
+    "latex": "61"
+  },
+  "nummodels": {
+    "value": 28,
+    "unit": null,
+    "latex": "28"
+  },
+  "numresponses": {
+    "value": 170520,
+    "unit": null,
+    "latex": "170,520"
+  },
+  "numhumanresponses": {
+    "value": 100769,
+    "unit": null,
+    "latex": "100,769"
+  },
+  "numuniquehumanresponses": {
+    "value": 68067,
+    "unit": null,
+    "latex": "68,067"
+  },
+  "numinvalidhumanresponses": {
+    "value": 2461,
+    "unit": null,
+    "latex": "2,461"
+  },
+  "invalidhumanpercent": {
+    "value": 2.38,
+    "unit": "percent",
+    "latex": "2.38\\%"
+  },
+  "numhumanscoredcommunities": {
+    "value": 57,
+    "unit": null,
+    "latex": "57"
+  },
+  "numhumanevaluatedlanguages": {
+    "value": 48,
+    "unit": null,
+    "latex": "48"
+  },
+  "numiaacommunities": {
+    "value": 19,
+    "unit": null,
+    "latex": "19"
+  },
+  "numhumanevaluatedcommunities": {
+    "value": 57,
+    "unit": null,
+    "latex": "57"
+  },
+  "humanevalpercent": {
+    "value": 59.1,
+    "unit": "percent",
+    "latex": "59.10\\%"
+  },
+  "numpendingresponses": {
+    "value": 35119,
+    "unit": null,
+    "latex": "35,119"
+  },
+  "numjudgedresponses": {
+    "value": 34546,
+    "unit": null,
+    "latex": "34,546"
+  },
+  "autoresolvedpercent": {
+    "value": 18.87,
+    "unit": "percent",
+    "latex": "18.87\\%"
+  },
+  "exactmatchpercent": {
+    "value": 16.45,
+    "unit": "percent",
+    "latex": "16.45\\%"
+  },
+  "emptypercent": {
+    "value": 1.45,
+    "unit": "percent",
+    "latex": "1.45\\%"
+  },
+  "idkpercent": {
+    "value": 0.53,
+    "unit": "percent",
+    "latex": "0.53\\%"
+  },
+  "placeholderpercent": {
+    "value": 0.43,
+    "unit": "percent",
+    "latex": "0.43\\%"
+  },
+  "judgedpercent": {
+    "value": 91.93,
+    "unit": "percent",
+    "latex": "91.93\\%"
+  },
+  "humanroutedpercent": {
+    "value": 59.1,
+    "unit": "percent",
+    "latex": "59.10\\%"
+  },
+  "judgeroutedpercent": {
+    "value": 22.04,
+    "unit": "percent",
+    "latex": "22.04\\%"
+  },
+  "judgeagreedpercent": {
+    "value": 20.26,
+    "unit": "percent",
+    "latex": "20.26\\%"
+  },
+  "unscoredpercent": {
+    "value": 1.78,
+    "unit": "percent",
+    "latex": "1.78\\%"
+  },
+  "humanincorrectpercent": {
+    "value": 70.2,
+    "unit": "percent",
+    "latex": "70.20\\%"
+  },
+  "humanpartialpercent": {
+    "value": 8.46,
+    "unit": "percent",
+    "latex": "8.46\\%"
+  },
+  "humancorrectpercent": {
+    "value": 21.19,
+    "unit": "percent",
+    "latex": "21.19\\%"
+  },
+  "humanuncertainpercent": {
+    "value": 0.15,
+    "unit": "percent",
+    "latex": "0.15\\%"
+  },
+  "numerrortyperesponses": {
+    "value": 132940,
+    "unit": null,
+    "latex": "132,940"
+  },
+  "declinedpercent": {
+    "value": 0.8,
+    "unit": "percent",
+    "latex": "0.80\\%"
+  },
+  "declinedmaxpercent": {
+    "value": 3.81,
+    "unit": "percent",
+    "latex": "3.81\\%"
+  },
+  "toobroadpercent": {
+    "value": 6.92,
+    "unit": "percent",
+    "latex": "6.92\\%"
+  },
+  "rightcategorypercent": {
+    "value": 15.54,
+    "unit": "percent",
+    "latex": "15.54\\%"
+  },
+  "hallucinationpercent": {
+    "value": 24.19,
+    "unit": "percent",
+    "latex": "24.19\\%"
+  },
+  "relatedculturepercent": {
+    "value": 1.17,
+    "unit": "percent",
+    "latex": "1.17\\%"
+  },
+  "wrongdetailpercent": {
+    "value": 3.26,
+    "unit": "percent",
+    "latex": "3.26\\%"
+  },
+  "surfacepatternpercent": {
+    "value": 1.5,
+    "unit": "percent",
+    "latex": "1.50\\%"
+  },
+  "correctvariantpercent": {
+    "value": 9.51,
+    "unit": "percent",
+    "latex": "9.51\\%"
+  },
+  "differentvalidpercent": {
+    "value": 6.16,
+    "unit": "percent",
+    "latex": "6.16\\%"
+  },
+  "correctenglishpercent": {
+    "value": 0.39,
+    "unit": "percent",
+    "latex": "0.39\\%"
+  },
+  "jurykappahigh": {
+    "value": 0.92,
+    "unit": null,
+    "latex": "0.92"
+  },
+  "jurykappaextremelylow": {
+    "value": 0.88,
+    "unit": null,
+    "latex": "0.88"
+  },
+  "jurykappamin": {
+    "value": 0.65,
+    "unit": null,
+    "latex": "0.65"
+  },
+  "juryminlanguage": {
+    "value": "Swahili",
+    "unit": null,
+    "latex": "Swahili"
+  },
+  "jurykappamax": {
+    "value": 0.98,
+    "unit": null,
+    "latex": "0.98"
+  },
+  "jurymaxlanguage": {
+    "value": "Belarusian and Catalan",
+    "unit": null,
+    "latex": "Belarusian and Catalan"
+  },
+  "juryuncertaincommunities": {
+    "value": "Swahili (Kenya)",
+    "unit": null,
+    "latex": "Swahili (Kenya)"
+  },
+  "numrawiaapairs": {
+    "value": 4377,
+    "unit": null,
+    "latex": "4,377"
+  },
+  "numcleanediaapairs": {
+    "value": 4246,
+    "unit": null,
+    "latex": "4,246"
+  },
+  "numcleanediaariddles": {
+    "value": 1074,
+    "unit": null,
+    "latex": "1,074"
+  },
+  "numsettingapairs": {
+    "value": 4018,
+    "unit": null,
+    "latex": "4,018"
+  },
+  "numsettingariddles": {
+    "value": 1028,
+    "unit": null,
+    "latex": "1,028"
+  },
+  "numsettingbpairs": {
+    "value": 25370,
+    "unit": null,
+    "latex": "25,370"
+  },
+  "numsettingcpairs": {
+    "value": 33880,
+    "unit": null,
+    "latex": "33,880"
+  },
+  "poolaccuracyhigh": {
+    "value": 37.0,
+    "unit": "percent",
+    "latex": "37.0\\%"
+  },
+  "poolaccuracymedium": {
+    "value": 30.8,
+    "unit": "percent",
+    "latex": "30.8\\%"
+  },
+  "poolaccuracylow": {
+    "value": 18.0,
+    "unit": "percent",
+    "latex": "18.0\\%"
+  },
+  "poolaccuracyextremelylow": {
+    "value": 12.7,
+    "unit": "percent",
+    "latex": "12.7\\%"
+  },
+  "resourcesdmin": {
+    "value": 8,
+    "unit": null,
+    "latex": "8"
+  },
+  "resourcesdmax": {
+    "value": 13,
+    "unit": null,
+    "latex": "13"
+  },
+  "numformriddles": {
+    "value": 6082,
+    "unit": null,
+    "latex": "6,082"
+  },
+  "numformuntranslated": {
+    "value": 8,
+    "unit": null,
+    "latex": "8"
+  },
+  "numformcommunities": {
+    "value": 61,
+    "unit": null,
+    "latex": "61"
+  },
+  "formlugandawhoamipercent": {
+    "value": 98,
+    "unit": "percent",
+    "latex": "98\\%"
+  },
+  "formjapanesewhatisitpercent": {
+    "value": 98,
+    "unit": "percent",
+    "latex": "98\\%"
+  },
+  "numenglishriddles": {
+    "value": 499,
+    "unit": null,
+    "latex": "499"
+  },
+  "numenglishrevealing": {
+    "value": 41,
+    "unit": null,
+    "latex": "41"
+  },
+  "numenglishrevealinglumasaba": {
+    "value": 38,
+    "unit": null,
+    "latex": "38"
+  },
+  "numenglishrevealingsudanese": {
+    "value": 3,
+    "unit": null,
+    "latex": "3"
+  },
+  "numenglishkept": {
+    "value": 458,
+    "unit": null,
+    "latex": "458"
+  },
+  "englishoriginalaccuracy": {
+    "value": 22.1,
+    "unit": "percent",
+    "latex": "22.1\\%"
+  },
+  "englishaccuracy": {
+    "value": 32.4,
+    "unit": "percent",
+    "latex": "32.4\\%"
+  },
+  "englishgain": {
+    "value": 10.3,
+    "unit": null,
+    "latex": "10.3"
+  },
+  "englishgainlow": {
+    "value": 7.6,
+    "unit": null,
+    "latex": "7.6"
+  },
+  "englishgainhigh": {
+    "value": 13.0,
+    "unit": null,
+    "latex": "13.0"
+  },
+  "englishhighresourceaccuracy": {
+    "value": 69,
+    "unit": "percent",
+    "latex": "69\\%"
+  },
+  "numsettingbsampled": {
+    "value": 25372,
+    "unit": null,
+    "latex": "25,372"
+  },
+  "settingbeffective": {
+    "value": 17032,
+    "unit": null,
+    "latex": "17,032"
+  },
+  "numsettingbraisedcommunities": {
+    "value": 33,
+    "unit": null,
+    "latex": "33"
+  },
+  "settingbtokensgemini": {
+    "value": "60.8M/10.5M",
+    "unit": null,
+    "latex": "60.8M/10.5M"
+  },
+  "settingbtokensdeepseek": {
+    "value": "71.6M/5.1M",
+    "unit": null,
+    "latex": "71.6M/5.1M"
+  },
+  "bestmodelaccuracy": {
+    "value": 79.4,
+    "unit": "percent",
+    "latex": "79.4\\%"
+  },
+  "numwriters": {
+    "value": 167,
+    "unit": null,
+    "latex": "167"
+  },
+  "numreviewers": {
+    "value": 109,
+    "unit": null,
+    "latex": "109"
+  },
+  "numsecondannotators": {
+    "value": 50,
+    "unit": null,
+    "latex": "50"
+  },
+  "numsurveyrespondents": {
+    "value": 76,
+    "unit": null,
+    "latex": "76"
+  },
+  "numsurveycommunities": {
+    "value": 43,
+    "unit": null,
+    "latex": "43"
+  },
+  "surveyresponserate": {
+    "value": 45.51,
+    "unit": "percent",
+    "latex": "45.51\\%"
+  },
+  "surveycommunitycoverage": {
+    "value": 69.35,
+    "unit": "percent",
+    "latex": "69.35\\%"
+  }
+}

@@ -1,0 +1,29 @@
+source_name,display_name,default_reasoning,actual_reasoning_effort,total_parameter_b,active_parameter_count_b,access,info_url,cutoff_date
+Amazon-Nova-Lite,Amazon Nova Lite,N/A,unspecified,,,proprietary,https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html,2024-10
+Amazon-Nova-Micro,Amazon Nova Micro,N/A,unspecified,,,proprietary,https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-micro.html,2024-10
+Deepseek-v4-flash,DeepSeek V4 Flash,unspecified,unspecified,284,13,open-weight,https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash,not publicly disclosed
+EuroLLM-Instruct,EuroLLM 22B Instruct,N/A,unspecified,22.639,,open-weight,https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512,not publicly disclosed
+GPT5.5-none,GPT-5.5 [none],medium,none,,,proprietary,https://developers.openai.com/api/docs/models/gpt-5.5,2025-12-01
+GPT5.5-search,GPT-5.5 [search],medium,none,,,proprietary,https://developers.openai.com/api/docs/models/gpt-5.5,2025-12-01
+Gemini-2.5-Flash,Gemini 2.5 Flash,unspecified,unspecified,,,proprietary,https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash,2025-01
+Gemini-2.5-Flash-Lite,Gemini 2.5 Flash Lite,unspecified,unspecified,,,proprietary,https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite,2025-01
+Mistral-Large-3,Mistral Large 3,N/A,unspecified,675,41,open-weight,https://docs.mistral.ai/models/mistral-large-3-25-12,not publicly disclosed
+Olmo-3-32B-Think,Olmo 3 32B Think,enabled,unspecified,32,,open-source,https://huggingface.co/allenai/Olmo-3-32B-Think,2024-12
+Qwen-3.5-0.8B,Qwen3.5 0.8B,unspecified,unspecified,0.8,,open-weight,https://huggingface.co/Qwen/Qwen3.5-0.8B,not publicly disclosed
+Qwen-SEA-LION-v4.5-27B-IT,Qwen-SEA-LION 4.5 27B Instruct,unspecified,unspecified,27,,open-weight,https://huggingface.co/aisingapore/Qwen-SEA-LION-v4.5-27B-IT,not publicly disclosed
+Qwen/Qwen2.5-14B-Instruct-AWQ,Qwen2.5 14B Instruct AWQ,N/A,unspecified,14.7,,open-weight,https://huggingface.co/Qwen/Qwen2.5-14B-Instruct-AWQ,not publicly disclosed
+Qwen3.5-27B,Qwen3.5 27B,unspecified,unspecified,27,,open-weight,https://huggingface.co/Qwen/Qwen3.5-27B,not publicly disclosed
+claude-opus-4-7,Claude Opus 4.7 [default],adaptive,unspecified,,,proprietary,https://platform.claude.com/docs/en/models/opus-4-7/overview,2026-01
+claude-opus-4-7-thinking,Claude Opus 4.7 [high],adaptive,high,,,proprietary,https://platform.claude.com/docs/en/models/opus-4-7/overview,2026-01
+deepseek-v4-pro,DeepSeek V4 Pro [default],high,unspecified,1600,49,open-weight,https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro,not publicly disclosed
+deepseek-v4-pro-thinking,DeepSeek V4 Pro [high],unspecified,high,1600,49,open-weight,https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro,not publicly disclosed
+gemini-3.1-pro-preview,Gemini 3.1 Pro Preview,high,unspecified,,,proprietary,https://deepmind.google/models/model-cards/gemini-3-1-pro/,2025-01
+gemma-4-31b,Gemma 4 31B IT,N/A,unspecified,31,,open-weight,https://huggingface.co/google/gemma-4-31B-it,not publicly disclosed
+swiss-ai/Apertus-70B-Instruct-2509,Apertus 70B Instruct,N/A,unspecified,70,,open-source,https://huggingface.co/swiss-ai/Apertus-70B-Instruct-2509,not publicly disclosed
+swiss-ai/Apertus-8B-Instruct-2509,Apertus 8B Instruct,N/A,unspecified,8,,open-source,https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509,not publicly disclosed
+swiss-ai/Apertus-v1.5-70B,Apertus v1.5 70B,N/A,unspecified,70,,open-source,https://huggingface.co/swiss-ai/Apertus-v1.5-70B,not publicly disclosed
+swiss-ai/Apertus-v1.5-8B,Apertus v1.5 8B,N/A,unspecified,8,,open-source,https://huggingface.co/swiss-ai/Apertus-v1.5-8B,not publicly disclosed
+tiny-aya-earth,Tiny Aya Earth,N/A,unspecified,3.35,,open-weight,https://huggingface.co/CohereLabs/tiny-aya-earth,not publicly disclosed
+tiny-aya-fire,Tiny Aya Fire,N/A,unspecified,3.35,,open-weight,https://huggingface.co/CohereLabs/tiny-aya-fire,not publicly disclosed
+tiny-aya-global,Tiny Aya Global,N/A,unspecified,3.35,,open-weight,https://huggingface.co/CohereLabs/tiny-aya-global,not publicly disclosed
+tiny-aya-water,Tiny Aya Water,N/A,unspecified,3.35,,open-weight,https://huggingface.co/CohereLabs/tiny-aya-water,not publicly disclosed

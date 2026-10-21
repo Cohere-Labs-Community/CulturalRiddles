@@ -1,0 +1,52 @@
+language_code,language_name,common_crawl_code,common_crawl_pages,common_crawl_share_pct,resource_bucket,mapping_note,common_crawl_archive,source_url
+aeb,Tunisian Arabic,ara,14286482,0.6677,high,Mapped to Arabic macro-language; dialect is not separated by CLD2.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+apc,Levantine Arabic,ara,14286482,0.6677,high,Mapped to Arabic macro-language; dialect is not separated by CLD2.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+apd,Sudanese Arabic,ara,14286482,0.6677,high,Mapped to Arabic macro-language; dialect is not separated by CLD2.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+ary,Moroccan Arabic,ara,14286482,0.6677,high,Mapped to Arabic macro-language; dialect is not separated by CLD2.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+arz,Egyptian Arabic,ara,14286482,0.6677,high,Mapped to Arabic macro-language; dialect is not separated by CLD2.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+asm,Assamese,asm,66726,0.0031,low,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+bel,Belarusian,bel,367299,0.0172,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+ben,Bengali,ben,2318326,0.1084,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+bug,Buginese,,0,0.0000,extremely-low,Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages).,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+bul,Bulgarian,bul,6211572,0.2903,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+cat,Catalan,cat,4383390,0.2049,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+deu,German,deu,126414617,5.9083,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+eng,English,eng,865530140,40.4526,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+fra,French,fra,103720803,4.8476,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+guj,Gujarati,guj,272555,0.0127,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+hun,Hungarian,hun,11427802,0.5341,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+ind,Indonesian,ind,23924783,1.1182,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+ita,Italian,ita,52686575,2.4624,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+jpn,Japanese,jpn,112295117,5.2484,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+kan,Kannada,kan,323079,0.0151,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+kok,Konkani,,0,0.0000,extremely-low,Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages).,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+ltz,Luxembourgish,ltz,80957,0.0038,low,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+lug,Ganda (Luganda),lug,7704,0.0004,extremely-low,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+mal,Malayalam,mal,509416,0.0238,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+mar,Marathi,mar,571814,0.0267,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+mog,Mongondow,,0,0.0000,extremely-low,Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages).,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+myx,Masaba (Lumasaba),,0,0.0000,extremely-low,Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages).,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+nep,Nepali,nep,1274697,0.0596,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+nld,Dutch,nld,38004267,1.7762,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+orm,Oromo,orm,15020,0.0007,low,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+pes,Iranian Persian,fas,16267415,0.7603,high,Mapped from Iranian Persian (pes) to Persian macro-language (fas).,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+pol,Polish,pol,44157233,2.0638,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+por,Portuguese,por,54053402,2.5263,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+rus,Russian,rus,146902975,6.8659,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+sin,Sinhala,sin,189589,0.0089,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+snd,Sindhi,snd,48188,0.0023,low,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+spa,Spanish,spa,98972317,4.6257,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+srp,Serbian,srp,5713950,0.2671,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+swa,Swahili,swa,249945,0.0117,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+tam,Tamil,tam,960601,0.0449,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+tel,Telugu,tel,425530,0.0199,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+tha,Thai,tha,8002604,0.3740,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+tur,Turkish,tur,29093959,1.3598,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+ukr,Ukrainian,ukr,17911708,0.8371,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+urd,Urdu,urd,689187,0.0322,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+uzb,Uzbek,uzb,669583,0.0313,medium,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+vie,Vietnamese,vie,23000895,1.0750,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+yor,Yoruba,yor,36052,0.0017,low,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+yue,Cantonese,,0,0.0000,extremely-low,Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages).,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+zho,Chinese,zho,93776922,4.3829,high,Exact ISO 639-3 code match.,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv
+zsm,Standard Malay,msa,1840421,0.0860,medium,Mapped from Standard Malay (zsm) to Malay macro-language (msa).,CC-MAIN-2026-34,https://raw.githubusercontent.com/commoncrawl/cc-crawl-statistics/master/plots/languages.csv

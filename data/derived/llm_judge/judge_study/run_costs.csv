@@ -1,0 +1,3 @@
+condition,cost_usd,pairs,prompt_tokens,completion_tokens,cost_per_call
+deepseek-v4.1-flash|zero,4.638,25371,71576321,5113357,0.000182807142012534
+gemini-3.5-flash|zero,208.9465,25370,60792640,10504622,0.008235967678360268

@@ -1,0 +1,29 @@
+name: Validate riddle submission
+
+on:
+  pull_request:
+    paths:
+      - "data/submissions/**"
+      - "submissions/**"
+      - "human_eval/**"
+      - "CONTRIBUTING.md"
+      - ".github/workflows/validate-submission.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Validate submitted workbooks
+        run: |
+          for file in data/submissions/*.xlsx; do
+            [ -f "$file" ] || continue
+            [ "$file" = "data/submissions/submission_template.xlsx" ] && continue
+            uv run python -m submissions check "$file"
+          done

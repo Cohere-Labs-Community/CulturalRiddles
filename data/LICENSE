@@ -1,0 +1,31 @@
+CulturalRiddles data terms
+
+These terms apply to the benchmark data and released annotations, responses,
+verdicts, and aggregate data in this reproduction bundle. They do not apply to
+the repository's own code, which is licensed under Apache-2.0 in ../LICENSE,
+or to separately credited third-party assets.
+
+The project's existing data policy combines the attribution terms of Creative
+Commons Attribution 4.0 International with the additional evaluation-only
+restriction below. The combined policy is custom; it is not unmodified
+CC-BY-4.0 and must not be labeled as unmodified CC-BY-4.0.
+
+Attribution terms
+
+Creative Commons Attribution 4.0 International:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Credit CulturalRiddles and its contributors, link to the dataset and these
+terms, and indicate any changes. Dataset:
+https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles
+
+Additional evaluation-only restriction
+
+This data must not be used to train, fine-tune, or distill models, nor as
+seeds for synthetic data generation. It is an evaluation benchmark. Using
+it as training data defeats its purpose and contaminates future measurement.
+
+This file records the existing project policy; it does not remove or narrow
+rights already granted under an earlier release. The additional restriction
+is not a condition in the standard Creative Commons license. No claim is made
+here that adding this notice changes an existing Creative Commons grant.

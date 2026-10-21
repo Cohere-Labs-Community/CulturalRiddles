@@ -1,0 +1,11 @@
+step,pairs,riddles,communities
+raw IAA pairs,4377,1139,19
+excluded: self-review,37,30,5
+excluded: type does not match score,91,74,8
+"excluded: Other type (0.4, 2.4) without note",3,3,1
+cleaned human pairs,4246,1074,19
+excluded: placeholder answer (auto-scored),36,36,12
+excluded: missing judge verdict,0,0,0
+four-rater pairs (all judges returned a verdict),4210,1070,19
+excluded: riddle used in judge prompt tuning,192,42,14
+primary four-rater sample,4018,1028,19

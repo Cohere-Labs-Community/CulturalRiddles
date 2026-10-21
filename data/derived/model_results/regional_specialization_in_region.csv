@@ -1,0 +1,55 @@
+region_definition,model,in_region_accuracy,out_region_accuracy,gap_pp,residual_log_odds,in_region_rank,out_region_rank,residual_rank
+SEA-LION languages,Tiny Aya Global,9.8,6.739,3.061,0.464,20,25,1
+SEA-LION languages,Tiny Aya Fire,8.818,6.551,2.267,0.384,22,27,2
+SEA-LION languages,Tiny Aya Water,8.434,6.629,1.804,0.32,24,26,3
+SEA-LION languages,Gemma 4 31B IT,54.656,38.144,16.512,0.304,9,10,4
+SEA-LION languages,Tiny Aya Earth,8.016,6.839,1.177,0.225,25,24,5
+SEA-LION languages,GPT-5.5 [none],88.0,75.198,12.802,0.203,2,2,6
+SEA-LION languages,Apertus 8B Instruct,8.642,7.491,1.151,0.189,23,23,7
+SEA-LION languages,Claude Opus 4.7 [default],73.0,58.399,14.601,0.127,6,6,8
+SEA-LION languages,Gemini 3.1 Pro Preview,89.379,78.461,10.918,0.121,1,1,9
+SEA-LION languages,Gemini 2.5 Flash,62.626,48.857,13.769,0.109,8,8,10
+SEA-LION languages,Gemini 2.5 Flash Lite,42.331,32.718,9.613,0.092,12,13,11
+SEA-LION languages,Qwen2.5 14B Instruct AWQ,11.452,10.345,1.107,0.078,18,21,12
+SEA-LION languages,Claude Opus 4.7 [high],77.555,64.882,12.673,0.043,3,3,13
+SEA-LION languages,Apertus 70B Instruct,17.043,15.059,1.984,0.027,16,17,14
+SEA-LION languages,Apertus v1.5 8B,10.603,10.377,0.226,-0.013,19,20,15
+SEA-LION languages,GPT-5.5 [search],74.898,63.537,11.361,-0.033,4,4,16
+SEA-LION languages,Mistral Large 3,45.528,37.832,7.697,-0.046,11,11,17
+SEA-LION languages,DeepSeek V4 Pro [default],68.813,57.867,10.946,-0.05,7,7,18
+SEA-LION languages,DeepSeek V4 Pro [high],73.8,62.824,10.976,-0.054,5,5,19
+SEA-LION languages,DeepSeek V4 Flash,45.791,38.542,7.248,-0.072,10,9,20
+SEA-LION languages,Qwen-SEA-LION 4.5 27B Instruct,38.105,33.074,5.031,-0.103,13,12,21
+SEA-LION languages,Qwen3.5 27B,31.237,27.734,3.503,-0.104,14,14,22
+SEA-LION languages,Apertus v1.5 70B,19.753,19.536,0.217,-0.169,15,15,23
+SEA-LION languages,Olmo 3 32B Think,9.8,11.448,-1.648,-0.232,20,19,24
+SEA-LION languages,Amazon Nova Micro,6.653,8.421,-1.768,-0.246,26,22,25
+SEA-LION languages,Amazon Nova Lite,11.585,15.019,-3.433,-0.419,17,18,26
+SEA-LION languages,EuroLLM 22B Instruct,6.413,15.875,-9.463,-1.146,27,16,27
+Southeast Asia,Gemma 4 31B IT,39.208,39.654,-0.446,0.269,9,10,1
+Southeast Asia,Qwen2.5 14B Instruct AWQ,10.696,10.401,0.295,0.22,17,21,2
+Southeast Asia,Tiny Aya Fire,6.892,6.727,0.165,0.188,22,27,3
+Southeast Asia,Qwen-SEA-LION 4.5 27B Instruct,31.36,33.87,-2.509,0.159,12,13,4
+Southeast Asia,Qwen3.5 27B,26.336,28.322,-1.986,0.159,14,14,5
+Southeast Asia,Apertus 70B Instruct,14.529,15.347,-0.819,0.15,16,18,6
+Southeast Asia,Tiny Aya Water,6.524,6.831,-0.306,0.114,25,26,7
+Southeast Asia,Tiny Aya Earth,6.642,6.992,-0.35,0.109,23,25,8
+Southeast Asia,Tiny Aya Global,6.633,7.071,-0.438,0.097,24,24,9
+Southeast Asia,Apertus v1.5 70B,17.487,19.891,-2.404,0.074,15,15,10
+Southeast Asia,Gemini 3.1 Pro Preview,74.687,80.197,-5.51,0.074,1,1,11
+Southeast Asia,GPT-5.5 [none],71.214,77.166,-5.952,0.068,2,2,12
+Southeast Asia,DeepSeek V4 Pro [default],53.141,59.758,-6.617,0.064,6,7,13
+Southeast Asia,Gemini 2.5 Flash,43.853,51.109,-7.256,0.022,8,8,14
+Southeast Asia,DeepSeek V4 Flash,33.76,40.072,-6.312,0.017,10,9,15
+Southeast Asia,DeepSeek V4 Pro [high],56.571,64.976,-8.406,-0.008,4,5,16
+Southeast Asia,Gemini 2.5 Flash Lite,28.244,34.431,-6.187,-0.014,13,12,17
+Southeast Asia,Apertus 8B Instruct,6.494,7.768,-1.274,-0.022,26,23,18
+Southeast Asia,Mistral Large 3,32.357,39.504,-7.147,-0.024,11,11,19
+Southeast Asia,Apertus v1.5 8B,8.616,10.681,-2.065,-0.047,19,20,20
+Southeast Asia,Claude Opus 4.7 [high],57.018,67.467,-10.449,-0.094,3,3,21
+Southeast Asia,GPT-5.5 [search],54.83,66.073,-11.242,-0.124,5,4,22
+Southeast Asia,Claude Opus 4.7 [default],49.749,61.313,-11.563,-0.133,7,6,23
+Southeast Asia,Amazon Nova Micro,6.329,8.583,-2.254,-0.152,27,22,24
+Southeast Asia,Olmo 3 32B Think,8.281,11.799,-3.518,-0.196,20,19,25
+Southeast Asia,Amazon Nova Lite,9.288,15.604,-6.316,-0.375,18,17,26
+Southeast Asia,EuroLLM 22B Instruct,7.905,16.212,-8.308,-0.595,21,16,27

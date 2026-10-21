@@ -1,0 +1,113 @@
+model_name,rejected_rows,false_accept_rate,condition
+Amazon-Nova-Lite,1168,0.01552383631035763,agree-or-human (zero)
+Amazon-Nova-Micro,948,0.004553873385822327,agree-or-human (zero)
+Deepseek-v4-flash,1103,0.023174949347062327,agree-or-human (zero)
+EuroLLM-Instruct,1538,0.008424937434257608,agree-or-human (zero)
+GPT5.5-none,702,0.06931697807364395,agree-or-human (zero)
+GPT5.5-search,863,0.04435702019829621,agree-or-human (zero)
+Gemini-2.5-Flash,904,0.031576123318345486,agree-or-human (zero)
+Gemini-2.5-Flash-Lite,1162,0.022993323948233488,agree-or-human (zero)
+Mistral-Large-3,1313,0.02094398297406908,agree-or-human (zero)
+Olmo-3-32B-Think,862,0.016145157957963185,agree-or-human (zero)
+Qwen-3.5-0.8B,767,0.0,agree-or-human (zero)
+Qwen-SEA-LION-v4.5-27B-IT,1221,0.029858928949003567,agree-or-human (zero)
+Qwen/Qwen2.5-14B-Instruct-AWQ,987,0.016465473387273874,agree-or-human (zero)
+Qwen3.5-27B,1350,0.0234345802092231,agree-or-human (zero)
+claude-opus-4-7,1082,0.045503091777363405,agree-or-human (zero)
+claude-opus-4-7-thinking,925,0.0545117756981284,agree-or-human (zero)
+deepseek-v4-pro,1120,0.0416125247632604,agree-or-human (zero)
+deepseek-v4-pro-thinking,1010,0.043963155471108184,agree-or-human (zero)
+gemini-3.1-pro-preview,596,0.09042576428670854,agree-or-human (zero)
+gemma-4-31b,1416,0.034315050486672265,agree-or-human (zero)
+swiss-ai/Apertus-70B-Instruct-2509,898,0.012743993968247642,agree-or-human (zero)
+swiss-ai/Apertus-8B-Instruct-2509,878,0.014163085733990185,agree-or-human (zero)
+swiss-ai/Apertus-v1.5-70B,1058,0.0216753513819722,agree-or-human (zero)
+swiss-ai/Apertus-v1.5-8B,1083,0.013333708385846563,agree-or-human (zero)
+tiny-aya-earth,2636,0.004961403374195491,agree-or-human (zero)
+tiny-aya-fire,2673,0.004592785620239616,agree-or-human (zero)
+tiny-aya-global,2117,0.00474037362402477,agree-or-human (zero)
+tiny-aya-water,2621,0.004115557976837743,agree-or-human (zero)
+Amazon-Nova-Lite,1168,0.02282825875969467,deepseek-v4.1-flash|zero
+Amazon-Nova-Micro,948,0.011586246559137271,deepseek-v4.1-flash|zero
+Deepseek-v4-flash,1103,0.03794738943858538,deepseek-v4.1-flash|zero
+EuroLLM-Instruct,1538,0.015935778650819753,deepseek-v4.1-flash|zero
+GPT5.5-none,702,0.09515029732782423,deepseek-v4.1-flash|zero
+GPT5.5-search,863,0.05750913002130194,deepseek-v4.1-flash|zero
+Gemini-2.5-Flash,904,0.051947487515878285,deepseek-v4.1-flash|zero
+Gemini-2.5-Flash-Lite,1162,0.04641745633229858,deepseek-v4.1-flash|zero
+Mistral-Large-3,1313,0.0348068361258042,deepseek-v4.1-flash|zero
+Olmo-3-32B-Think,862,0.02480327115157673,deepseek-v4.1-flash|zero
+Qwen-3.5-0.8B,767,0.0016907310220977871,deepseek-v4.1-flash|zero
+Qwen-SEA-LION-v4.5-27B-IT,1221,0.05080188153075586,deepseek-v4.1-flash|zero
+Qwen/Qwen2.5-14B-Instruct-AWQ,987,0.028779319385133534,deepseek-v4.1-flash|zero
+Qwen3.5-27B,1350,0.0380056932847801,deepseek-v4.1-flash|zero
+claude-opus-4-7,1082,0.07087212479407302,deepseek-v4.1-flash|zero
+claude-opus-4-7-thinking,925,0.08605681594863174,deepseek-v4.1-flash|zero
+deepseek-v4-pro,1120,0.06640209514466354,deepseek-v4.1-flash|zero
+deepseek-v4-pro-thinking,1010,0.06382425521502245,deepseek-v4.1-flash|zero
+gemini-3.1-pro-preview,596,0.11237260742435676,deepseek-v4.1-flash|zero
+gemma-4-31b,1416,0.0529120626651438,deepseek-v4.1-flash|zero
+swiss-ai/Apertus-70B-Instruct-2509,898,0.023574812451735434,deepseek-v4.1-flash|zero
+swiss-ai/Apertus-8B-Instruct-2509,878,0.021972811146328444,deepseek-v4.1-flash|zero
+swiss-ai/Apertus-v1.5-70B,1058,0.035078900634220055,deepseek-v4.1-flash|zero
+swiss-ai/Apertus-v1.5-8B,1083,0.026706147614818047,deepseek-v4.1-flash|zero
+tiny-aya-earth,2636,0.009130837810723968,deepseek-v4.1-flash|zero
+tiny-aya-fire,2673,0.011855095410600742,deepseek-v4.1-flash|zero
+tiny-aya-global,2117,0.009378908799349316,deepseek-v4.1-flash|zero
+tiny-aya-water,2621,0.01139237315359883,deepseek-v4.1-flash|zero
+Amazon-Nova-Lite,1168,0.01552383631035763,ensemble-min (zero)
+Amazon-Nova-Micro,948,0.004553873385822327,ensemble-min (zero)
+Deepseek-v4-flash,1103,0.023174949347062327,ensemble-min (zero)
+EuroLLM-Instruct,1538,0.008424937434257608,ensemble-min (zero)
+GPT5.5-none,702,0.06931697807364395,ensemble-min (zero)
+GPT5.5-search,863,0.04435702019829621,ensemble-min (zero)
+Gemini-2.5-Flash,904,0.031576123318345486,ensemble-min (zero)
+Gemini-2.5-Flash-Lite,1162,0.022993323948233488,ensemble-min (zero)
+Mistral-Large-3,1313,0.02094398297406908,ensemble-min (zero)
+Olmo-3-32B-Think,862,0.016145157957963185,ensemble-min (zero)
+Qwen-3.5-0.8B,767,0.0,ensemble-min (zero)
+Qwen-SEA-LION-v4.5-27B-IT,1221,0.029858928949003567,ensemble-min (zero)
+Qwen/Qwen2.5-14B-Instruct-AWQ,987,0.016465473387273874,ensemble-min (zero)
+Qwen3.5-27B,1350,0.0234345802092231,ensemble-min (zero)
+claude-opus-4-7,1082,0.045503091777363405,ensemble-min (zero)
+claude-opus-4-7-thinking,925,0.0545117756981284,ensemble-min (zero)
+deepseek-v4-pro,1120,0.0416125247632604,ensemble-min (zero)
+deepseek-v4-pro-thinking,1010,0.043963155471108184,ensemble-min (zero)
+gemini-3.1-pro-preview,596,0.09042576428670854,ensemble-min (zero)
+gemma-4-31b,1416,0.034315050486672265,ensemble-min (zero)
+swiss-ai/Apertus-70B-Instruct-2509,898,0.012743993968247642,ensemble-min (zero)
+swiss-ai/Apertus-8B-Instruct-2509,878,0.014163085733990185,ensemble-min (zero)
+swiss-ai/Apertus-v1.5-70B,1058,0.0216753513819722,ensemble-min (zero)
+swiss-ai/Apertus-v1.5-8B,1083,0.013333708385846563,ensemble-min (zero)
+tiny-aya-earth,2636,0.004961403374195491,ensemble-min (zero)
+tiny-aya-fire,2673,0.004592785620239616,ensemble-min (zero)
+tiny-aya-global,2117,0.00474037362402477,ensemble-min (zero)
+tiny-aya-water,2621,0.004115557976837743,ensemble-min (zero)
+Amazon-Nova-Lite,1168,0.019632658588104483,gemini-3.5-flash|zero
+Amazon-Nova-Micro,948,0.010239935565120404,gemini-3.5-flash|zero
+Deepseek-v4-flash,1103,0.04797692454690494,gemini-3.5-flash|zero
+EuroLLM-Instruct,1538,0.013689794329464627,gemini-3.5-flash|zero
+GPT5.5-none,702,0.1978944666305115,gemini-3.5-flash|zero
+GPT5.5-search,863,0.10223989795500123,gemini-3.5-flash|zero
+Gemini-2.5-Flash,904,0.058098737194326275,gemini-3.5-flash|zero
+Gemini-2.5-Flash-Lite,1161,0.03586583881074531,gemini-3.5-flash|zero
+Mistral-Large-3,1313,0.03942441167632192,gemini-3.5-flash|zero
+Olmo-3-32B-Think,862,0.02479127025531013,gemini-3.5-flash|zero
+Qwen-3.5-0.8B,767,0.0,gemini-3.5-flash|zero
+Qwen-SEA-LION-v4.5-27B-IT,1221,0.04830817407476247,gemini-3.5-flash|zero
+Qwen/Qwen2.5-14B-Instruct-AWQ,987,0.0243094066736239,gemini-3.5-flash|zero
+Qwen3.5-27B,1350,0.04143033776178306,gemini-3.5-flash|zero
+claude-opus-4-7,1082,0.09199130575145985,gemini-3.5-flash|zero
+claude-opus-4-7-thinking,925,0.14094045928672572,gemini-3.5-flash|zero
+deepseek-v4-pro,1120,0.09191327314189472,gemini-3.5-flash|zero
+deepseek-v4-pro-thinking,1010,0.09467824957637754,gemini-3.5-flash|zero
+gemini-3.1-pro-preview,596,0.245987352095721,gemini-3.5-flash|zero
+gemma-4-31b,1416,0.05843369362674967,gemini-3.5-flash|zero
+swiss-ai/Apertus-70B-Instruct-2509,898,0.019565480137556764,gemini-3.5-flash|zero
+swiss-ai/Apertus-8B-Instruct-2509,878,0.0190615375032567,gemini-3.5-flash|zero
+swiss-ai/Apertus-v1.5-70B,1058,0.03107958204515328,gemini-3.5-flash|zero
+swiss-ai/Apertus-v1.5-8B,1083,0.017503385695280455,gemini-3.5-flash|zero
+tiny-aya-earth,2636,0.008346184010476102,gemini-3.5-flash|zero
+tiny-aya-fire,2673,0.008650678674890062,gemini-3.5-flash|zero
+tiny-aya-global,2117,0.009552115979486263,gemini-3.5-flash|zero
+tiny-aya-water,2621,0.0075908121574256625,gemini-3.5-flash|zero

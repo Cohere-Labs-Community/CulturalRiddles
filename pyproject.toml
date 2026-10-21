@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "culturalriddles"
+version = "0.1.0"
+description = "CulturalRiddles benchmark, contribution tools, and reproducible analysis"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = "Apache-2.0"
+dependencies = [
+  "anthropic>=0.34.0",
+  "cachesaver==0.0.6",
+  "google-genai>=0.3.0",
+  "huggingface-hub>=1.21.0",
+  "litellm>=1.101.0",
+  "matplotlib>=3.11.1",
+  "numpy>=2.5.2",
+  "openai>=1.30.0",
+  "openpyxl>=3.1.5",
+  "orjson>=3.12.0",
+  "pandas>=3.0.5",
+  "polars>=1.44.2",
+  "pyarrow>=26.0.0",
+  "pydantic>=2.0",
+  "python-dotenv>=1.2.3",
+  "PyYAML>=6.0",
+  "rapidfuzz>=3.14.6",
+  "regex>=2026.9.10",
+  "scikit-learn>=1.9.1",
+  "scipy>=1.18.1",
+  "together>=1.3.0",
+  "wordfreq>=3.1.1",
+]
+
+[project.optional-dependencies]
+local = ["accelerate>=0.33.0", "torch>=2.2.0", "transformers>=4.41.0"]
+
+[project.scripts]
+riddles-framework = "riddles_framework.cli:main"
+riddles-judge = "riddles_framework.judging.llm_judge_run:main"
+
+[dependency-groups]
+dev = ["pre-commit>=4.3", "pytest>=9.1.1", "ruff>=0.17.0"]
+
+[tool.setuptools.packages.find]
+where = [".", "benchmark/src"]
+include = ["analysis*", "riddles_framework*", "submissions*", "human_eval*", "dashboard*", "scripts*"]
+exclude = ["*.tests*"]
+namespaces = false
+
+[tool.setuptools.package-dir]
+riddles_framework = "benchmark/src/riddles_framework"
+
+[tool.setuptools.package-data]
+riddles_framework = ["prompt_templates/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["analysis", "benchmark/tests", "submissions/tests", "human_eval/tests"]
+addopts = "--import-mode=importlib"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["data", "dist", ".venv"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.format]
+quote-style = "double"

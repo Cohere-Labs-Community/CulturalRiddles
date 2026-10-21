@@ -1,0 +1,44 @@
+runner_name: dummy_smoke
+
+dataset_path: data/canonical/riddles.jsonl
+dataset_version: canonical_v1
+
+prompt_template_id: riddle_master
+prompt_template_version: v1
+prompt_language: eng
+riddle_language_presented: source
+is_hint_provided: false
+
+reasoning_mode: null
+search_enabled: false
+batch_mode: false
+
+temperature: null
+max_output_tokens: 256
+seed: null
+
+model_params: {}
+
+# No cache and free_form output keep the dummy run free of capability
+# requirements and API calls. Use the CLI --limit option for a short smoke run.
+response_format: free_form
+cache_enabled: false
+
+runner_version: v1.0.0
+notes: Dummy model smoke test without API calls.
+strict_capability_check: true
+
+model_spec:
+  model_name: Dummy
+  model_id: dummy/dummy-1
+  provider: dummy
+  access_pattern: local
+  provider_model_name: dummy
+  closed_source: false
+  notes: Reference dummy adapter, no API calls
+  capabilities:
+    supports_reasoning: false
+    supports_search: false
+    supports_structured_output: false
+    supports_batch: false
+    supports_seed: false

@@ -1,0 +1,49 @@
+runner_name: benchmark_v0
+
+dataset_path: data/canonical/riddles.jsonl
+dataset_version: canonical_v1
+
+prompt_template_id: riddle_master
+prompt_template_version: v1
+prompt_language: eng
+riddle_language_presented: source
+is_hint_provided: false
+
+reasoning_mode: null
+search_enabled: false
+response_format: free_form
+batch_mode: false
+
+temperature: null
+max_output_tokens: 4096
+seed: null
+
+model_params: {}
+
+cache_enabled: true
+cache_backend: cachesaver
+cache_namespace: multicultural_riddles/canonical_v1/gemini-3.1-pro-preview/source_no_hint/master_v1
+cache_dir: .cache/cachesaver
+
+api_key_env_var: GEMINI_API_KEY
+base_url: null
+
+runner_version: v1.0.0
+notes: Gemini 3.1 Pro Preview via Google AI API (direct key) — V1 batch; replaces the OpenRouter route used for V0
+strict_capability_check: true
+strict_uploadable_rows: true
+
+model_spec:
+  model_name: gemini-3.1-pro-preview
+  model_id: gemini-3.1-pro-preview
+  provider: google
+  access_pattern: direct_api
+  provider_model_name: gemini-3.1-pro-preview
+  closed_source: true
+  notes: Gemini 3.1 Pro Preview via Google AI API
+  capabilities:
+    supports_reasoning: true
+    supports_search: false
+    supports_structured_output: true
+    supports_batch: false
+    supports_seed: false

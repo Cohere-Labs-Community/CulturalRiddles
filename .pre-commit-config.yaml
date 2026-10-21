@@ -1,0 +1,19 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: Ruff lint
+        entry: uv run --frozen --no-sync ruff check --fix
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: Ruff format
+        entry: uv run --frozen --no-sync ruff format
+        language: system
+        types_or: [python, pyi]
+      - id: public-data-contract
+        name: Public data and privacy contract
+        entry: uv run --frozen --no-sync python -m scripts.release_support
+        language: system
+        pass_filenames: false
+        always_run: true

@@ -1,0 +1,114 @@
+Human Evaluation Guidelines
+Source: https://docs.google.com/document/d/12SRsID90lt1wqVpAI-YbG2IWIDWMdme6TTrMOfLz8OY/edit?tab=t.0
+
+Members of each national-linguistic community will be evaluating model responses to the multicultural riddles for their community using a four-point scale and predefined error types. You should read this full document and refer back to it when evaluating model responses to ensure that evaluation is smooth and accurate.
+
+Scoring
+Sheets will have the riddle topic, riddle ID, riddle in the original language, model answer, and reference answer (in English and the original language). You will fill rows with your name, the answer score, and the answer error type (if any), and sometimes a validator note.
+You will see repeated entries for each riddle - up to ten times. These correspond to outputs of different models.
+
+First, read the riddle, riddle answer, and model answer. Then, score the model answer on the four-point scale.
+
+0 - Incorrect
+1 - I don't know - This means that the model says "I don't know" - if this score is selected, select "N/A" for the error type
+2 - Partially correct
+3 - Correct
+
+Please note that many “1 - I don't know” and “3 - Correct” answers have been automatically scored and do not appear in the sheets. The “1 - I don't know” evaluation is for cases where the model does not answer the riddle and instead answers “I don't know” or something similar.
+
+After scoring the answer from 0–3, select an error type (see examples below for explanations).
+
+0 - Incorrect
+0.1 - Too broad
+0.2 - Right category, wrong entity
+0.3 - Hallucination - the model makes up an entity, or responds with an irrelevant answer confidently
+0.4 - Other (requires validator note)
+
+2 - Partially Correct
+2.1 - Related culture or region
+2.2 - Wrong level or detail / right domain, wrong category
+2.3 - Surface pattern matching / keyword lifted from riddle
+2.4 - Other (requires validator note)
+
+3 - Correct
+3.1 - Different answer but valid / multiple valid answers
+3.2 - Answer in English
+
+Other
+N/A - No error category matches the error (for example, the model answer is completely correct), or the model says "I don't know"
+
+If the error type selected is 0.4 or 2.4, write a note about the error type in the validator note column.
+
+If you are unable to evaluate a model answer because you do not understand the riddle or culture reference, please ask other members in your community or the person who wrote the riddle. If you're unable to evaluate the riddle because you don't understand the evaluation scale or evaluation error types, you can refer to this document or ask the regional coordinator (see Human Eval Team Contributors.xlsx) for your community for help.
+
+
+Error Types Additional Details
+0.1 - Too broad - The model answer is too generic or a blanket answer.
+
+Examples:
+Naming a movement rather than a party or symbol
+
+0.2 - Right category, wrong entity
+
+Examples:
+The model answered a character from a TV show, but not the correct one
+Thamirabarani river answered as Kaveri river
+"A fifty-dollar bill" instead of "$100 bill"
+"The Hulk" instead of "Thanos"
+
+0.3 - Hallucination - the model makes up an entity
+
+One of the following:
+* The model makes up an entity. You should verify that the entity does not exist. This includes an impossible or less known combination of truthy entities
+* The model responds with an irrelevant answer confidently
+
+Examples:
+* A made up dish, with ingredients that exist, but the dish is not known in the culture
+*
+
+0.4 - Other (requires validator note)
+
+This option should only be selected when the rating is 0 - incorrect. If this is selected, write a note in the “Validator Note” column.
+
+2.1 - Related culture or region - the model mixed up related cultures such as national vs region or one cultural community vs another
+
+Examples:
+Kallanai (ancient Tamil dam) answered as Karnataka's Kaleshwaram Dam - dominant culture chosen instead of the answer specific to the culture
+“Persian Gulf” instead of “Gulf of Mexico” for American riddle “Water with a disputed name” - Americans likely answer Gulf of Mexico as the American government disputes its name, rather than the Persian Gulf, which is a correct answer but would not be answered by most Americans
+
+2.2 - Wrong level of detail / right domain, wrong category
+
+Examples:
+Book name instead of book author
+Sport name instead of athlete
+Title of piece instead of artist name
+TV show instead of main character's name
+
+2.3 - Surface pattern matching / keyword lifted from riddle - model reuses words from the riddle but doesn't arrive at the 100% correct answer
+
+Examples:
+An "hour cycle" riddle answered as "cycle". The model just echoed the word from the question to get a partially correct answer but not a completely correct answer.
+
+2.4 - Other (requires validator note)
+
+This option should only be selected when the rating is 2 - partially correct. If this is selected, write a note in the “Validator Note” column.
+
+3.1 - Different answer but valid / multiple answers to riddle
+
+Examples:
+"Raja Rani Mantri Thirudan Police(king, Queen, Minister, Their, Police)" answered as "police and thief". That is an alternative colloquial name for the same game.
+
+3.2 - Correct answer but in English
+
+3.3 - Other correct answer - use when the answer is correct but does not fit 3.1
+or 3.2. Use 3.1 for a different valid answer and 3.2 for an English answer. Do
+not use 3.3 when either of those more specific categories applies.
+
+
+Extras Sheet
+There is a second sheet in each community's files titled “Extras.” These human evaluations are not required, but if your community has the time, completing these evaluations would be very appreciated so our analysis can be as accurate as possible.
+
+
+Questions
+If you encounter any difficult edge cases or other questions about the human evaluation, please contact your community's regional coordinator.
+Make sure to look out for messages or check-ins from your regional coordinator. If you don't know your community's regional coordinator, they are listed here: Human Eval Team Contributors.xlsx.

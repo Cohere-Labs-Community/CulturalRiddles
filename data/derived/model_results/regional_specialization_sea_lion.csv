@@ -1,0 +1,3 @@
+region_definition,communities,n_models_ranked,in_region_accuracy,out_region_accuracy,gap_pp,residual_log_odds,in_region_rank,out_region_rank,residual_rank,Qwen3.5 27B residual_rank,did_pp,did_ci_low_pp,did_ci_high_pp
+SEA-LION languages,indonesian_indonesia;malay_malaysia;tamil_india;thai_thailand;vietnamese_vietnam,27,38.105,33.074,5.031,-0.103,13,12,21,22,1.316,-3.154,6.221
+Southeast Asia,bugisnese_indonesia;chinese_malaysia;chinese_singapore;indonesian_indonesia;malay_malaysia;mongondow_indonesia;thai_thailand;vietnamese_vietnam,27,31.36,33.87,-2.509,0.159,12,13,4,5,-0.629,-4.39,3.394

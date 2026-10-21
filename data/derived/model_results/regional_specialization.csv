@@ -1,0 +1,10 @@
+variant,region,is_target_region,n_communities,n_riddles,variant_accuracy,global_accuracy,difference_pp,variant_only,global_only,sign_test_p
+Tiny Aya Fire,South Asia,True,7,693,9.091,8.802,0.289,22,20,0.878
+Tiny Aya Earth,South Asia,False,7,693,8.802,8.802,0.0,16,16,1.0
+Tiny Aya Water,South Asia,False,7,693,9.091,8.802,0.289,19,17,0.868
+Tiny Aya Fire,Africa and West Asia,False,8,778,5.013,5.013,0.0,9,9,1.0
+Tiny Aya Earth,Africa and West Asia,True,8,778,5.398,5.013,0.386,10,7,0.629
+Tiny Aya Water,Africa and West Asia,False,8,778,4.756,5.013,-0.257,9,11,0.824
+Tiny Aya Fire,Asia-Pacific,False,9,898,9.354,10.245,-0.891,17,25,0.28
+Tiny Aya Earth,Asia-Pacific,False,9,898,9.911,10.245,-0.334,18,21,0.749
+Tiny Aya Water,Asia-Pacific,True,9,898,9.8,10.245,-0.445,17,21,0.627

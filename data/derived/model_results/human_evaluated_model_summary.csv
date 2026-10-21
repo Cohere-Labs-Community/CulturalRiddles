@@ -1,0 +1,29 @@
+model,setting,access,is_proprietary,exact_match,human_correct,difference_pp,max_community_accuracy,max_accuracy_community,min_community_accuracy,min_accuracy_community,communities_eq_0,communities_0_25,communities_25_50,communities_50_75,communities_75_100,n,n_evaluated_communities
+Gemini 3.1 Pro Preview,closed book,proprietary,True,48.5,79.4,30.9,100.0,spanish_cuba,18.0,lumasaba_uganda,0,2,4,10,41,5671,57
+GPT-5.5 [none],closed book,proprietary,True,42.8,76.3,33.5,98.0,french_france,17.2,mongondow_indonesia,0,2,7,12,36,5669,57
+Claude Opus 4.7 [high],closed book,proprietary,True,34.2,66.0,31.8,98.0,japanese_japan,3.0,bugisnese_indonesia,0,4,5,22,26,5673,57
+GPT-5.5 [search],search enabled,proprietary,True,37.8,64.5,26.7,97.0,japanese_japan,9.3,bugisnese_indonesia,0,3,11,21,22,5591,57
+DeepSeek V4 Pro [high],closed book,open-weight,False,36.6,63.8,27.2,95.0,english_usa,6.1,mongondow_indonesia,0,4,7,24,22,5670,57
+Claude Opus 4.7 [default],closed book,proprietary,True,32.1,59.7,27.6,95.0,japanese_japan,0.0,bugisnese_indonesia,1,3,16,19,18,5673,57
+DeepSeek V4 Pro [default],closed book,open-weight,False,32.9,58.8,25.9,89.0,japanese_japan,7.0,bugisnese_indonesia,0,6,13,24,14,5664,57
+Gemini 2.5 Flash,closed book,proprietary,True,25.3,50.1,24.8,87.0,japanese_japan,2.0,bugisnese_indonesia,0,8,19,20,10,5569,57
+Gemma 4 31B IT,closed book,open-weight,False,20.4,39.6,19.2,81.0,japanese_japan,0.0,bugisnese_indonesia,1,17,17,18,4,5635,57
+DeepSeek V4 Flash,closed book,open-weight,False,21.5,39.2,17.7,77.0,english_usa,0.0,bugisnese_indonesia,1,14,25,13,4,5536,57
+Mistral Large 3,closed book,open-weight,False,20.6,38.5,17.9,79.0,english_usa,1.0,bugisnese_indonesia,0,18,20,15,4,5620,57
+Gemini 2.5 Flash Lite,closed book,proprietary,True,17.4,33.6,16.2,77.0,english_usa,1.0,bugisnese_indonesia,0,21,25,10,1,5584,57
+Qwen-SEA-LION 4.5 27B Instruct,closed book,open-weight,False,17.7,33.5,15.8,81.0,english_usa,0.0,arabic_sudan,3,16,26,11,1,5642,57
+Qwen3.5 27B,closed book,open-weight,False,13.8,28.0,14.2,77.0,english_usa,0.0,bugisnese_indonesia,1,26,23,6,1,5595,57
+Apertus v1.5 70B,closed book,open-source,False,9.5,19.6,10.1,69.0,english_usa,0.0,bugisnese_indonesia,1,39,12,5,0,5533,57
+Apertus 70B Instruct,closed book,open-source,False,7.1,15.2,8.1,56.6,japanese_japan,0.0,bugisnese_indonesia,2,43,10,2,0,5514,57
+EuroLLM 22B Instruct,closed book,open-weight,False,7.6,15.0,7.4,60.0,english_usa,0.0,bugisnese_indonesia,2,41,12,2,0,5639,57
+Amazon Nova Lite,closed book,proprietary,True,6.4,14.7,8.3,62.0,english_usa,0.0,arabic_sudan,1,47,8,1,0,5599,57
+Olmo 3 32B Think,closed book,open-source,False,5.2,11.3,6.1,50.0,english_usa,0.0,afaan_oromo_oromo,5,46,5,1,0,5645,57
+Qwen2.5 14B Instruct AWQ,closed book,open-weight,False,4.9,10.4,5.5,58.0,english_usa,0.0,arabic_sudan,8,41,7,1,0,5564,57
+Apertus v1.5 8B,closed book,open-source,False,5.2,10.4,5.2,56.0,english_usa,0.0,arabic_sudan,5,45,6,1,0,5550,57
+Amazon Nova Micro,closed book,proprietary,True,3.4,8.3,4.9,50.0,english_usa,0.0,afaan_oromo_oromo,11,40,5,1,0,5602,57
+Apertus 8B Instruct,closed book,open-source,False,2.9,7.6,4.7,51.0,english_usa,0.0,afaan_oromo_oromo,6,48,2,1,0,5572,57
+Tiny Aya Global,closed book,open-weight,False,3.1,7.0,3.9,29.0,english_usa,0.0,afaan_oromo_oromo,9,46,2,0,0,5664,57
+Tiny Aya Earth,closed book,open-weight,False,2.8,6.9,4.1,33.0,english_usa,0.0,afaan_oromo_oromo,7,48,2,0,0,5675,57
+Tiny Aya Water,closed book,open-weight,False,2.8,6.8,4.0,34.0,english_usa,0.0,afaan_oromo_oromo,6,49,2,0,0,5672,57
+Tiny Aya Fire,closed book,open-weight,False,2.7,6.8,4.1,34.0,english_usa,0.0,afaan_oromo_oromo,7,49,1,0,0,5674,57
+Qwen3.5 0.8B,closed book,open-weight,False,0.1,0.4,0.3,4.0,french_france,0.0,afaan_oromo_oromo,43,14,0,0,0,5671,57

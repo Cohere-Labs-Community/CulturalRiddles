@@ -1,0 +1,54 @@
+# Optional CPU-only local model example. This downloads a model from Hugging Face.
+# Run from the repository root with a small row limit:
+#   uv run riddles-framework --config benchmark/configs/local_cpu_smoke.yaml --limit 5
+# Check that results.jsonl rows have "generation_status": "success".
+
+runner_name: local_cpu_smoke
+
+dataset_path: data/canonical/riddles.jsonl
+dataset_version: canonical_v1
+
+prompt_template_id: riddle_master
+prompt_template_version: v1
+prompt_language: eng
+riddle_language_presented: source
+is_hint_provided: false
+
+reasoning_mode: null
+search_enabled: false
+batch_mode: false
+batch_size: 1
+
+temperature: null
+max_output_tokens: 16
+seed: 0
+
+model_params:
+  model_load:
+    # Force CPU so the smoke test is deterministic and GPU-independent.
+    device_map: cpu
+    dtype: float32
+
+cache_enabled: false
+
+api_key_env_var: null
+base_url: null
+
+runner_version: v1.0.0
+notes: CPU smoke test, small ungated HF model, non-cached path
+strict_capability_check: true
+
+model_spec:
+  model_name: qwen2.5-0.5b-instruct
+  model_id: local/qwen2.5-0.5b-instruct
+  provider: local
+  access_pattern: local
+  provider_model_name: Qwen/Qwen2.5-0.5B-Instruct
+  closed_source: false
+  notes: small open-weight model, ~0.5B params, ungated
+  capabilities:
+    supports_reasoning: false
+    supports_search: false
+    supports_structured_output: false
+    supports_batch: true
+    supports_seed: true

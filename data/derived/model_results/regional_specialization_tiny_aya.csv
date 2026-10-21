@@ -1,0 +1,4 @@
+region,n_communities,n_riddles,Tiny Aya Global accuracy,Tiny Aya Fire accuracy,Tiny Aya Earth accuracy,Tiny Aya Water accuracy,all_agree_share,cochran_q,cochran_q_p,min_pairwise_sign_test_p
+South Asia,7,693,8.802,9.091,8.802,9.091,92.929,0.3,0.96,0.791
+Africa and West Asia,8,778,5.013,5.013,5.398,4.756,96.401,1.719,0.633,0.227
+Asia-Pacific,9,898,10.245,9.354,9.911,9.8,94.321,2.441,0.486,0.28

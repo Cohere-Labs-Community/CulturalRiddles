@@ -1,0 +1,16 @@
+{
+  "fit_csvs": {
+    "riddle_feature_effects.csv": "cc9da50f83363d6cafae0a7be6439961e8d14b2b5cfb1bb9b688bbff4cdce94b",
+    "riddle_feature_variance_explained.csv": "bac5f0cfe584b43bae7235b2fea1e24a682d4a84aed4e837f91e312c1e957434"
+  },
+  "group": "riddle_features",
+  "input_frame": {
+    "filename": "riddle_feature_frame.csv",
+    "sha256": "3410739f9924014ce962c389eb64131834cfda963f9bf7242c3f6051b1a8e8f0"
+  },
+  "r_script": {
+    "filename": "fit_riddle_features.R",
+    "sha256": "79a7eb711187d98f2390fe14c64e0fcf4279a5e3d8f3a0632a48b14dfb462706"
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,16 @@
+{
+  "fit_csvs": {
+    "tier_effects.csv": "e7f5b003737d7a4a1733435d24390b612140e851de1cb13396a8e99282edb879",
+    "variance_components.csv": "2056189c37ce5925aa2f480b3ba1ae570826ac5d9567b92727f27817c9e87b33"
+  },
+  "group": "prepare",
+  "input_frame": {
+    "filename": "frame.csv",
+    "sha256": "0c58ed77adf56e7f4e5c162bf0475698bc6847d9efc1d975c6cbf2d9377babd8"
+  },
+  "r_script": {
+    "filename": "fit_lme4.R",
+    "sha256": "0c966798a5e59e661af4ee4e11a26d971ecc75910db35cdb6af857d09ba2f6b1"
+  },
+  "schema_version": 1
+}
