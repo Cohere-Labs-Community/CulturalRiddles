@@ -177,3 +177,32 @@ def test_reviewed_context_correction_invalidates_scores_and_records_history_once
     with pytest.raises(ValueError, match="applied history"):
         app.corrections(Namespace(ledger=history, write=True, approved=True))
     assert canonical.read_bytes() == before
+
+
+def test_export_writes_every_public_table_and_card(tmp_path):
+    import shutil
+
+    from submissions import dataset_card
+
+    target = app.ROOT / "data/derived/submissions" / f"test-export-{tmp_path.name}"
+    try:
+        args = Namespace(
+            output=target,
+            write=True,
+            snapshot=app.ROOT / "data/canonical/benchmark_results.parquet",
+            baseline=app.ROOT / "data/canonical/evaluation_corpus.jsonl",
+        )
+        assert app.export(args) == 0
+        manifest = json.loads((target / "manifest.json").read_text(encoding="utf-8"))
+        for name, path in dataset_card.TABLES.items():
+            frame = pd.read_parquet(target / path)
+            assert len(frame) == manifest["tables"][name] > 0
+        answers = pd.read_parquet(target / dataset_card.TABLES["model_answers"])
+        riddles = pd.read_parquet(target / dataset_card.TABLES["riddles"])
+        assert set(answers["riddle_id"]) <= set(riddles["riddle_id"])
+        card = (target / "README.md").read_text(encoding="utf-8")
+        for name, path in dataset_card.TABLES.items():
+            assert f"config_name: {name}" in card and path in card
+        assert "must not be used to train" in card
+    finally:
+        shutil.rmtree(target, ignore_errors=True)

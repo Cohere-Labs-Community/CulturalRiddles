@@ -14,7 +14,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from . import evaluation_fingerprint
+from . import dataset_card, evaluation_fingerprint
 from .validation import (
     COMMUNITY_COLUMNS,
     FIXED_TOPICS,
@@ -348,7 +348,8 @@ def export(args) -> int:
     target = data_output(args.output)
     if not args.write:
         print(
-            f"Dry run: export anonymous canonical riddles, manifest, card, and LICENSE to {target}."
+            f"Dry run: export the riddles, model answers, human annotations, models, manifest, "
+            f"card, and LICENSE to {target}."
         )
         print("No files written. Pass --write to export.")
         return 0
@@ -367,22 +368,19 @@ def export(args) -> int:
         "evaluation_baseline_sha256": hashlib.sha256(args.baseline.read_bytes()).hexdigest(),
         **snapshot_audit(rows, args.baseline),
     }
+    riddles = pd.DataFrame([{field: row.get(field) for field in PUBLIC_FIELDS} for row in rows])
+    tables = dataset_card.build_tables(ROOT, riddles)
+    manifest["tables"] = {name: len(frame) for name, frame in tables.items()}
     target.mkdir(parents=True, exist_ok=True)
-    frame = pd.DataFrame([{field: row.get(field) for field in PUBLIC_FIELDS} for row in rows])
-    frame.to_parquet(target / "riddles.parquet", index=False)
+    for name, frame in tables.items():
+        path = target / dataset_card.TABLES[name]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        frame.to_parquet(path, index=False)
     (target / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    card = (
-        "---\nlicense: other\nlicense_name: culturalriddles-evaluation-only\n"
-        "license_link: LICENSE\nconfigs:\n- config_name: default\n"
-        "  data_files:\n  - split: test\n    path: riddles.parquet\n---\n\n"
-        "# Cultural Riddles\n\n"
-        f"{len(rows)} anonymous riddles. Preserve the attribution and evaluation-only terms in LICENSE.\n\n"
-        f"Dataset fingerprint: `{manifest['dataset_sha256']}`. "
-        f"Frozen evaluation content match: `{manifest['snapshot_matches']}`.\n"
-    )
-    (target / "README.md").write_text(card, encoding="utf-8")
+    (target / "README.md").write_text(dataset_card.render_card(ROOT, tables), encoding="utf-8")
     shutil.copyfile(license_path, target / "LICENSE")
-    print(f"Exported {len(rows)} rows to {target}; fingerprint {manifest['dataset_sha256']}")
+    counts = ", ".join(f"{name} {len(frame):,}" for name, frame in tables.items())
+    print(f"Exported {counts} rows to {target}; riddle fingerprint {manifest['dataset_sha256']}")
     return 0
 
 
@@ -396,7 +394,7 @@ def publish(args) -> int:
         return 0
     if not args.native_review_approved:
         raise ValueError("Publishing requires recorded native-speaker review approval.")
-    required = {"riddles.parquet", "manifest.json", "README.md", "LICENSE"}
+    required = {*dataset_card.TABLES.values(), "manifest.json", "README.md", "LICENSE"}
     missing = sorted(name for name in required if not (bundle / name).is_file())
     if missing:
         raise FileNotFoundError(f"Release bundle is incomplete at {bundle}: missing {missing}")
@@ -404,11 +402,14 @@ def publish(args) -> int:
 
     api = HfApi()
     api.create_repo(repo_id=args.repo_id, repo_type="dataset", private=True, exist_ok=True)
+    # Replace the whole data layout, so files from earlier layouts do not linger.
     api.upload_folder(
         repo_id=args.repo_id,
         repo_type="dataset",
         folder_path=str(bundle),
         allow_patterns=sorted(required),
+        delete_patterns=["*.parquet", "data/**"],
+        commit_message="Publish Cultural Riddles dataset from the source repository",
     )
     print(
         f"Published the reviewed dataset bundle to {args.repo_id}. Existing repository visibility is unchanged."
