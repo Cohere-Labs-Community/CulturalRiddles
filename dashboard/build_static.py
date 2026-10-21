@@ -22,6 +22,7 @@ OUT = HERE / "index.html"
 TEMPLATE = HERE / "template.html"
 
 LINKS = {
+    "play": "https://culturalriddles.ai/",
     "paper": "",
     "dataset": "https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles",
     "code": "https://github.com/Cohere-Labs-Community/CulturalRiddles",

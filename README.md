@@ -2,6 +2,7 @@
 
 [![Dataset on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-CulturalRiddles-yellow)](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)
 [![Results dashboard on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Dashboard-CulturalRiddles-orange)](https://huggingface.co/spaces/CohereLabsCommunity/CulturalRiddles)
+[![Play the riddles](https://img.shields.io/badge/%F0%9F%A7%A9%20Play-culturalriddles.ai-green)](https://culturalriddles.ai/)
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue)](LICENSE)
 [![Data terms](https://img.shields.io/badge/data-evaluation--only-lightgrey)](data/LICENSE)
 
@@ -16,6 +17,8 @@ The released snapshot records 170,520 answers from 28 model configurations on 6,
 The dataset, its schemas, and its terms are available at these locations:
 
 - **Dataset:** [CohereLabsCommunity/CulturalRiddles on Hugging Face](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)
+- **Play:** [try the riddles yourself and compare your answers with AI models](https://culturalriddles.ai/)
+- **Communities:** [the communities already in the benchmark](docs/communities.md)
 - **Results dashboard:** [Cultural Riddles on Hugging Face Spaces](https://huggingface.co/spaces/CohereLabsCommunity/CulturalRiddles)
 - **Data contract:** [schemas, score meanings, and snapshot boundaries](data/README.md)
 - **Licenses:** code under [Apache-2.0](LICENSE); data under the separate [data terms](data/LICENSE)

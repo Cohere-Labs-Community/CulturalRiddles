@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - "data/submissions/**"
+      - "data/canonical/riddles.jsonl"
+      - "data/canonical/corpus_metadata.csv"
+      - "docs/communities.md"
       - "submissions/**"
       - "human_eval/**"
       - "CONTRIBUTING.md"
@@ -17,13 +20,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
+      - name: Check the community list is current
+        run: uv run --frozen python -m submissions communities --check
       - name: Validate submitted workbooks
         run: |
           for file in data/submissions/*.xlsx; do
             [ -f "$file" ] || continue
             [ "$file" = "data/submissions/submission_template.xlsx" ] && continue
-            uv run python -m submissions check "$file"
+            uv run --frozen python -m submissions check "$file"
           done

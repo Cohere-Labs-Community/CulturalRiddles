@@ -8,18 +8,29 @@ import hashlib
 import json
 import re
 import sys
+import unicodedata
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
 
 from . import evaluation_fingerprint
-from .validation import COMMUNITY_COLUMNS, FIXED_TOPICS, STANDARD_TOPICS, WILDCARDS, validate
+from .validation import (
+    COMMUNITY_COLUMNS,
+    FIXED_TOPICS,
+    STANDARD_TOPICS,
+    WILDCARDS,
+    _personal_info,
+    label,
+    validate,
+)
 from .validation import text as _text
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "data/canonical/riddles.jsonl"
 METADATA = ROOT / "data/canonical/corpus_metadata.csv"
 LEDGER = ROOT / "data/corrections.csv"
+COMMUNITIES_DOC = ROOT / "docs/communities.md"
 FIELDS = [
     "riddle_id",
     "community",
@@ -63,6 +74,15 @@ def fingerprint(rows: list[dict]) -> str:
 
 def check(args) -> int:
     result = validate(args.input)
+    community = result.metadata.get("community", "")
+    if not result.errors and community:
+        existing = sum(row["community"] == community for row in load_rows())
+        if existing:
+            result.warnings.append(
+                f"Community: {community} already exists with {existing} riddles; importing this "
+                "workbook replaces all of them. Use a new key unless you are updating that "
+                "community's set with its maintainers."
+            )
     print(
         f"{'FAIL' if result.errors else 'PASS'}: {args.input} "
         f"({len(result.errors)} issue(s), {len(result.warnings)} warning(s))"
@@ -75,7 +95,8 @@ def check(args) -> int:
 
 
 def _slug(value: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "_", re.sub(r"['’]", "", value.lower())).strip("_")
+    ascii_value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "_", re.sub(r"['’]", "", ascii_value.lower())).strip("_")
 
 
 def _new_rows(meta: dict, table: pd.DataFrame, old: list[dict]) -> list[dict]:
@@ -85,14 +106,21 @@ def _new_rows(meta: dict, table: pd.DataFrame, old: list[dict]) -> list[dict]:
     old_by_number = {row["riddle_id"].rsplit("_", 1)[-1]: row for row in previous}
     if len(old_by_number) != len(previous):
         raise ValueError("Existing community has ambiguous riddle numbers.")
-    wildcard_topics = set(table["Topic"].dropna().astype(str).str.strip()) - FIXED_TOPICS
+    numbered = [
+        (int(re.sub(r"\.0+$", "", label(n))), label(t))
+        for n, t in zip(table["Number"], table["Topic"])
+    ]
+    wildcard_order = [t for _, t in sorted(numbered) if t not in FIXED_TOPICS]
+    wildcard_topics = list(dict.fromkeys(wildcard_order))
     output = []
     for _, s in table.iterrows():
-        topic = _text(s.get("Topic"))
-        number = _text(s.get("Number"))
+        topic = label(s.get("Topic"))
+        number = label(s.get("Number"))
         number_slug = str(int(re.sub(r"\.0+$", "", number))).zfill(3)
         prior = old_by_number.get(number_slug)
-        rid = prior["riddle_id"] if prior else f"{community}_{_slug(topic)}_{number_slug}"
+        # Topics in scripts without an ASCII spelling fall back to their wildcard position.
+        topic_slug = _slug(topic) or f"wildcard_{wildcard_topics.index(topic) + 1}"
+        rid = prior["riddle_id"] if prior else f"{community}_{topic_slug}_{number_slug}"
         row = {
             "riddle_id": rid,
             "community": community,
@@ -426,6 +454,14 @@ def main(argv=None) -> int:
             p.add_argument("--repo-id", required=True)
             p.add_argument("--native-review-approved", action="store_true")
         p.set_defaults(func=handler)
+    p = sub.add_parser("clean", help="Remove author names stored outside the cells")
+    p.add_argument("input", type=Path)
+    p.set_defaults(func=clean)
+    p = sub.add_parser("communities", help="List the communities already in the corpus")
+    mode = p.add_mutually_exclusive_group()
+    mode.add_argument("--write", action="store_true", help="Update docs/communities.md")
+    mode.add_argument("--check", action="store_true", help="Fail if docs/communities.md is stale")
+    p.set_defaults(func=communities)
     p = sub.add_parser("template")
     p.add_argument(
         "--output", type=Path, default=ROOT / "data/submissions/submission_template.xlsx"
@@ -437,6 +473,77 @@ def main(argv=None) -> int:
     except (ValueError, FileNotFoundError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 2
+
+
+def clean(args) -> int:
+    """Remove author names that Excel stores outside the cells, in place.
+
+    Saving through openpyxl also rewrites the extended properties (company and manager).
+    """
+    from openpyxl import load_workbook
+
+    path = args.input
+    if path.suffix.lower() != ".xlsx":
+        raise ValueError("clean works on .xlsx workbooks.")
+    found = _personal_info(path)
+    book = load_workbook(path)
+    for name in ("creator", "lastModifiedBy"):
+        setattr(book.properties, name, "")
+    for sheet in book.worksheets:
+        for row in sheet.iter_rows():
+            for cell in row:
+                cell.comment = None
+    book.save(path)
+    remaining = _personal_info(path)
+    if remaining:
+        raise ValueError(f"Could not remove: {'; '.join(remaining)}.")
+    print(f"Cleaned {path}: removed {'; '.join(found) if found else 'nothing'}.")
+    print("Cell text is unchanged; review it yourself for names before submitting.")
+    return 0
+
+
+def communities_markdown(rows: list[dict], metadata: pd.DataFrame) -> str:
+    """Render the list of communities already in the corpus."""
+    counts = Counter(row["community"] for row in rows)
+    meta = metadata.set_index("community")
+    lines = [
+        "# Communities in Cultural Riddles",
+        "",
+        "Generated from `data/canonical/` by `uv run python -m submissions communities --write`; "
+        "do not edit by hand.",
+        "",
+        "Check this list before you start. To add a community that is not here, open an "
+        "[Add my community](https://github.com/Cohere-Labs-Community/CulturalRiddles/issues/new?template=add-community.yml) "
+        "issue so that others can see it is in progress. To improve a community that is "
+        "already here, open an issue first instead of submitting a replacement.",
+        "",
+        "| Community key | Language | Country | Riddles |",
+        "| --- | --- | --- | ---: |",
+    ]
+    for community in sorted(counts):
+        row = meta.loc[community] if community in meta.index else {}
+        language = _text(row.get("language", "")) if len(row) else ""
+        country = _text(row.get("country", "")) if len(row) else ""
+        lines.append(f"| `{community}` | {language} | {country} | {counts[community]} |")
+    return "\n".join(lines) + "\n"
+
+
+def communities(args) -> int:
+    rendered = communities_markdown(load_rows(), pd.read_csv(METADATA))
+    if args.write:
+        COMMUNITIES_DOC.write_text(rendered, encoding="utf-8")
+        print(f"Wrote {COMMUNITIES_DOC}")
+        return 0
+    current = COMMUNITIES_DOC.read_text(encoding="utf-8") if COMMUNITIES_DOC.exists() else ""
+    if args.check:
+        if current != rendered:
+            raise ValueError(
+                f"{COMMUNITIES_DOC} is out of date; run `uv run python -m submissions communities --write`."
+            )
+        print(f"{COMMUNITIES_DOC} is up to date.")
+        return 0
+    print(rendered, end="")
+    return 0
 
 
 def template(args) -> int:

@@ -1,0 +1,65 @@
+name: Add my community
+description: Tell maintainers you plan to write riddles for a community, so others can see it is in progress.
+title: "Add community: LANGUAGE (COUNTRY)"
+labels: ["new community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing. Before you start, check [docs/communities.md](https://github.com/Cohere-Labs-Community/CulturalRiddles/blob/main/docs/communities.md) to see whether your community is already in the benchmark.
+
+        This issue is public. Do not include your name, email address, or other personal details; maintainers will reply here.
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: The language the riddles are written in, as speakers call it in English.
+      placeholder: Tamil
+    validations:
+      required: true
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      description: The country of the community. Communities are defined by language and country together.
+      placeholder: India
+    validations:
+      required: true
+  - type: input
+    id: community
+    attributes:
+      label: Proposed community key
+      description: Lowercase ASCII letters, digits, and single underscores, usually language_country. Maintainers confirm the final key.
+      placeholder: tamil_india
+    validations:
+      required: true
+  - type: input
+    id: language_code
+    attributes:
+      label: Language code
+      description: The three-letter ISO 639-3 code, if you know it.
+      placeholder: tam
+  - type: dropdown
+    id: writers
+    attributes:
+      label: How many native speakers will write the riddles?
+      options:
+        - "1"
+        - "2"
+        - "3 or more"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything maintainers should know
+      description: For example, the script you will use, or whether the language is spoken in several countries.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I am a native speaker of this language and have read CONTRIBUTING.md.
+          required: true
+        - label: The riddles will be original, written by people, and not copied or translated from another source.
+          required: true
