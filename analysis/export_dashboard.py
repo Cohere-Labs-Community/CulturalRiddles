@@ -8,13 +8,16 @@ or riddle text. The standalone dashboard needs only the resulting JSON.
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import math
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 from analysis.constants import (
+    CONTRIBUTOR_COUNTS_CSV,
     DERIVED_DIR,
     DIFFICULTY_OUTPUT_DIR,
     FIXED_TOPICS,
@@ -27,7 +30,7 @@ from analysis.eval_analysis.accuracy_by_country import country_accuracy
 from analysis.eval_analysis.accuracy_by_group import community_accuracy, summarize_grouping
 from analysis.llm_judge.english_condition import ENGLISH_MODELS, high_resource_accuracy
 from analysis.llm_judge.english_condition import OUTPUT_DIR as ENGLISH_OUTPUT_DIR
-from analysis.model_names import model_display_map
+from analysis.model_names import model_display_map, model_parameter_metadata
 from analysis.model_results.evaluation_data import (
     AUTO_METHODS,
     cell_accuracy,
@@ -64,6 +67,35 @@ def records(frame: pd.DataFrame) -> list[dict]:
     return [{key: clean(value) for key, value in row.items()} for row in frame.to_dict("records")]
 
 
+def riddle_matrix(scored: pd.DataFrame, riddles: pd.Index, models: pd.Series) -> dict:
+    """Which model solved which riddle, for riddles that every model has a score for.
+
+    Columns are riddles, sorted from solved by the most models to solved by none; ties keep
+    the strongest models' pattern together. Rows follow ``models``. Each row is a base64
+    bit string (one bit per riddle, most significant bit first). No riddle IDs or text are
+    exported, only each column's community and solve count.
+    """
+    rows = scored[scored["riddle_id"].isin(riddles)]
+    solved = rows.pivot_table(
+        index="riddle_id", columns="model_display", values="is_correct", aggfunc="first"
+    )
+    solved = solved[list(models)].astype(bool)
+    counts = solved.sum(axis=1)
+    weights = np.array([2.0 ** (len(models) - i) for i in range(len(models))])
+    order = np.lexsort(
+        (solved.index.to_numpy(), -(solved.to_numpy() @ weights), -counts.to_numpy())
+    )
+    solved = solved.iloc[order]
+    community = rows.groupby("riddle_id")["community"].first().loc[solved.index]
+    bits = np.packbits(solved.to_numpy().T, axis=1)
+    return {
+        "models": list(models),
+        "solved_by": counts.iloc[order].astype(int).tolist(),
+        "community": community.tolist(),
+        "bits": [base64.b64encode(row.tobytes()).decode("ascii") for row in bits],
+    }
+
+
 def export() -> dict:
     """Build the aggregate contract consumed by dashboard.compute/build_static."""
     for group, frame_path, script_path in (
@@ -82,6 +114,7 @@ def export() -> dict:
     scored_results = results[results["is_scored"]]
     displays = model_display_map()
     corpus = load_corpus()
+    people = pd.read_csv(CONTRIBUTOR_COUNTS_CSV).set_index("contribution")["people"]
     out = {
         "n_human_evaluated_communities": len(evaluated),
         "corpus": {
@@ -89,9 +122,17 @@ def export() -> dict:
             "communities": int(corpus["community"].nunique()),
             "languages": int(meta["language_code"].nunique()),
             "countries": int(meta["country"].nunique()),
+            "writers": int(people["riddle_writers"]),
+            "benchmarked_riddles": int(frame["riddle_id"].nunique()),
+            "benchmarked_communities": int(frame["community"].nunique()),
+            "models": int(frame["model_display"].nunique()),
         },
         "model_displays": displays,
     }
+    sizes = model_parameter_metadata()
+    out["model_sizes"] = records(
+        sizes[["model_display", "access", "model_size_b", "active_parameter_count_b"]]
+    )
     summary = build_summary()
     leaderboard = build_model_performance().merge(
         summary[
@@ -120,7 +161,13 @@ def export() -> dict:
         **{name: int(routing[name].sum()) for name in ("rules", "human", "judges", "unscored")},
         "exact_match": int(method.eq("auto_exact_match").sum()),
         "admits_not_knowing": int(frame["score"].eq(1).sum()),
+        "scores": {str(int(k)): int(v) for k, v in frame["score"].value_counts().items()},
     }
+    # Highest share of explicit "I don't know" answers among rule- and human-scored answers.
+    ruled = frame[frame["is_auto"] | frame["is_human"]]
+    out["abstention_max"] = float(
+        ruled["score"].eq(1).groupby(ruled["model_display"]).mean().max() * 100
+    )
     coverage = routing.groupby("community", as_index=False).agg(
         answers=("rules", "size"),
         rules=("rules", "sum"),
@@ -148,8 +195,21 @@ def export() -> dict:
         ("median_model", grid.median(axis=1)),
     ):
         communities[name] = communities["community"].map(values)
+    pooled_community = community_accuracy(min_human_responses=1).set_index("community")["accuracy"]
+    communities["pooled_accuracy"] = communities["community"].map(pooled_community)
     communities = communities.merge(
-        meta[["community", "label", "country", "language_resourcedness", "un_m49_subregion"]],
+        meta[
+            [
+                "community",
+                "label",
+                "language",
+                "country",
+                "country_code",
+                "language_resourcedness",
+                "un_m49_subregion",
+                "riddle_writers",
+            ]
+        ],
         on="community",
         validate="1:1",
     ).sort_values("mean_accuracy")
@@ -215,6 +275,16 @@ def export() -> dict:
     )
     by_model["accuracy"] *= 100
     out["topic_model"] = records(by_model)
+    scored_results = scored_results.assign(
+        topic_group=scored_results["topic"].where(
+            scored_results["topic"].isin(FIXED_TOPICS), "Wildcard"
+        )
+    )
+    out["community_topics"] = records(
+        scored_results.groupby(["community", "topic_group"], as_index=False)
+        .agg(accuracy=("is_correct", "mean"), responses=("is_correct", "size"))
+        .assign(accuracy=lambda data: data["accuracy"] * 100)
+    )
     out["topic_writing"] = records(
         pd.read_csv(RIDDLE_WRITING_OUTPUT_DIR / "topic_difficulty_human_accuracy.csv")[
             ["topic", "mean_difficulty", "human_accuracy"]
@@ -230,6 +300,7 @@ def export() -> dict:
             int(k): int(v) for k, v in complete["correct"].value_counts().sort_index().items()
         },
     }
+    out["riddle_matrix"] = riddle_matrix(scored_results, complete.index, leaderboard["model"])
     answers = results.assign(
         answer_norm=results["model_answer"].fillna("").astype(str).str.strip().str.lower()
     )

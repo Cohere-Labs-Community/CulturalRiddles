@@ -15,6 +15,7 @@ The released snapshot records 170,520 answers from 28 model configurations on 6,
 The dataset, its schemas, and its terms are available at these locations:
 
 - **Dataset:** [CohereLabsCommunity/CulturalRiddles on Hugging Face](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)
+- **Results dashboard:** [Cultural Riddles on Hugging Face Spaces](https://huggingface.co/spaces/CohereLabsCommunity/CulturalRiddles)
 - **Data contract:** [schemas, score meanings, and snapshot boundaries](data/README.md)
 - **Licenses:** code under [Apache-2.0](LICENSE); data under the separate [data terms](data/LICENSE)
 
