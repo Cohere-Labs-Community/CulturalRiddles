@@ -1,5 +1,6 @@
 ---
 title: Cultural Riddles
+emoji: 🧩
 colorFrom: indigo
 colorTo: blue
 sdk: static
@@ -9,9 +10,11 @@ pinned: false
 
 # Cultural Riddles: results dashboard
 
-The dashboard is one static HTML page with Plotly loaded from a CDN. Its
-sections cover results, cultures, answers, what helps and hurts, and benchmark
-construction. Published pages need an internet connection for Plotly, but no
+The dashboard is one static HTML page with Plotly loaded from a CDN. It shows
+which model solved which riddle, the leaderboard with each model's spread across
+communities, a model-by-community grid, a page for each community, geography
+and language resources, how answers were scored, the controlled comparisons,
+and how the benchmark is built. Published pages need an internet connection for Plotly, but no
 Python runtime or application server. The front matter at the top of this file
 configures a static Hugging Face Space when you upload this README and the built
 page together.
@@ -36,12 +39,17 @@ come from the shared English-condition configuration map; the high-resource
 comparison is recomputed for those same configurations. These headline values
 are rendered from JSON, not fixed in the page template.
 
+The riddle matrix records, for riddles that every model has a score for, which
+models solved each one, as one bit per riddle and model. It carries each
+column's community and solve count, not riddle IDs or text.
+
 `dashboard.compute` loads that JSON and validates relationships between the
-leaderboard, score distributions, model-community grid, coverage, error types,
-topics, and paired comparisons. It does not pin historical numerical results.
+leaderboard, score distributions, model-community grid, per-community topics,
+riddle matrix, coverage, error types, topics, and paired comparisons. It does not pin historical numerical results.
 `dashboard.build_static` uses only that JSON and Python's standard library; it
 does not import the analysis pipeline or read its source tables. It embeds the
-validated aggregates in the ignored build artifact `dashboard/index.html`.
+validated aggregates in `template.html` (layout, styles and chart code) and
+writes the ignored build artifact `dashboard/index.html`.
 You can rebuild from an existing JSON export without regenerating analysis.
 
 To run the data consistency checks without writing HTML:

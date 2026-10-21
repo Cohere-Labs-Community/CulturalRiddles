@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cultural Riddles</title>
+<meta name="description" content="Results of the Cultural Riddles benchmark: original riddles written by native speakers, answered by AI model configurations and scored with native speakers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try { const t = localStorage.getItem("cr-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+:root{
+  color-scheme:light;
+  --page:#f6f5f1; --card:#fdfdfb; --ink:#141413; --ink2:#52514e; --muted:#7c7b75;
+  --grid:#e6e5df; --axis:#c9c8c0; --border:rgba(20,20,19,.09); --wash:#ecf3fc; --chip:#efeee9;
+  --em:#1c5cab; --rev:#6da7ec; --partial:#eda100; --idk:#6250d6; --wrong:#e34948;
+  --r-high:#1c5cab; --r-medium:#6da7ec; --r-low:#eda100; --r-xlow:#e34948;
+  --accent:#1c5cab; --hi:#eb6834;
+  --seq0:#f1f6fd; --seq1:#cde2fb; --seq2:#9ec5f4; --seq3:#6da7ec; --seq4:#3987e5; --seq5:#256abf; --seq6:#184f95; --seq7:#0d366b;
+  --bar-off:#e9e8e2; --bar-on:#1c5cab;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --shadow:0 1px 2px rgba(20,20,19,.04),0 8px 24px rgba(20,20,19,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme:dark;
+    --page:#0f0f0e; --card:#1a1a19; --ink:#f3f2ee; --ink2:#c3c2b7; --muted:#8f8e88;
+    --grid:#2b2b29; --axis:#3d3d3a; --border:rgba(255,255,255,.09); --wash:#18243a; --chip:#262624;
+    --em:#6da7ec; --rev:#256abf; --partial:#c98500; --idk:#9085e9; --wrong:#e66767;
+    --r-high:#6da7ec; --r-medium:#256abf; --r-low:#c98500; --r-xlow:#d03b3b;
+    --accent:#6da7ec; --hi:#d95926;
+    --seq0:#1d2129; --seq1:#14304f; --seq2:#184f95; --seq3:#256abf; --seq4:#3987e5; --seq5:#6da7ec; --seq6:#9ec5f4; --seq7:#cde2fb;
+    --bar-off:#2a2a28; --bar-on:#6da7ec;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0f0f0e; --card:#1a1a19; --ink:#f3f2ee; --ink2:#c3c2b7; --muted:#8f8e88;
+  --grid:#2b2b29; --axis:#3d3d3a; --border:rgba(255,255,255,.09); --wash:#18243a; --chip:#262624;
+  --em:#6da7ec; --rev:#256abf; --partial:#c98500; --idk:#9085e9; --wrong:#e66767;
+  --r-high:#6da7ec; --r-medium:#256abf; --r-low:#c98500; --r-xlow:#d03b3b;
+  --accent:#6da7ec; --hi:#d95926;
+  --seq0:#1d2129; --seq1:#14304f; --seq2:#184f95; --seq3:#256abf; --seq4:#3987e5; --seq5:#6da7ec; --seq6:#9ec5f4; --seq7:#cde2fb;
+  --bar-off:#2a2a28; --bar-on:#6da7ec;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.6 var(--sans);-webkit-text-size-adjust:100%;font-feature-settings:"cv11","ss01"}
+a{color:var(--accent);text-underline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:58px}
+.brand{font:400 24px/1 var(--serif);letter-spacing:-.01em;white-space:nowrap;color:var(--ink);text-decoration:none}
+.nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-size:14px;color:var(--ink2);text-decoration:none;padding:7px 11px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover{background:var(--chip);color:var(--ink)}
+.nav a.on{background:var(--ink);color:var(--page)}
+.theme{border:1px solid var(--border);background:var(--card);color:var(--ink2);border-radius:999px;width:36px;height:36px;display:grid;place-items:center;cursor:pointer;flex:none}
+.theme svg{width:17px;height:17px}
+
+/* hero */
+.hero{padding:72px 0 28px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font:400 clamp(44px,7vw,84px)/1.0 var(--serif);letter-spacing:-.02em;margin:14px 0 22px;max-width:15ch}
+h1 em{font-style:italic;color:var(--accent)}
+.lede{font-size:clamp(18px,2vw,21px);line-height:1.55;color:var(--ink2);max-width:62ch;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--border);color:var(--ink);background:var(--card)}
+.btn.primary{background:var(--ink);color:var(--page);border-color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin:44px 0 0}
+.kpi{background:var(--card);padding:20px 20px 18px}
+.kpi .v{font:400 40px/1 var(--serif);letter-spacing:-.01em}
+.kpi .l{font-size:13px;color:var(--ink2);margin-top:8px;line-height:1.35}
+
+/* sections */
+section{padding:88px 0 8px}
+.sh{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:28px;max-width:760px}
+.sh .idx{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h2{font:400 clamp(34px,4.6vw,52px)/1.05 var(--serif);letter-spacing:-.015em;margin:0}
+.sh p{margin:6px 0 0;color:var(--ink2);font-size:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:var(--shadow);margin-bottom:32px}
+.card h3{font-size:21px;font-weight:600;letter-spacing:-.01em;margin:0 0 6px}
+.card .sub{color:var(--ink2);margin:0 0 20px;max-width:78ch;font-size:15.5px}
+.take{margin:22px 0 0;padding:16px 20px;border-radius:14px;background:var(--wash);font-size:16px;line-height:1.55}
+.take b{font-weight:600}
+.src{font-size:12.5px;color:var(--muted);margin-top:14px}
+.row-head{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--ink2);align-items:center}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.legend i.dot{border-radius:50%}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--chip);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;color:var(--ink2);font:500 13.5px var(--sans);padding:7px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+select.pick{font:500 15px var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--axis);border-radius:12px;padding:10px 38px 10px 14px;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;max-width:100%}
+.plot{width:100%}
+
+/* tooltip */
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--page);font-size:13px;line-height:1.45;padding:9px 12px;border-radius:10px;max-width:300px;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#tip.on{opacity:1;transform:none}
+#tip b{font-weight:600}
+#tip .m{opacity:.75}
+
+/* barcode */
+.bc{position:relative;margin-top:6px}
+.bc-grid{display:grid;grid-template-columns:var(--lab,200px) 1fr;column-gap:12px}
+.bc-labels{font-size:11.5px;color:var(--ink2);text-align:right}
+.bc-labels div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .15s}
+.bc-labels div.hl{color:var(--ink);font-weight:600}
+.bc canvas{width:100%;display:block;border-radius:6px;cursor:crosshair}
+.bc-axis{position:relative;height:46px;font-size:12px;color:var(--ink2)}
+.bc-axis .t{position:absolute;top:0;border-left:1px solid var(--axis);height:9px}
+.bc-axis .tl{position:absolute;top:12px;transform:translateX(-50%);white-space:nowrap}
+.bc-brace{position:absolute;top:-2px;height:8px;border:1px solid var(--hi);border-bottom:0;border-radius:4px 4px 0 0}
+.bc-top{position:relative;height:40px;font-size:12.5px}
+.bc-top .cap{position:absolute;bottom:6px;white-space:nowrap;color:var(--ink2)}
+.bc-top .cap b{color:var(--ink)}
+
+/* leaderboard */
+.lb-head,.lb-row{display:grid;grid-template-columns:44px minmax(150px,230px) 1fr 60px 300px;gap:14px;align-items:center}
+.lb-head{font-size:12.5px;color:var(--muted);padding:0 0 10px;border-bottom:1px solid var(--grid)}
+.lb-body{position:relative}
+.lb-row{height:38px;border-bottom:1px solid var(--grid);position:relative;transition:opacity .3s}
+.lb-row.dim{opacity:.28}
+.lb-row .rk{font-size:14px;color:var(--ink2);display:flex;align-items:center;gap:4px}
+.lb-row .dl{font-size:11px;font-weight:600}
+.lb-row .dl.up{color:#0c8a0c}.lb-row .dl.dn{color:var(--wrong)}
+.lb-row .nm{font-size:14.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:8px}
+.acc{flex:none;width:9px;height:9px;display:inline-block;background:var(--ink2)}
+.acc.Proprietary{border-radius:2px}
+.acc.Open-weight{clip-path:polygon(50% 0,100% 100%,0 100%)}
+.acc.Open-source{border-radius:50%}
+.lb-bar{position:relative;height:16px}
+.lb-bar .em,.lb-bar .rv{position:absolute;top:0;height:100%;transition:width .6s cubic-bezier(.2,.7,.2,1),left .6s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.lb-bar .em{left:0;background:var(--em);border-radius:4px 0 0 4px}
+.lb-bar .rv{background:var(--rev);border-radius:0 4px 4px 0}
+.lb-bar .gl{position:absolute;top:-4px;bottom:-4px;border-left:1px dashed var(--grid)}
+.lb-row .val{font-size:15px;font-weight:600;text-align:right}
+.lb-row svg{display:block;width:100%;height:30px;overflow:visible;cursor:pointer}
+.lb-row svg circle{transition:r .15s,opacity .15s}
+.strip-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.lb-foot{display:grid;grid-template-columns:44px minmax(150px,230px) 1fr 60px 300px;gap:14px;padding-top:8px}
+.lb-foot .ax{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+
+/* explorer */
+.ex-top{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:24px}
+.card h3.ex-name{font:400 clamp(30px,4vw,46px)/1.05 var(--serif);margin:4px 0 0;letter-spacing:-.01em}
+.ex-meta{color:var(--ink2);font-size:15px;margin-top:6px}
+.ex-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 26px}
+.ex-stat{border:1px solid var(--border);border-radius:14px;padding:16px}
+.ex-stat .v{font:400 34px/1 var(--serif)}
+.ex-stat .l{font-size:13px;color:var(--ink2);margin-top:6px}
+.ex-cols{display:grid;grid-template-columns:1.25fr 1fr;gap:32px}
+.ex-cols h4{font-size:15px;font-weight:600;margin:0 0 4px}
+.ex-cols .s{font-size:13.5px;color:var(--ink2);margin:0 0 8px}
+.chip{display:inline-block;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--chip);color:var(--ink2);margin-left:6px;vertical-align:3px}
+.share{font-size:13px}
+
+/* tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{border:1px solid var(--border);background:transparent;color:var(--ink2);font:500 14px var(--sans);padding:8px 15px;border-radius:999px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--page);border-color:var(--ink)}
+.panel{display:none}.panel.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{border:1px solid var(--border);border-radius:16px;padding:22px;background:var(--card)}
+.step .n{font:400 34px/1 var(--serif);color:var(--accent)}
+.step h4{margin:10px 0 6px;font-size:16px}
+.step p{margin:0;font-size:14.5px;color:var(--ink2)}
+.routes{display:flex;height:56px;border-radius:12px;overflow:hidden;gap:2px;margin:6px 0 10px}
+.routes div{display:flex;align-items:center;padding:0 14px;color:#fff;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;min-width:0}
+.rl{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;font-size:14px;color:var(--ink2)}
+.rl b{display:block;color:var(--ink);font:400 26px/1.1 var(--serif)}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+table.t th{font-size:12.5px;font-weight:600;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--grid);cursor:pointer;white-space:nowrap;user-select:none}
+table.t td{padding:9px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
+table.t td:nth-child(3){white-space:nowrap}
+table.t td.r,table.t th.r{text-align:right}
+.tscroll{overflow-x:auto}
+details summary{cursor:pointer;font-weight:600;font-size:15px;padding:4px 0}
+footer{padding:64px 0 80px;color:var(--muted);font-size:14px;border-top:1px solid var(--border);margin-top:72px}
+footer p{max-width:80ch}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .lb-head,.lb-row,.lb-foot{grid-template-columns:36px minmax(120px,1fr) 1.2fr 52px}
+  .lb-head .c5,.lb-row .c5,.lb-foot .c5{display:none}
+  .ex-cols{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .hero{padding:44px 0 16px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi .v{font-size:32px}
+  .card{padding:20px 16px;border-radius:16px}
+  section{padding:64px 0 4px}
+  .lb-head,.lb-row,.lb-foot{grid-template-columns:28px minmax(0,1fr) 92px 44px;gap:8px}
+  .lb-row .nm{font-size:13px}
+  .lb-row .val{font-size:13.5px}
+  .ex-stats{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .rl{grid-template-columns:repeat(2,1fr)}
+  .bc-grid{grid-template-columns:1fr}
+  .bc-labels,.bc-grid .sp{display:none}
+  .brand{font-size:21px}
+  #heat{width:880px}
+  table.t{min-width:760px}
+  .seg{border-radius:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Cultural Riddles</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#communities">Communities</a>
+      <a href="#map">Geography</a>
+      <a href="#answers">Answers</a>
+      <a href="#helps">What helps</a>
+      <a href="#method">Method</a>
+    </nav>
+    <button class="theme" id="theme" aria-label="Switch light or dark theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Cohere Labs Community</div>
+    <h1>Can AI solve riddles from <em>your</em> culture?</h1>
+    <p class="lede" id="lede"></p>
+    <div class="links" id="links"></div>
+    <div class="kpis" id="kpis"></div>
+  </div>
+
+  <!-- barcode -->
+  <div class="card reveal" id="barcode-card" style="margin-top:36px">
+    <div class="row-head">
+      <div>
+        <h3>Every riddle, every model</h3>
+        <p class="sub" style="margin:0">Each column is one riddle and each row is one model configuration, strongest at the top. A filled cell means native speakers or the scoring rules judged the answer fully correct. Riddles are sorted from solved by all models (left) to solved by none (right).</p>
+      </div>
+      <select class="pick" id="bc-pick" aria-label="Show riddles from one community"></select>
+    </div>
+    <div class="bc" id="bc"></div>
+    <div class="legend" style="margin-top:2px"><span><i style="background:var(--bar-on)"></i>solved</span><span><i style="background:var(--bar-off)"></i>not solved</span><span id="bc-legend-note"></span></div>
+    <p class="take" id="bc-take"></p>
+    <div class="src">Riddles from the <span data-k="nhe"></span> communities with human evaluation, where all <span data-k="nm"></span> configurations have a final score.</div>
+  </div>
+
+  <!-- leaderboard -->
+  <section id="leaderboard">
+    <div class="sh">
+      <div class="idx">01 · Leaderboard</div>
+      <h2>A strong average hides weak cultures</h2>
+      <p>Accuracy is the share of answers judged fully correct. Each model's <span data-k="nhe"></span> community scores sit on the right: a long spread means its accuracy depends on whose culture the riddle comes from.</p>
+    </div>
+    <div class="card reveal">
+      <div class="row-head">
+        <div class="legend">
+          <span><i style="background:var(--em)"></i>exact match</span>
+          <span><i style="background:var(--rev)"></i>added by native speakers and the LLM jury</span>
+          <span><i class="dot" style="background:var(--ink2);opacity:.55"></i>one community</span>
+          <span><i class="dot" style="background:var(--hi)"></i><span id="hi-label"></span></span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <div class="seg" id="lb-mode" role="group" aria-label="Scoring">
+            <button data-m="review" class="on">With review</button>
+            <button data-m="exact">Exact match only</button>
+          </div>
+          <div class="seg" id="lb-access" role="group" aria-label="Access">
+            <button data-a="all" class="on">All</button>
+            <button data-a="Proprietary">Proprietary</button>
+            <button data-a="Open-weight">Open-weight</button>
+            <button data-a="Open-source">Open-source</button>
+          </div>
+        </div>
+      </div>
+      <div class="lb-head"><div>#</div><div>Model</div><div id="lb-col">Accuracy</div><div class="r" style="text-align:right">%</div><div class="c5">Accuracy in each of <span data-k="nhe"></span> communities</div></div>
+      <div class="lb-body" id="lb"></div>
+      <div class="lb-foot"><div></div><div></div><div class="ax"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div><div></div><div class="ax c5"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div>
+      <p class="take" id="lb-take"></p>
+      <div class="src">Hover a community dot to follow it through every model. Shapes mark access: square proprietary, triangle open-weight, circle open-source. Source: Figure 6 and Section 5 of the paper.</div>
+    </div>
+  </section>
+
+  <!-- communities -->
+  <section id="communities">
+    <div class="sh">
+      <div class="idx">02 · Communities</div>
+      <h2>The same model, a different culture</h2>
+      <p>Models largely agree on which communities are hard. The gaps follow language resources and region more than any single model.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="row-head">
+        <div>
+          <h3>Cultural fingerprint</h3>
+          <p class="sub" style="margin:0">Every model in every community. Rows are models, strongest at the top; columns are communities. Click a square to open that community below.</p>
+        </div>
+        <div class="seg" id="hm-sort" role="group" aria-label="Order communities">
+          <button data-s="mean" class="on">By difficulty</button>
+          <button data-s="region">By region</button>
+          <button data-s="resource">By language resources</button>
+        </div>
+      </div>
+      <div class="tscroll"><div id="heat" class="plot"></div></div>
+      <p class="take" id="hm-take"></p>
+    </div>
+
+    <div class="card reveal" id="explorer">
+      <div class="ex-top">
+        <div>
+          <div class="eyebrow">Find your community</div>
+          <h3 class="ex-name" id="ex-name"></h3>
+          <div class="ex-meta" id="ex-meta"></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <select class="pick" id="ex-pick" aria-label="Choose a community"></select>
+          <a class="share" id="ex-link" href="#">Link to this view</a>
+        </div>
+      </div>
+      <div class="ex-stats" id="ex-stats"></div>
+      <div class="ex-cols">
+        <div>
+          <h4>Each model on these riddles</h4>
+          <p class="s">Bars show accuracy in this community; the grey tick is the model's accuracy over all <span data-k="nhe"></span> communities.</p>
+          <div id="ex-models" class="plot"></div>
+        </div>
+        <div>
+          <h4>By topic</h4>
+          <p class="s">Accuracy pooled over all <span data-k="nm"></span> models. Wildcard groups the topics each community chose itself.</p>
+          <div id="ex-topics" class="plot"></div>
+          <h4 style="margin-top:18px">How many models solve each riddle</h4>
+          <p class="s" id="ex-hist-s"></p>
+          <div id="ex-hist" class="plot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>Language resources</h3>
+      <p class="sub">Each dot is a community, placed by the accuracy of all its scored answers pooled over models. Diamonds pool every answer in the level, with 95% intervals from resampling communities. Levels follow Common Crawl page counts for the language.</p>
+      <div id="resource" class="plot"></div>
+      <p class="take" id="res-take"></p>
+      <div class="src">Source: Section 5 and Figure 8 of the paper.</div>
+    </div>
+  </section>
+
+  <!-- map -->
+  <section id="map">
+    <div class="sh">
+      <div class="idx">03 · Geography</div>
+      <h2>Where the riddles come from</h2>
+      <p>Accuracy pooled over all models and every human-evaluated community in each country.</p>
+    </div>
+    <div class="card reveal">
+      <div id="world" class="plot"></div>
+      <p class="take" id="map-take"></p>
+      <div class="src">Grey countries are not in the results. Countries with several communities pool them.</div>
+    </div>
+    <div class="card reveal">
+      <h3>By region</h3>
+      <p class="sub">Pooled accuracy by UN geographic subregion, with 95% intervals from resampling communities (shown where a region has more than one community).</p>
+      <div id="regions" class="plot"></div>
+      <p class="take" id="reg-take"></p>
+      <div class="src" id="reg-src"></div>
+    </div>
+  </section>
+
+  <!-- answers -->
+  <section id="answers">
+    <div class="sh">
+      <div class="idx">04 · Answers</div>
+      <h2>What the answers look like</h2>
+      <p>How each answer was scored, how often models are right, partly right or wrong, and the kinds of mistakes native speakers saw.</p>
+    </div>
+    <div class="card reveal">
+      <h3>How every answer was scored</h3>
+      <p class="sub">Rules handle exact matches, empty outputs, placeholders and explicit admissions of not knowing. Native speakers score the rest; where no valid human label exists, an LLM jury of two judges scores answers they agree on.</p>
+      <div class="routes" id="routes"></div>
+      <div class="rl" id="routes-l"></div>
+      <p class="take" id="routes-take"></p>
+    </div>
+    <div class="card reveal">
+      <div class="row-head">
+        <div>
+          <h3>Right, partly right or wrong</h3>
+          <p class="sub" style="margin:0">Every scored answer gets 0 (wrong), 1 (admits not knowing), 2 (partly correct) or 3 (correct).</p>
+        </div>
+        <div class="legend" id="sd-legend"></div>
+      </div>
+      <div id="scores" class="plot"></div>
+      <p class="take" id="sd-take"></p>
+    </div>
+    <div class="card reveal">
+      <h3>Kinds of answers</h3>
+      <p class="sub">Every answer scored by rules or native speakers, by the type the scorer recorded. Types are descriptive: annotators agree on them less than on scores.</p>
+      <div id="errors" class="plot"></div>
+      <p class="take" id="err-take"></p>
+      <div class="src">Source: Table 3 of the paper.</div>
+    </div>
+    <div class="card reveal">
+      <h3>Weaker models make things up more</h3>
+      <p class="sub">Each dot is a model: its accuracy against the share of its human-labeled answers that native speakers marked as hallucinated.</p>
+      <div id="halluc" class="plot"></div>
+      <p class="take" id="hal-take"></p>
+    </div>
+    <div class="card reveal">
+      <h3>When models agree, are they right?</h3>
+      <p class="sub">For each riddle, the number of models that gave the most common answer, and whether that answer was correct.</p>
+      <div class="legend" style="margin-bottom:8px"><span><i style="background:var(--em)"></i>most common answer correct</span><span><i style="background:var(--wrong)"></i>wrong</span><span><i style="background:var(--axis)"></i>not scored</span></div>
+      <div id="agree" class="plot"></div>
+      <p class="take" id="agr-take"></p>
+    </div>
+    <div class="card reveal">
+      <div class="row-head">
+        <div>
+          <h3>Topics</h3>
+          <p class="sub" style="margin:0">Every community wrote riddles on the same shared topics, plus wildcard topics of its own choosing.</p>
+        </div>
+        <div class="seg" id="tp-mode" role="group" aria-label="Topic view">
+          <button data-t="model" class="on">By model</button>
+          <button data-t="writers">Writers' expectations</button>
+        </div>
+      </div>
+      <div id="topics" class="plot"></div>
+      <p class="take" id="tp-take"></p>
+    </div>
+  </section>
+
+  <!-- helps -->
+  <section id="helps">
+    <div class="sh">
+      <div class="idx">05 · What helps, what hurts</div>
+      <h2>Controlled comparisons</h2>
+      <p>Each comparison holds everything else fixed: the same model with one setting changed, the same riddles in two languages, or the same language in different places.</p>
+    </div>
+    <div class="card reveal">
+      <div class="tabs" id="tabs" role="tablist">
+        <button data-p="p-reason" class="on" role="tab">Reasoning and search</button>
+        <button data-p="p-english" role="tab">Translating to English</button>
+        <button data-p="p-chinese" role="tab">Same language, different culture</button>
+        <button data-p="p-size" role="tab">Model size</button>
+        <button data-p="p-odds" role="tab">What makes a riddle hard</button>
+      </div>
+      <div class="panel on" id="p-reason"><h3>More reasoning helps, web search hurts</h3><p class="sub">The same model answered twice with one setting changed.</p><div id="reason" class="plot"></div><p class="take" id="reason-take"></p><div class="src">Source: Section 5 of the paper.</div></div>
+      <div class="panel" id="p-english"><h3>English helps, but does not close the gap</h3><p class="sub" id="eng-sub"></p><div id="english" class="plot"></div><p class="take" id="eng-take"></p><div class="src">Source: Section 6 of the paper. Translated answers were scored by rules and the LLM jury; gains are paired over answers scored in both conditions, with 95% intervals.</div></div>
+      <div class="panel" id="p-chinese"><h3>One language, different cultures</h3><p class="sub">Several communities write in Chinese. Accuracy averages each model's accuracy over all <span data-k="nm"></span> models.</p><div id="chinese" class="plot"></div><p class="take" id="zh-take"></p><div class="src">Source: Section 6 of the paper.</div></div>
+      <div class="panel" id="p-size"><h3>Bigger is usually better, but not always</h3><p class="sub">Accuracy against total parameters for models with a published size (log scale). Proprietary models do not publish their size.</p><div id="size" class="plot"></div><p class="take" id="size-take"></p></div>
+      <div class="panel" id="p-odds"><h3>What lowers the odds of a correct answer</h3><p class="sub">Adjusted odds ratios from the paper's regression models, with 95% intervals. Below 1 means lower odds than the reference.</p><div id="odds" class="plot"></div><p class="take" id="odds-take"></p><div class="src">Source: Section 6 and Appendix B.2 of the paper.</div></div>
+    </div>
+  </section>
+
+  <!-- method -->
+  <section id="method">
+    <div class="sh">
+      <div class="idx">06 · Method</div>
+      <h2>How the benchmark is built</h2>
+      <p>Written, checked and scored by the communities themselves, through the Cohere Labs Community.</p>
+    </div>
+    <div class="steps reveal" id="steps"></div>
+    <div class="card reveal" style="margin-top:32px">
+      <h3>What changed when the jury filled the gaps</h3>
+      <p class="sub">Accuracy for each model before and after adding the answers that the LLM jury agreed on. Before, those answers were left out.</p>
+      <div id="fill" class="plot"></div>
+      <p class="take" id="fill-take"></p>
+    </div>
+    <div class="card reveal">
+      <h3>All model configurations</h3>
+      <p class="sub">Click a column to sort. Parameters in billions (active/total for mixture-of-experts models).</p>
+      <div class="tscroll"><table class="t" id="table"></table></div>
+      <p style="margin:16px 0 0"><a href="#" id="dl">Download this table (CSV)</a></p>
+    </div>
+    <div class="card reveal">
+      <details>
+        <summary>Coverage for each community</summary>
+        <p class="sub" style="margin-top:10px">How each community's answers were scored. Communities without valid human labels are left out of the results.</p>
+        <div class="tscroll"><table class="t" id="cov"></table></div>
+      </details>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Cultural Riddles is written, checked and scored by native-speaker volunteers in the Cohere Labs Community. The data must not be used to train, fine-tune or distill models. Every number on this page is computed from the released data when the page is built.</p>
+    <p id="foot-links"></p>
+  </div>
+</footer>
+
+<script>
+const D = adapt(__DATA__);
+function adapt(R) {
+  const ACCESS = {'proprietary': 'Proprietary', 'open-weight': 'Open-weight', 'open-source': 'Open-source'};
+  const size = Object.fromEntries(R.model_sizes.map(s => [s.model_display, s]));
+  const models = R.leaderboard.map(x => ({
+    name: x.model, rank: x.rank, access: ACCESS[size[x.model].access],
+    params_total: size[x.model].model_size_b, params_active: size[x.model].active_parameter_count_b,
+    exact: x.exact_match, total: x.human_accuracy, review: x.difference_pp,
+    buckets: [x.communities_eq_0, x.communities_0_25, x.communities_25_50, x.communities_50_75, x.communities_75_100],
+    max_comm: x.max_accuracy_community, max_acc: x.max_community_accuracy, min_comm: x.min_accuracy_community, min_acc: x.min_community_accuracy,
+  }));
+  const comms = R.communities.map((c, i) => ({
+    id: c.community, label: c.label, country: c.country, iso3: c.country_code, language: c.language,
+    region: c.un_m49_subregion, resource: c.language_resourcedness, writers: c.riddle_writers,
+    mean: c.mean_accuracy, median_model: c.median_model, frontier: c.frontier_accuracy, small: c.small_accuracy,
+    below10: c.n_below_10, above20: c.n_above_20, pooled: c.pooled_accuracy, rank_from_hardest: i + 1,
+  }));
+  const ci = Object.fromEntries(comms.map((c, i) => [c.id, i]));
+  const cell = Object.fromEntries(R.cells.map(x => [x.model_display + '|' + x.community, x]));
+  const grid = models.map(m => comms.map(c => cell[m.name + '|' + c.id].value));
+  const grid_n = models.map(m => comms.map(c => cell[m.name + '|' + c.id].total));
+  const comm_topics = {};
+  R.community_topics.forEach(x => (comm_topics[x.community] ||= {})[x.topic_group] = [x.accuracy, x.responses]);
+  const group = rows => rows.map(r => ({group: r.group, communities: r.communities, pooled: r.pooled_accuracy, lo: r.pooled_ci_low, hi: r.pooled_ci_high,
+    mean: r.mean_community_accuracy, sd: r.between_community_sd, clo: r.community_ci_low, chi: r.community_ci_high}));
+  const iso = Object.fromEntries(comms.map(c => [c.country, c.iso3]));
+  const rt = R.routing, sc = rt.scores;
+  const mx = R.riddle_matrix;
+  return {
+    corpus: {...R.corpus, human_communities: R.n_human_evaluated_communities},
+    md: R.model_displays,
+    models, communities: comms, grid, grid_n, comm_topics,
+    barcode: {n: mx.solved_by.length, k: mx.solved_by, c: mx.community.map(id => ci[id]), bits: mx.bits},
+    routing: {responses: rt.responses, rules: rt.rules, exact_match: rt.exact_match, human: rt.human, jury: rt.judges + rt.unscored,
+      jury_scored: rt.judges, unscored: rt.unscored, score3: sc['3'] || 0, score2: sc['2'] || 0, score1: sc['1'] || 0, score0: sc['0'] || 0},
+    resource: group(R.resource), subregion: group(R.subregion),
+    countries: R.countries.filter(k => iso[k.country]).map(k => ({country: k.country, iso3: iso[k.country], accuracy: k.accuracy, communities: k.communities})),
+    judge_fill: R.judge_fill.map(f => ({model: f.model_display, before: f.accuracy_before, after: f.accuracy_after})),
+    abstention_max: R.abstention_max, score_dist: R.score_dist, hallucination: R.hallucination, error_types: R.error_types,
+    topic_pooled: R.topic_pooled, topic_model: R.topic_model, topic_writing: R.topic_writing, agreement: R.agreement,
+    pairs: R.pairs, pair_models: R.pair_models, search_losses: R.search_losses, english: R.english, english_models: R.english_models,
+    english_high: R.english_high_resource_accuracy, chinese: R.chinese, tier_effects: R.tier_effects, local_term: R.local_term_effect,
+    coverage: R.coverage, frontier_models: R.frontier_models, small_models: R.small_models, links: R.links || {},
+  };
+}
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const f1 = x => (Math.round(x * 10) / 10).toFixed(1);
+const f0 = x => Math.round(x).toString();
+const n0 = x => Math.round(x).toLocaleString('en-US');
+const pct = (a, b) => 100 * a / b;
+const RES_LABEL = {"high":"High","medium":"Medium","low":"Low","extremely-low":"Extremely low"};
+const RES_VAR = {"high":"--r-high","medium":"--r-medium","low":"--r-low","extremely-low":"--r-xlow"};
+const C = D.communities, M = D.models;
+const byId = Object.fromEntries(C.map((c, i) => [c.id, {...c, i}]));
+const label = id => (byId[id] || {}).label || id;
+const MOBILE = () => window.innerWidth < 640;
+const MD = D.md;
+document.querySelectorAll('[data-k="nhe"]').forEach(e => e.textContent = C.length);
+document.querySelectorAll('[data-k="nm"]').forEach(e => e.textContent = M.length);
+// Communities where no model reaches a quarter of the riddles.
+const HI_IDS = C.filter((c, j) => Math.max(...D.grid.map(r => r[j])) < 25).map(c => c.id);
+const joinNames = xs => xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+const ord = n => n + (n % 10 === 1 && n % 100 !== 11 ? 'st' : n % 10 === 2 && n % 100 !== 12 ? 'nd' : n % 10 === 3 && n % 100 !== 13 ? 'rd' : 'th');
+
+/* ---------- tooltip ---------- */
+const tip = $('#tip');
+function showTip(html, e) {
+  tip.innerHTML = html; tip.classList.add('on');
+  const r = tip.getBoundingClientRect();
+  let x = e.clientX + 14, y = e.clientY + 14;
+  if (x + r.width > window.innerWidth - 8) x = e.clientX - r.width - 14;
+  if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - 14;
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+const hideTip = () => tip.classList.remove('on');
+
+/* ---------- plotly base ---------- */
+function base(extra = {}) {
+  const ink2 = css('--ink2'), grid = css('--grid');
+  const ax = {gridcolor: grid, zeroline: false, linecolor: css('--axis'), ticks: '', automargin: true, fixedrange: true};
+  for (const k of ['xaxis', 'yaxis']) if (extra[k]) extra[k] = Object.assign({}, ax, extra[k]);
+  return Object.assign({
+    paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
+    font: {family: 'Inter, system-ui, sans-serif', size: 13, color: ink2},
+    margin: {l: 10, r: 20, t: 10, b: 44},
+    hoverlabel: {bgcolor: css('--ink'), bordercolor: css('--ink'), font: {color: css('--page'), family: 'Inter, sans-serif', size: 13}},
+    xaxis: {gridcolor: grid, zeroline: false, linecolor: css('--axis'), ticks: '', automargin: true},
+    yaxis: {gridcolor: grid, zeroline: false, linecolor: css('--axis'), ticks: '', automargin: true},
+    showlegend: false, dragmode: false,
+  }, extra);
+}
+const CFG = {displayModeBar: false, responsive: true, scrollZoom: false};
+const renderers = [];
+function plot(id, traces, layout) { return Plotly.react(id, traces, layout, CFG); }
+function register(fn) { renderers.push(fn); fn(); }
+
+/* ---------- hero ---------- */
+(function hero() {
+  const c = D.corpus, best = M[0];
+  const lm = Math.max(...HI_IDS.flatMap(id => D.grid.map(r => r[byId[id].i])));
+  $('#hi-label').textContent = joinNames(HI_IDS.map(id => byId[id].language));
+  $('#lede').innerHTML = `Native speakers from <b>${c.communities} communities</b> wrote <b>${n0(c.riddles)} original riddles</b> about history, food, sport and everyday life that people at home would recognise. We asked ${c.models} AI model configurations to solve them. The best scores <b>${f1(best.total)}%</b>, yet no model gets more than <b>${f0(lm)}%</b> right in ${joinNames(HI_IDS.map(label))}.`;
+  const kp = [[n0(c.riddles), 'original riddles'], [c.communities, 'communities'], [c.languages, 'languages'],
+              [c.countries, 'countries'], [c.writers, 'riddle writers'], [n0(D.routing.responses), 'model answers scored']];
+  $('#kpis').innerHTML = kp.map(([v, l]) => `<div class="kpi"><div class="v num">${v}</div><div class="l">${l}</div></div>`).join('');
+  const L = D.links, out = [];
+  if (L.paper) out.push(`<a class="btn primary" href="${L.paper}">Read the paper</a>`);
+  if (L.dataset) out.push(`<a class="btn${L.paper ? '' : ' primary'}" href="${L.dataset}">Get the dataset</a>`);
+  if (L.code) out.push(`<a class="btn" href="${L.code}">Code</a>`);
+  $('#links').innerHTML = out.join('');
+  $('#foot-links').innerHTML = [L.paper && `<a href="${L.paper}">Paper</a>`, L.dataset && `<a href="${L.dataset}">Dataset</a>`, L.code && `<a href="${L.code}">Code</a>`].filter(Boolean).join(' · ');
+})();
+
+/* ---------- barcode ---------- */
+const BC = (function () {
+  const B = D.barcode, nM = M.length;
+  const rows = B.bits.map(s => Uint8Array.from(atob(s), ch => ch.charCodeAt(0)));
+  const bit = (m, i) => (rows[m][i >> 3] >> (7 - (i & 7))) & 1;
+  let idx = [...Array(B.n).keys()];
+  let sel = 'all';
+  const host = $('#bc');
+  host.innerHTML = `<div class="bc-grid"><div class="sp"></div><div class="bc-top" id="bc-top"></div>
+    <div class="bc-labels" id="bc-labels"></div><div><canvas id="bc-cv"></canvas></div>
+    <div class="sp"></div><div class="bc-axis" id="bc-axis"></div></div>`;
+  const cv = $('#bc-cv'), labels = $('#bc-labels');
+  labels.innerHTML = M.map(m => `<div>${m.name}</div>`).join('');
+  const pick = $('#bc-pick');
+  pick.innerHTML = `<option value="all">All communities</option>` +
+    [...C].sort((a, b) => a.label.localeCompare(b.label)).map(c => `<option value="${c.id}">${c.label}</option>`).join('');
+  pick.onchange = () => set(pick.value);
+  function set(v) {
+    sel = v;
+    idx = v === 'all' ? [...Array(B.n).keys()] : [...Array(B.n).keys()].filter(i => B.c[i] === byId[v].i);
+    draw(); text();
+  }
+  function rowH() { return MOBILE() ? 9 : 14; }
+  function draw() {
+    const W = cv.clientWidth || cv.parentElement.clientWidth, H = rowH() * nM;
+    if (!W) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.height = H + 'px';
+    labels.style.lineHeight = rowH() + 'px'; labels.style.fontSize = (rowH() < 12 ? 9 : 11.5) + 'px';
+    const ctx = cv.getContext('2d');
+    const img = ctx.createImageData(cv.width, cv.height), px = img.data;
+    const on = hex(css('--bar-on')), off = hex(css('--bar-off')), card = hex(css('--card'));
+    const n = idx.length, w = cv.width, rh = H * dpr / nM;
+    const gap = n < 200 ? Math.max(1, Math.round(dpr)) : 0;
+    for (let x = 0; x < w; x++) {
+      const a = Math.floor(x * n / w), b = Math.max(a + 1, Math.floor((x + 1) * n / w));
+      const colStart = Math.floor(a * w / n);
+      const isGap = gap && n < w && (x - colStart) < gap && a > 0;
+      for (let m = 0; m < nM; m++) {
+        let s = 0; for (let i = a; i < b; i++) s += bit(m, idx[i]);
+        const fr = s / (b - a);
+        const col = isGap ? card : mix(off, on, fr);
+        const y0 = Math.round(m * rh), y1 = Math.round((m + 1) * rh) - Math.max(1, Math.round(dpr * 0.6));
+        for (let y = y0; y < y1; y++) { const o = (y * w + x) * 4; px[o] = col[0]; px[o + 1] = col[1]; px[o + 2] = col[2]; px[o + 3] = 255; }
+        for (let y = y1; y < Math.round((m + 1) * rh); y++) { const o = (y * w + x) * 4; px[o] = card[0]; px[o + 1] = card[1]; px[o + 2] = card[2]; px[o + 3] = 255; }
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+    axis();
+  }
+  function axis() {
+    const n = idx.length, ax = $('#bc-axis'), top = $('#bc-top');
+    const k = idx.map(i => B.k[i]);
+    const marks = [M.length, Math.round(M.length / 3), Math.round(M.length / 6), 1, 0];
+    let h = '';
+    for (const t of marks) {
+      const p = k.findIndex(v => v <= t);
+      if (p < 0) continue;
+      const x = 100 * p / n;
+      if (t === 0) continue;
+      h += `<div class="t" style="left:${x}%"></div><div class="tl" style="left:${Math.min(Math.max(x, 2), 96)}%">${t === M.length ? 'all ' + M.length : '≤ ' + t}</div>`;
+    }
+    const z = k.findIndex(v => v === 0);
+    const zc = z < 0 ? 0 : n - z;
+    h += `<div class="tl" style="left:${z < 0 ? 100 : 100 * (z + zc / 2) / n}%;color:var(--hi);font-weight:600">${zc ? 'none' : ''}</div>`;
+    ax.innerHTML = `<div style="position:absolute;right:0;top:28px;font-size:12px;color:var(--muted)">models that solved the riddle</div>` + h;
+    top.innerHTML = zc ? `<div class="bc-brace" style="left:${100 * z / n}%;width:${100 * zc / n}%;top:30px"></div><div class="cap" style="right:0;bottom:14px"><b>${n0(zc)}</b> ${zc === 1 ? 'riddle' : 'riddles'} no model solved</div>` : '';
+  }
+  function text() {
+    const n = idx.length, k = idx.map(i => B.k[i]);
+    const none = k.filter(v => v === 0).length, all = k.filter(v => v === M.length).length;
+    const half = k.filter(v => v * 2 < M.length).length;
+    const missTop = idx.filter(i => !bit(0, i) && B.k[i] > 0).length;
+    const where = sel === 'all' ? `Of the ${n0(n)} riddles` : `Of the ${n} riddles from ${label(sel)}`;
+    $('#bc-take').innerHTML = `${where}, <b>${n0(none)} (${f0(pct(none, n))}%) were solved by no model</b> and ${all} by all ${M.length}. ${f0(pct(half, n))}% were solved by fewer than half the models. ${missTop ? `<b>${n0(missTop)}</b> riddles that ${M[0].name} missed were solved by at least one other model.` : ''}`;
+    $('#bc-legend-note').textContent = n > 400 ? 'Shade shows the share solved where columns are narrower than a pixel.' : '';
+  }
+  cv.addEventListener('mousemove', e => {
+    const r = cv.getBoundingClientRect(), n = idx.length;
+    const i = Math.min(n - 1, Math.floor((e.clientX - r.left) / r.width * n));
+    const m = Math.min(M.length - 1, Math.floor((e.clientY - r.top) / r.height * M.length));
+    const ri = idx[i];
+    $$('#bc-labels div').forEach((d, j) => d.classList.toggle('hl', j === m));
+    showTip(`<b>${M[m].name}</b><br>${bit(m, ri) ? 'solved' : 'did not solve'} this riddle<br><span class="m">${C[B.c[ri]].label} · solved by ${B.k[ri]} of ${M.length} models</span>`, e);
+  });
+  cv.addEventListener('mouseleave', () => { hideTip(); $$('#bc-labels div').forEach(d => d.classList.remove('hl')); });
+  register(() => { draw(); text(); });
+  return {set, bit, rows};
+})();
+function hex(h) { h = h.replace('#', ''); if (h.length === 3) h = h.split('').map(c => c + c).join(''); return [0, 2, 4].map(i => parseInt(h.substr(i, 2), 16)); }
+function mix(a, b, t) { return [0, 1, 2].map(i => Math.round(a[i] + (b[i] - a[i]) * t)); }
+
+/* ---------- leaderboard ---------- */
+const LB = (function () {
+  let mode = 'review', access = 'all', hoverComm = null;
+  const host = $('#lb');
+  const HI = new Set(HI_IDS);
+  const exactRank = [...M].sort((a, b) => b.exact - a.exact).map(m => m.name);
+  host.innerHTML = M.map((m, i) => `<div class="lb-row" data-i="${i}">
+      <div class="rk num"><span class="r">${m.rank}</span><span class="dl"></span></div>
+      <div class="nm" title="${m.name} · ${m.access}"><span class="acc ${m.access}"></span>${m.name}</div>
+      <div class="lb-bar"><div class="gl" style="left:25%"></div><div class="gl" style="left:50%"></div><div class="gl" style="left:75%"></div><div class="em"></div><div class="rv"></div></div>
+      <div class="val num"></div>
+      <div class="c5"><svg class="strip"></svg></div>
+    </div>`).join('');
+  function drawStrips() {
+    $$('.lb-row').forEach(row => {
+      const i = +row.dataset.i, svg = row.querySelector('svg'), W = svg.clientWidth;
+      if (!W) return;
+      const vals = D.grid[i], X = v => 4 + v / 100 * (W - 8);
+      const med = [...vals].sort((a, b) => a - b)[Math.floor(vals.length / 2)];
+      svg.setAttribute('viewBox', `0 0 ${W} 30`);
+      const order = vals.map((v, j) => j).sort((a, b) => HI.has(C[a].id) - HI.has(C[b].id));
+      svg.innerHTML = `<line x1="${X(50)}" x2="${X(50)}" y1="2" y2="28" stroke="var(--grid)" stroke-dasharray="2 2"/>` +
+        order.map(j => { const hi = HI.has(C[j].id); return `<circle data-c="${j}" cx="${X(vals[j]).toFixed(1)}" cy="${(15 + ((j * 7) % 13) - 6).toFixed(1)}" r="${hi ? 4 : 3}" fill="${hi ? 'var(--hi)' : 'var(--ink2)'}" fill-opacity="${hi ? 1 : .4}"/>`; }).join('') +
+        `<line x1="${X(med)}" x2="${X(med)}" y1="4" y2="26" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"><title>median community</title></line>`;
+    });
+  }
+  const rowsEl = $$('.lb-row');
+  function layout() {
+    const order = mode === 'review' ? M.map((_, i) => i) : M.map((m, i) => i).sort((a, b) => M[b].exact - M[a].exact);
+    const h = rowsEl[0].offsetHeight;
+    host.style.height = (h * M.length) + 'px';
+    order.forEach((i, pos) => {
+      const el = rowsEl[i], m = M[i];
+      el.style.position = 'absolute'; el.style.left = 0; el.style.right = 0;
+      el.style.transition = 'transform .7s cubic-bezier(.2,.7,.2,1), opacity .3s';
+      el.style.transform = `translateY(${pos * h}px)`;
+      const em = el.querySelector('.em'), rv = el.querySelector('.rv');
+      em.style.width = m.exact + '%';
+      rv.style.left = `calc(${m.exact}% + 2px)`;
+      rv.style.width = mode === 'review' ? `calc(${m.review}% - 2px)` : '0%';
+      rv.style.opacity = mode === 'review' ? 1 : 0;
+      em.style.borderRadius = mode === 'review' ? '4px 0 0 4px' : '4px';
+      el.querySelector('.val').textContent = f1(mode === 'review' ? m.total : m.exact);
+      el.querySelector('.r').textContent = pos + 1;
+      const dl = el.querySelector('.dl');
+      const delta = m.rank - (pos + 1);
+      dl.textContent = mode === 'exact' && delta ? (delta > 0 ? '▲' + delta : '▼' + (-delta)) : '';
+      dl.className = 'dl ' + (delta > 0 ? 'up' : 'dn');
+      el.classList.toggle('dim', access !== 'all' && m.access !== access);
+    });
+    $('#lb-col').textContent = mode === 'review' ? 'Accuracy after review' : 'Exact match only';
+    text();
+  }
+  function text() {
+    const best = M[0];
+    const cl = M.find(m => m.name === MD['claude-opus-4-7-thinking']);
+    const clEx = exactRank.indexOf(cl.name) + 1;
+    const moved = M.filter(m => exactRank.indexOf(m.name) + 1 !== m.rank).length;
+    if (mode === 'review') {
+      $('#lb-take').innerHTML = `<b>${best.name}</b> leads at ${f1(best.total)}%, but scores below 50% in ${best.buckets.slice(0, 3).reduce((a, b) => a + b, 0)} of ${C.length} communities and ${f1(best.min_acc)}% in ${label(best.min_comm)}. Only ${M.filter(m => m.total >= 50).length} of ${M.length} configurations get half the riddles right.`;
+    } else {
+      $('#lb-take').innerHTML = `Counting only exact matches with the reference answer, <b>${moved} of ${M.length}</b> configurations change rank. ${cl.name} is ${ord(clEx)} by exact match and ${ord(cl.rank)} after review. Exact matching misses correct answers that use another valid name or spelling.`;
+    }
+  }
+  $$('#lb-mode button').forEach(b => b.onclick = () => { mode = b.dataset.m; $$('#lb-mode button').forEach(x => x.classList.toggle('on', x === b)); layout(); });
+  $$('#lb-access button').forEach(b => b.onclick = () => { access = b.dataset.a; $$('#lb-access button').forEach(x => x.classList.toggle('on', x === b)); layout(); });
+  host.addEventListener('mousemove', e => {
+    const c = e.target.closest('circle');
+    if (!c) { if (hoverComm !== null) { hoverComm = null; paint(); } hideTip(); return; }
+    const j = +c.dataset.c, row = c.closest('.lb-row'), m = M[+row.dataset.i];
+    if (hoverComm !== j) { hoverComm = j; paint(); }
+    showTip(`<b>${C[j].label}</b><br>${m.name}: ${f1(D.grid[+row.dataset.i][j])}%<br><span class="m">click to open this community</span>`, e);
+  });
+  host.addEventListener('mouseleave', () => { hoverComm = null; paint(); hideTip(); });
+  host.addEventListener('click', e => { const c = e.target.closest('circle'); if (c) EX.open(C[+c.dataset.c].id, true); });
+  function paint() {
+    $$('.lb-row circle').forEach(c => {
+      const j = +c.dataset.c, hi = HI.has(C[j].id);
+      if (hoverComm === null) { c.setAttribute('fill-opacity', hi ? 1 : .4); c.style.fill = ''; c.style.opacity = 1; c.setAttribute('r', hi ? 4 : 3); }
+      else if (j === hoverComm) { c.style.fill = 'var(--accent)'; c.setAttribute('fill-opacity', 1); c.style.opacity = 1; c.setAttribute('r', 5); }
+      else { c.style.fill = ''; c.style.opacity = .18; }
+    });
+    if (hoverComm !== null) $$('.lb-row circle[data-c="' + hoverComm + '"]').forEach(c => c.parentNode.appendChild(c));
+  }
+  register(() => { layout(); drawStrips(); });
+  return {layout};
+})();
+
+/* ---------- heatmap ---------- */
+let hmSort = 'mean';
+function seqScale() { return [0, 1, 2, 3, 4, 5, 6, 7].map(i => [i / 7, css('--seq' + i)]); }
+function commOrder(kind) {
+  const idx = C.map((c, i) => i);
+  if (kind === 'mean') return idx.sort((a, b) => C[b].mean - C[a].mean);
+  if (kind === 'region') {
+    const rm = {}; D.subregion.forEach(r => rm[r.group] = r.pooled);
+    return idx.sort((a, b) => (rm[C[b].region] ?? -1) - (rm[C[a].region] ?? -1) || C[a].region.localeCompare(C[b].region) || C[b].mean - C[a].mean);
+  }
+  const ro = ['high', 'medium', 'low', 'extremely-low'];
+  return idx.sort((a, b) => ro.indexOf(C[a].resource) - ro.indexOf(C[b].resource) || C[b].mean - C[a].mean);
+}
+const heat = function heat() {
+  const order = commOrder(hmSort);
+  const z = M.map((m, i) => order.map(j => D.grid[i][j]));
+  const x = order.map(j => C[j].label);
+  const custom = M.map((m, i) => order.map(j => [C[j].region, RES_LABEL[C[j].resource], D.grid_n[i][j]]));
+  const mob = MOBILE();
+  const tr = [{type: 'heatmap', z, x, y: M.map(m => m.name), customdata: custom, zmin: 0, zmax: 100, xgap: 1.5, ygap: 1.5,
+    colorscale: seqScale(), colorbar: {thickness: 10, len: .5, y: 1, yanchor: 'top', ticksuffix: '%', outlinewidth: 0, tickfont: {size: 11}},
+    hovertemplate: '<b>%{x}</b><br>%{y}: %{z:.1f}%<br>%{customdata[0]} · %{customdata[1]} resource<br>%{customdata[2]} scored answers<extra></extra>'}];
+  const shapes = [];
+  if (hmSort !== 'mean') {
+    const key = hmSort === 'region' ? 'region' : 'resource';
+    order.forEach((j, p) => { if (p > 0 && C[order[p - 1]][key] !== C[j][key]) shapes.push({type: 'line', x0: p - .5, x1: p - .5, y0: -.5, y1: M.length - .5, line: {color: css('--ink'), width: 2}}); });
+  }
+  plot('heat', tr, base({height: mob ? 640 : 760, margin: {l: 10, r: 10, t: 6, b: 10},
+    xaxis: {tickangle: -60, tickfont: {size: mob ? 8 : 10.5}, automargin: true, showgrid: false, fixedrange: true},
+    yaxis: {autorange: 'reversed', tickfont: {size: mob ? 9 : 12}, automargin: true, showgrid: false, fixedrange: true}, shapes}));
+  const hard = C.filter(c => c.below10 * 2 > M.length);
+  const front = D.frontier_models.map(n => M.findIndex(m => m.name === n));
+  const cnt = front.reduce((a, i) => a + hard.filter(c => D.grid[i][byId[c.id].i] < 25).length, 0);
+  const low = hard.filter(c => c.resource === 'low' || c.resource === 'extremely-low').length;
+  $('#hm-take').innerHTML = `In ${hard.length} communities most models score below 10%; they average ${f0(hard[0].mean)} to ${f0(hard[hard.length - 1].mean)}% across models, and ${low} of them write in low or extremely low-resource languages. Even the frontier models (${D.frontier_models.join(', ')}) score below 25% in <b>${cnt} of ${front.length * hard.length}</b> of these model-community pairs.`;
+};
+register(heat);
+$$('#hm-sort button').forEach(b => b.onclick = () => { hmSort = b.dataset.s; $$('#hm-sort button').forEach(x => x.classList.toggle('on', x === b)); heat(); });
+
+/* ---------- community explorer ---------- */
+const EX = (function () {
+  const pick = $('#ex-pick');
+  pick.innerHTML = [...C].sort((a, b) => a.label.localeCompare(b.label)).map(c => `<option value="${c.id}">${c.label}</option>`).join('');
+  let cur = (location.hash.match(/community=([a-z_]+)/) || [])[1];
+  if (!byId[cur]) cur = C[0].id;
+  pick.value = cur;
+  pick.onchange = () => open(pick.value, false);
+  function open(id, scroll) {
+    cur = id; pick.value = id;
+    history.replaceState(null, '', '#community=' + id);
+    render();
+    if (scroll) $('#explorer').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+  function render() {
+    const c = byId[cur], j = c.i;
+    const easyRank = C.length - c.rank_from_hardest + 1;
+    $('#ex-name').textContent = c.label;
+    $('#ex-meta').innerHTML = `${c.language} · ${c.country} · ${c.region}<span class="chip">${RES_LABEL[c.resource]} resource</span>`;
+    $('#ex-link').href = '#community=' + cur;
+    const vals = M.map((m, i) => D.grid[i][j]);
+    const bi = vals.indexOf(Math.max(...vals));
+    const fm = D.frontier_models.length, sm = D.small_models.length;
+    $('#ex-stats').innerHTML = [
+      [f1(c.mean) + '%', `average over ${M.length} models`],
+      [`${easyRank}<span style="font-size:20px"> / ${C.length}</span>`, 'rank, easiest first'],
+      [f1(vals[bi]) + '%', `best: ${M[bi].name}`],
+      [`${c.writers}`, c.writers === 1 ? 'riddle writer' : 'riddle writers'],
+    ].map(([v, l]) => `<div class="ex-stat"><div class="v num">${v}</div><div class="l">${l}</div></div>`).join('');
+    const mob = MOBILE();
+    plot('ex-models', [
+      {type: 'bar', orientation: 'h', y: M.map(m => m.name), x: vals, marker: {color: css('--accent')}, width: .62,
+       hovertemplate: '%{y}<br>in this community: %{x:.1f}%<extra></extra>'},
+      {type: 'scatter', mode: 'markers', y: M.map(m => m.name), x: M.map(m => m.total), marker: {symbol: 'line-ns', size: 14, line: {width: 2.5, color: css('--ink2')}},
+       hovertemplate: '%{y}<br>over all communities: %{x:.1f}%<extra></extra>'}],
+      base({height: mob ? 620 : 700, margin: {l: 10, r: 16, t: 4, b: 40}, bargap: .3,
+        xaxis: {range: [0, 100], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true, dtick: 25},
+        yaxis: {autorange: 'reversed', tickfont: {size: mob ? 10 : 12}, automargin: true, fixedrange: true}}));
+    const tp = D.comm_topics[cur], names = Object.keys(tp).sort((a, b) => tp[b][0] - tp[a][0]);
+    plot('ex-topics', [{type: 'bar', orientation: 'h', y: names, x: names.map(t => tp[t][0]), customdata: names.map(t => tp[t][1]),
+      marker: {color: names.map(t => t === 'Wildcard' ? css('--hi') : css('--accent'))}, width: .6,
+      text: names.map(t => f0(tp[t][0]) + '%'), textposition: 'outside', cliponaxis: false, textfont: {color: css('--ink2'), size: 12},
+      hovertemplate: '%{y}: %{x:.1f}%<br>%{customdata} scored answers<extra></extra>'}],
+      base({height: 300, margin: {l: 10, r: 36, t: 4, b: 36}, xaxis: {range: [0, 100], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true, dtick: 25},
+        yaxis: {autorange: 'reversed', automargin: true, fixedrange: true}}));
+    const ks = D.barcode.k.filter((k, i) => D.barcode.c[i] === j);
+    const hist = Array(M.length + 1).fill(0); ks.forEach(k => hist[k]++);
+    $('#ex-hist-s').textContent = `${ks.length} riddles with a final score from all ${M.length} models; ${hist[0]} solved by none.`;
+    plot('ex-hist', [{type: 'bar', x: hist.map((_, i) => i), y: hist, marker: {color: hist.map((_, i) => i === 0 ? css('--hi') : css('--accent'))},
+      hovertemplate: 'solved by %{x} models: %{y} riddles<extra></extra>'}],
+      base({height: 220, margin: {l: 10, r: 10, t: 4, b: 40}, bargap: .15,
+        xaxis: {title: {text: 'models that solved the riddle', font: {size: 12}}, dtick: 4, fixedrange: true, gridcolor: 'rgba(0,0,0,0)'},
+        yaxis: {gridcolor: css('--grid'), fixedrange: true, automargin: true}}));
+  }
+  register(render);
+  return {open};
+})();
+document.getElementById('heat').on('plotly_click', ev => { const p = ev.points[0]; const c = C.find(c => c.label === p.x); if (c) EX.open(c.id, true); });
+
+/* ---------- resource ---------- */
+register(function resource() {
+  const tiers = ['high', 'medium', 'low', 'extremely-low'];
+  const R = Object.fromEntries(D.resource.map(r => [r.group, r]));
+  const tr = [];
+  tiers.forEach((t, k) => {
+    const cs = C.filter(c => c.resource === t);
+    const y = cs.map((c, i) => k + ((i * 37) % 21 - 10) / 34);
+    tr.push({type: 'scatter', mode: 'markers', x: cs.map(c => c.pooled), y, text: cs.map(c => c.label),
+      marker: {size: 10, color: css(RES_VAR[t]), opacity: .8, line: {width: 1.5, color: css('--card')}},
+      hovertemplate: '<b>%{text}</b><br>%{x:.1f}%<extra></extra>'});
+    tr.push({type: 'scatter', mode: 'markers', x: [R[t].pooled], y: [k], error_x: {type: 'data', symmetric: false, array: [R[t].chi - R[t].pooled], arrayminus: [R[t].pooled - R[t].clo], color: css('--ink'), thickness: 2, width: 6},
+      marker: {symbol: 'diamond', size: 18, color: css('--ink'), line: {width: 2, color: css('--card')}},
+      hovertemplate: `<b>${RES_LABEL[t]} resource</b><br>pooled %{x:.1f}%<br>${R[t].communities} communities<extra></extra>`});
+  });
+  plot('resource', tr, base({height: 380, margin: {l: 10, r: 20, t: 6, b: 44},
+    xaxis: {range: [0, 80], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true, title: {text: 'accuracy', font: {size: 12}}},
+    yaxis: {tickvals: [0, 1, 2, 3], ticktext: tiers.map(t => `${RES_LABEL[t]}  (${R[t].communities})`), autorange: 'reversed', range: [-.6, 3.6], fixedrange: true, showgrid: false, automargin: true}}));
+  const t = tiers.map(t => f1(R[t].pooled) + '%');
+  const sds = D.resource.map(r => r.sd);
+  $('#res-take').innerHTML = `Pooled accuracy falls from <b>${t[0]}</b> for high-resource languages to ${t[1]} for medium, ${t[2]} for low and <b>${t[3]}</b> for extremely low-resource languages. Within each level, communities still vary with a standard deviation of ${f0(Math.min(...sds))} to ${f0(Math.max(...sds))} points.`;
+});
+
+/* ---------- map ---------- */
+register(function world() {
+  const K = D.countries;
+  const mob = MOBILE();
+  plot('world', [{type: 'choropleth', locationmode: 'ISO-3', locations: K.map(k => k.iso3), z: K.map(k => k.accuracy), text: K.map(k => k.country),
+    customdata: K.map(k => k.communities), zmin: 0, zmax: 70, colorscale: seqScale(), marker: {line: {color: css('--card'), width: .6}},
+    colorbar: {thickness: 10, len: .55, ticksuffix: '%', outlinewidth: 0, x: mob ? .5 : 1, xanchor: mob ? 'center' : 'left', y: mob ? -.05 : .5, yanchor: mob ? 'top' : 'middle', orientation: mob ? 'h' : 'v', tickfont: {size: 11}},
+    hovertemplate: '<b>%{text}</b><br>%{z:.1f}%<br>%{customdata} communities<extra></extra>'}],
+    base({height: mob ? 360 : 560, margin: {l: 0, r: 0, t: 0, b: 0},
+      geo: {projection: {type: 'natural earth'}, showframe: false, showcoastlines: false, showcountries: true, countrycolor: css('--card'),
+        landcolor: css('--bar-off'), bgcolor: 'rgba(0,0,0,0)', showocean: false, lataxis: {range: [-58, 84]}}}));
+  const s = [...K].sort((a, b) => a.accuracy - b.accuracy), lo = s[0], hi = s[s.length - 1];
+  $('#map-take').innerHTML = `Across ${K.length} countries, accuracy ranges from <b>${f0(lo.accuracy)}% in ${lo.country}</b> to <b>${f0(hi.accuracy)}% in ${hi.country}</b>.`;
+});
+
+/* ---------- regions ---------- */
+register(function regions() {
+  const R = [...D.subregion].sort((a, b) => b.pooled - a.pooled);
+  plot('regions', [{type: 'scatter', mode: 'markers', y: R.map(r => r.group), x: R.map(r => r.pooled), customdata: R.map(r => r.communities),
+    error_x: {type: 'data', symmetric: false, array: R.map(r => r.chi == null ? 0 : r.chi - r.pooled), arrayminus: R.map(r => r.clo == null ? 0 : r.pooled - r.clo), color: css('--axis'), thickness: 6, width: 0},
+    marker: {size: 14, color: css('--accent'), line: {width: 2, color: css('--card')}},
+    hovertemplate: '<b>%{y}</b><br>%{x:.1f}%<br>%{customdata} communities<extra></extra>'}],
+    base({height: 470, margin: {l: 10, r: 20, t: 6, b: 44}, xaxis: {range: [0, 80], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true},
+      yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, showgrid: false}}));
+  const a = R[0], b = R[R.length - 1];
+  $('#reg-take').innerHTML = `${a.group} is highest at <b>${f0(a.pooled)}%</b>; ${b.group} is lowest at <b>${f0(b.pooled)}%</b>.`;
+  const n = D.subregion.reduce((s, r) => s + r.communities, 0);
+  const ex = C.length - n;
+  $('#reg-src').textContent = `Same ${n} communities as the region analysis in the paper${ex ? `; ${ex} communities without a comparable group are left out` : ''}.`;
+});
+
+/* ---------- routes ---------- */
+register(function routes() {
+  const r = D.routing, N = r.responses;
+  const parts = [['Rules', r.rules, '--em'], ['Native speakers', r.human, '--accent'], ['LLM jury', r.jury_scored, '--idk'], ['Unscored', r.unscored, '--axis']];
+  $('#routes').innerHTML = parts.map(([l, v, c]) => `<div style="flex:${v};background:var(${c})" title="${l}: ${n0(v)}">${pct(v, N) > 8 ? f1(pct(v, N)) + '%' : ''}</div>`).join('');
+  $('#routes-l').innerHTML = parts.map(([l, v, c]) => `<div><b class="num">${n0(v)}</b><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:var(${c});margin-right:6px"></i>${l}</div>`).join('');
+  $('#routes-take').innerHTML = `Native speakers scored <b>${f1(pct(r.human, N))}%</b> of all ${n0(N)} answers. Exact matches alone account for ${f1(pct(r.exact_match, N))}%. The jury could not agree on ${n0(r.unscored)} answers (${f1(pct(r.unscored, N))}%), which are left out of accuracy.`;
+});
+
+/* ---------- score breakdown ---------- */
+register(function scores() {
+  const S = Object.fromEntries(D.score_dist.map(s => [s.model, s]));
+  const parts = [['exact', 'correct, exact match', '--em'], ['review3', 'correct, found by review', '--rev'], ['s2', 'partly correct', '--partial'], ['s1', 'admits not knowing', '--idk'], ['s0', 'wrong', '--wrong']];
+  $('#sd-legend').innerHTML = parts.map(p => `<span><i style="background:var(${p[2]})"></i>${p[1]}</span>`).join('');
+  const y = M.map(m => m.name);
+  plot('scores', parts.map(p => ({type: 'bar', orientation: 'h', name: p[1], y, x: y.map(n => S[n][p[0]]), marker: {color: css(p[2]), line: {width: 1, color: css('--card')}},
+    hovertemplate: `%{y}<br>${p[1]}: %{x:.1f}%<extra></extra>`})),
+    base({barmode: 'stack', height: MOBILE() ? 640 : 760, margin: {l: 10, r: 16, t: 4, b: 40}, bargap: .28,
+      xaxis: {range: [0, 100], ticksuffix: '%', gridcolor: 'rgba(0,0,0,0)', fixedrange: true},
+      yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, tickfont: {size: MOBILE() ? 10 : 12}}}));
+  const p2 = Math.max(...D.score_dist.map(s => s.s1));
+  const w = M.map(m => S[m.name].s0);
+  $('#sd-take').innerHTML = `Models almost never say they do not know. Even though the prompt asks for "I don't know" when unsure, no model does so in more than ${f1(D.abstention_max)}% of answers scored by rules or native speakers. Wrong answers range from ${f0(Math.min(...w))}% to ${f0(Math.max(...w))}% of each model's scored answers.`;
+});
+
+/* ---------- error types ---------- */
+register(function errors() {
+  const E = [...D.error_types];
+  const G = {'0': ['wrong', '--wrong'], '1': ['admits not knowing', '--idk'], '2': ['partly correct', '--partial'], '3': ['correct', '--em']};
+  const order = ['3', '2', '1', '0'];
+  const rows = order.flatMap(g => E.filter(e => e.score_group === g).sort((a, b) => b.responses - a.responses));
+  const tot = E.reduce((a, e) => a + e.responses, 0);
+  plot('errors', [{type: 'bar', orientation: 'h', y: rows.map(e => e.error_type.startsWith('Other (') ? `Other, ${G[e.score_group][0]} (with note)` : e.error_type), x: rows.map(e => e.percent), customdata: rows.map(e => [n0(e.responses), G[e.score_group][0]]),
+    marker: {color: rows.map(e => css(G[e.score_group][1]))}, text: rows.map(e => f1(e.percent) + '%'), textposition: 'outside', cliponaxis: false, textfont: {size: 12, color: css('--ink2')},
+    hovertemplate: '<b>%{y}</b> (%{customdata[1]})<br>%{customdata[0]} answers, %{x:.2f}%<extra></extra>'}],
+    base({height: 620, margin: {l: 10, r: 50, t: 4, b: 40}, bargap: .3,
+      xaxis: {ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true},
+      yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, tickfont: {size: 12.5}}}));
+  const h = E.find(e => e.code === '0.3'), w = E.find(e => e.code === '0.2'), v = E.find(e => e.code === '3.1');
+  $('#err-take').innerHTML = `The most common mistake is a <b>hallucinated</b> answer, made up or unrelated: ${f1(h.percent)}% of the ${n0(tot)} answers. Next is the right kind of thing but the wrong one (${f1(w.percent)}%). Native speakers also accepted ${n0(v.responses)} answers as <b>different but valid</b>, which exact matching would have marked wrong.`;
+});
+
+/* ---------- hallucination ---------- */
+register(function halluc() {
+  const H = Object.fromEntries(D.hallucination.map(h => [h.model_display, h]));
+  const pts = M.filter(m => H[m.name]);
+  const lab = new Set([pts[0].name, pts[pts.length - 1].name, MD['GPT5.5-search']]);
+  plot('halluc', [{type: 'scatter', mode: 'markers+text', x: pts.map(m => m.total), y: pts.map(m => H[m.name].pct_hallucinated), text: pts.map(m => lab.has(m.name) ? m.name : ''),
+    customdata: pts.map(m => [m.name, n0(H[m.name].human_labels)]), textposition: pts.map(m => m.total > 60 ? 'bottom left' : 'top right'), textfont: {size: 12, color: css('--ink2')},
+    marker: {size: 12, color: css('--wrong'), line: {width: 2, color: css('--card')}},
+    hovertemplate: '<b>%{customdata[0]}</b><br>accuracy %{x:.1f}%<br>hallucinated %{y:.1f}% of %{customdata[1]} labeled answers<extra></extra>'}],
+    base({height: 460, margin: {l: 10, r: 20, t: 10, b: 50}, xaxis: {range: [-2, 85], ticksuffix: '%', title: {text: 'accuracy', font: {size: 12}}, gridcolor: css('--grid'), fixedrange: true},
+      yaxis: {ticksuffix: '%', title: {text: 'hallucinated', font: {size: 12}}, gridcolor: css('--grid'), fixedrange: true, rangemode: 'tozero'}}));
+  const s = [...pts].sort((a, b) => H[b.name].pct_hallucinated - H[a.name].pct_hallucinated);
+  $('#hal-take').innerHTML = `${s[0].name} has the highest share of hallucinated answers (${f0(H[s[0].name].pct_hallucinated)}%), ${s[s.length - 1].name} the lowest (${f0(H[s[s.length - 1].name].pct_hallucinated)}%).`;
+});
+
+/* ---------- agreement ---------- */
+register(function agree() {
+  const A = D.agreement.by_n, ns = Object.keys(A).map(Number).sort((a, b) => a - b);
+  const mk = (k, c, l) => ({type: 'bar', name: l, x: ns, y: ns.map(n => A[n][k] || 0), marker: {color: css(c)}, hovertemplate: `%{x} models agree: %{y} riddles ${l}<extra></extra>`});
+  plot('agree', [mk('correct', '--em', 'correct'), mk('wrong', '--wrong', 'wrong'), mk('not scored', '--axis', 'not scored')],
+    base({barmode: 'stack', height: 380, bargap: .15, margin: {l: 10, r: 10, t: 6, b: 50},
+      xaxis: {title: {text: 'models giving the most common answer', font: {size: 12}}, dtick: 2, fixedrange: true, gridcolor: 'rgba(0,0,0,0)'},
+      yaxis: {title: {text: 'riddles', font: {size: 12}}, gridcolor: css('--grid'), fixedrange: true}}));
+  const big = ns.filter(n => n >= M.length / 2);
+  const c = big.reduce((s, n) => s + (A[n].correct || 0), 0), w = big.reduce((s, n) => s + (A[n].wrong || 0), 0);
+  $('#agr-take').innerHTML = `When at least half the models give the same answer, it is usually right, but not always: <b>${n0(w)} of ${n0(c + w)}</b> such riddles have a scored, shared answer that is wrong. Agreement among models is not evidence that an answer is right.`;
+});
+
+/* ---------- topics ---------- */
+let tpMode = 'model';
+const topicsFn = function topics() {
+  const mob = MOBILE();
+  if (tpMode === 'model') {
+    const topics = [...D.topic_pooled].sort((a, b) => b.accuracy - a.accuracy).map(t => t.topic_group);
+    const T = {}; D.topic_model.forEach(r => (T[r.model_display] ||= {})[r.topic_group] = r.accuracy);
+    plot('topics', [{type: 'heatmap', x: topics, y: M.map(m => m.name), z: M.map(m => topics.map(t => T[m.name][t])), zmin: 0, zmax: 100, xgap: 2, ygap: 1.5,
+      colorscale: seqScale(), colorbar: {thickness: 10, len: .5, y: 1, yanchor: 'top', ticksuffix: '%', outlinewidth: 0},
+      hovertemplate: '%{y}<br>%{x}: %{z:.1f}%<extra></extra>'}],
+      base({height: mob ? 640 : 720, margin: {l: 10, r: 10, t: 4, b: 10}, xaxis: {side: 'top', tickangle: mob ? -45 : 0, automargin: true, fixedrange: true, showgrid: false},
+        yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, showgrid: false, tickfont: {size: mob ? 9 : 12}}}));
+    const P = [...D.topic_pooled].sort((a, b) => b.accuracy - a.accuracy);
+    const sh = P.filter(t => t.topic_group !== 'Wildcard');
+    $('#tp-take').innerHTML = `Pooled over models, ${sh[0].topic_group} is the easiest shared topic (${f0(sh[0].accuracy)}%) and ${sh[sh.length - 1].topic_group} the hardest (${f0(sh[sh.length - 1].accuracy)}%). The communities' own wildcard topics score ${f0(D.topic_pooled.find(t => t.topic_group === 'Wildcard').accuracy)}%.`;
+  } else {
+    const W = D.topic_writing;
+    plot('topics', [{type: 'scatter', mode: 'markers+text', x: W.map(w => w.mean_difficulty), y: W.map(w => 100 * w.human_accuracy), text: W.map(w => w.topic),
+      textposition: W.map(w => w.topic === 'Geography' || w.topic === "Kid's World" ? 'bottom center' : 'top center'), textfont: {size: 13, color: css('--ink')},
+      marker: {size: 16, color: css('--accent'), line: {width: 2, color: css('--card')}}, cliponaxis: false,
+      hovertemplate: '<b>%{text}</b><br>writers rated difficulty %{x:.2f}<br>model accuracy %{y:.1f}%<extra></extra>'}],
+      base({height: 460, margin: {l: 10, r: 30, t: 20, b: 56},
+        xaxis: {title: {text: "writers' mean difficulty rating for the topic (post-writing survey)", font: {size: 12}}, gridcolor: css('--grid'), fixedrange: true, range: [2.2, 3.6]},
+        yaxis: {title: {text: 'model accuracy', font: {size: 12}}, ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true, range: [24, 42]}}));
+    const s = [...D.topic_writing].sort((a, b) => b.mean_difficulty - a.mean_difficulty);
+    const acc = W.map(w => w.human_accuracy), lowA = W[acc.indexOf(Math.min(...acc))];
+    $('#tp-take').innerHTML = `In the post-writing survey, writers rated ${s[0].topic} the hardest topic to write for and ${s[s.length - 1].topic} the easiest. Models found ${lowA.topic} hardest to answer (${f0(100 * lowA.human_accuracy)}%): what was hard to write is not what was hard to solve.`;
+  }
+};
+register(topicsFn);
+$$('#tp-mode button').forEach(b => b.onclick = () => { tpMode = b.dataset.t; $$('#tp-mode button').forEach(x => x.classList.toggle('on', x === b)); topicsFn(); });
+
+/* ---------- helps: reasoning ---------- */
+register(function reason() {
+  const P = D.pairs, PM = D.pair_models;
+  const rows = [['claude_reasoning', 'Claude Opus 4.7', 'default', 'high effort'], ['deepseek_reasoning', 'DeepSeek V4 Pro', 'default effort', 'high effort'], ['gpt_search', 'GPT-5.5', 'without search', 'with web search']];
+  const y = rows.map(r => r[1]);
+  const tr = [];
+  rows.forEach((r, i) => {
+    const [a, b] = P[r[0]], up = b > a;
+    tr.push({type: 'scatter', mode: 'lines', x: [a, b], y: [y[i], y[i]], line: {color: css(up ? '--accent' : '--wrong'), width: 4}, hoverinfo: 'skip'});
+    tr.push({type: 'scatter', mode: 'markers+text', x: [a, b], y: [y[i], y[i]], text: MOBILE() ? ['', ''] : [r[2], r[3]], textposition: ['bottom center', 'bottom center'], textfont: {size: 12, color: css('--ink2')},
+      marker: {size: [14, 18], color: [css('--card'), css(up ? '--accent' : '--wrong')], line: {width: 3, color: css(up ? '--accent' : '--wrong')}},
+      customdata: [PM[r[0]][0], PM[r[0]][1]], hovertemplate: '%{customdata}: %{x:.1f}%<extra></extra>'});
+    tr.push({type: 'scatter', mode: 'text', x: [(a + b) / 2], y: [y[i]], text: [`${up ? '+' : '−'}${f1(Math.abs(b - a))} pts`], textposition: 'top center', textfont: {size: 14, color: css('--ink')}, hoverinfo: 'skip'});
+  });
+  plot('reason', tr, base({height: 360, margin: {l: 10, r: 20, t: 10, b: 44}, xaxis: {range: [50, 85], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true},
+    yaxis: {automargin: true, fixedrange: true, showgrid: false, range: [2.6, -.6], tickfont: {size: 14, color: css('--ink')}}}));
+  const s = D.search_losses;
+  const c = P.claude_reasoning, d = P.deepseek_reasoning, g = P.gpt_search;
+  $('#reason-take').innerHTML = `High reasoning effort raises Claude Opus 4.7 by <b>${f1(c[1] - c[0])} points</b> and DeepSeek V4 Pro by ${f1(d[1] - d[0])}. Web search <b>lowers GPT-5.5 by ${f1(g[0] - g[1])} points</b>. Among answers it got right without search but wrong with it, and that native speakers gave an error type, ${f0(s.shares['0.2'])}% name the wrong thing in the right category and ${f0(s.shares['0.3'])}% are hallucinated.`;
+});
+
+/* ---------- helps: english ---------- */
+register(function english() {
+  const E = D.english.filter(e => e.community !== 'all').sort((a, b) => b.paired_delta - a.paired_delta);
+  const all = D.english.find(e => e.community === 'all');
+  const rows = [...E, all];
+  const y = rows.map(e => e.community === 'all' ? '<b>All</b>' : e.label);
+  const tr = [];
+  rows.forEach((e, i) => tr.push({type: 'scatter', mode: 'lines', showlegend: false, x: [e.paired_original, e.paired_english], y: [y[i], y[i]], line: {color: css('--axis'), width: 3}, hoverinfo: 'skip'}));
+  tr.push({type: 'scatter', mode: 'markers', name: 'original language', x: rows.map(e => e.paired_original), y, marker: {size: 14, color: css('--hi'), line: {width: 2, color: css('--card')}}, hovertemplate: '%{y}<br>original: %{x:.1f}%<extra></extra>'});
+  tr.push({type: 'scatter', mode: 'markers', name: 'English translation', x: rows.map(e => e.paired_english), y, customdata: rows.map(e => [f1(e.paired_delta), f1(e.paired_delta_low), f1(e.paired_delta_high)]),
+    marker: {size: 14, color: css('--accent'), line: {width: 2, color: css('--card')}}, hovertemplate: '%{y}<br>English: %{x:.1f}%<br>gain %{customdata[0]} pts (95% interval %{customdata[1]} to %{customdata[2]})<extra></extra>'});
+  const shapes = [{type: 'line', x0: D.english_high, x1: D.english_high, yref: 'paper', y0: 0, y1: 1, line: {color: css('--ink2'), dash: 'dot', width: 1.5}}];
+  const ann = [{x: D.english_high, yref: 'paper', y: 1.04, text: `same models, high-resource communities: ${f0(D.english_high)}%`, showarrow: false, font: {size: 12, color: css('--ink2')}, xanchor: 'right'}];
+  plot('english', tr, base({height: 420, showlegend: true, legend: {orientation: 'h', y: -.18, font: {size: 13}}, margin: {l: 10, r: 20, t: 30, b: 60}, shapes, annotations: ann,
+    xaxis: {range: [0, 75], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true}, yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, showgrid: false}}));
+  $('#eng-sub').textContent = `${D.english_models.length} models (${D.english_models.join(', ')}) also answered English translations of riddles from ${E.length} of the hardest communities.`;
+  const sd = D.english.find(e => e.community === 'arabic_sudan');
+  $('#eng-take').innerHTML = `Accuracy rises from ${f1(all.paired_original)}% to ${f1(all.paired_english)}% in English (<b>+${f1(all.paired_delta)} points</b>, 95% interval ${f1(all.paired_delta_low)} to ${f1(all.paired_delta_high)}). The same models reach about ${f0(D.english_high)}% on high-resource communities, so translation closes only a small part of the gap. Sudanese Arabic shows no detectable gain.`;
+});
+
+/* ---------- helps: chinese ---------- */
+register(function chinese() {
+  const Z = [...D.chinese].sort((a, b) => b.accuracy - a.accuracy);
+  plot('chinese', [{type: 'bar', orientation: 'h', y: Z.map(z => z.label), x: Z.map(z => 100 * z.accuracy), marker: {color: css('--accent')}, width: .55,
+    text: Z.map(z => f1(100 * z.accuracy) + '%'), textposition: 'outside', cliponaxis: false, textfont: {size: 13, color: css('--ink')},
+    hovertemplate: '%{y}: %{x:.1f}%<extra></extra>'}],
+    base({height: 300, margin: {l: 10, r: 50, t: 6, b: 40}, xaxis: {range: [0, 60], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true}, yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, tickfont: {size: 14, color: css('--ink')}}}));
+  const a = Z[0], s = D.chinese.find(z => z.community === 'chinese_simplified_china');
+  $('#zh-take').innerHTML = `${a.label} averages <b>${f1(100 * a.accuracy)}%</b>, ${s.label} <b>${f1(100 * s.accuracy)}%</b>: a gap of ${f1(100 * (a.accuracy - s.accuracy))} points in the same language and script. Language alone does not explain the gaps.`;
+});
+
+/* ---------- helps: size ---------- */
+register(function size() {
+  const P = M.filter(m => m.params_total);
+  const acc = ['Open-weight', 'Open-source'];
+  const sym = {'Open-weight': 'triangle-up', 'Open-source': 'circle'};
+  const lab = new Set(['gemma-4-31b', 'Olmo-3-32B-Think', 'swiss-ai/Apertus-70B-Instruct-2509', 'swiss-ai/Apertus-v1.5-70B', 'deepseek-v4-pro-thinking', 'Qwen-3.5-0.8B', 'Mistral-Large-3', 'Qwen-SEA-LION-v4.5-27B-IT'].map(k => MD[k]));
+  const below = new Set(['Olmo-3-32B-Think', 'swiss-ai/Apertus-70B-Instruct-2509'].map(k => MD[k]));
+  plot('size', acc.map(a => {
+    const p = P.filter(m => m.access === a);
+    return {type: 'scatter', mode: 'markers+text', name: a, x: p.map(m => m.params_total), y: p.map(m => m.total), text: p.map(m => lab.has(m.name) ? m.name : ''),
+      customdata: p.map(m => [m.name, m.params_active ? `${m.params_active}/${m.params_total}` : `${m.params_total}`]), textposition: p.map(m => below.has(m.name) ? 'bottom center' : 'top center'), textfont: {size: 11.5, color: css('--ink2')},
+      cliponaxis: false, marker: {symbol: sym[a], size: 15, color: css(a === 'Open-weight' ? '--accent' : '--hi'), line: {width: 1.5, color: css('--card')}},
+      hovertemplate: '<b>%{customdata[0]}</b><br>%{customdata[1]}B parameters<br>%{y:.1f}%<extra></extra>'};
+  }), base({height: 480, showlegend: true, legend: {orientation: 'h', y: -.16}, margin: {l: 10, r: 20, t: 10, b: 70},
+    xaxis: {type: 'log', range: [Math.log10(.5), Math.log10(3000)], tickvals: [1, 3, 10, 30, 100, 300, 1000], ticktext: ['1', '3', '10', '30', '100', '300', '1,000'], title: {text: 'total parameters (billions, log scale)', font: {size: 12}}, gridcolor: css('--grid'), fixedrange: true},
+    yaxis: {ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true, range: [-3, 75]}}));
+  const by = k => M.find(m => m.name === MD[k]);
+  const g = by('gemma-4-31b'), o = by('Olmo-3-32B-Think'), a7 = by('swiss-ai/Apertus-70B-Instruct-2509'), a15 = by('swiss-ai/Apertus-v1.5-70B');
+  const small = Math.max(...M.filter(m => m.params_total && m.params_total <= 8).map(m => m.total));
+  $('#size-take').innerHTML = `Models of 8B parameters or fewer reach at most ${f1(small)}%. Yet <b>${g.name} (${f1(g.total)}%)</b> beats the similar-sized ${o.name} (${f1(o.total)}%) and the larger ${a7.name} (${f1(a7.total)}%) and ${a15.name} (${f1(a15.total)}%).`;
+});
+
+/* ---------- helps: odds ---------- */
+register(function odds() {
+  const T = Object.fromEntries(D.tier_effects.map(t => [t.tier, t])), L = D.local_term;
+  const rows = [['Medium-resource language', T.medium], ['Low-resource language', T.low], ['Extremely low-resource language', T['extremely-low']], ['Rare word in the English answer', L]];
+  const y = rows.map(r => r[0]);
+  plot('odds', [{type: 'scatter', mode: 'markers', y, x: rows.map(r => r[1].odds_ratio),
+    error_x: {type: 'data', symmetric: false, array: rows.map(r => r[1].ci_high - r[1].odds_ratio), arrayminus: rows.map(r => r[1].odds_ratio - r[1].ci_low), color: css('--ink2'), thickness: 2, width: 6},
+    customdata: rows.map(r => [r[1].ci_low.toFixed(2), r[1].ci_high.toFixed(2)]), marker: {size: 15, symbol: 'diamond', color: css('--accent'), line: {width: 2, color: css('--card')}},
+    hovertemplate: '<b>%{y}</b><br>odds ratio %{x:.2f} (95% interval %{customdata[0]} to %{customdata[1]})<extra></extra>'}],
+    base({height: 360, margin: {l: 10, r: 20, t: 30, b: 56},
+      shapes: [{type: 'line', x0: 1, x1: 1, yref: 'paper', y0: 0, y1: 1, line: {color: css('--ink'), width: 1.5}}],
+      annotations: [{x: 0, xref: 'x', y: 1.06, yref: 'paper', text: 'no effect (1) →', showarrow: false, font: {size: 12, color: css('--ink2')}, xanchor: 'right'}],
+      xaxis: {type: 'log', range: [Math.log10(.008), Math.log10(1.6)], tickvals: [.01, .02, .05, .1, .2, .5, 1], ticktext: ['0.01', '0.02', '0.05', '0.1', '0.2', '0.5', '1'], gridcolor: css('--grid'), fixedrange: true, title: {text: 'odds ratio (log scale)', font: {size: 12}}},
+      yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, showgrid: false, tickfont: {size: 13.5, color: css('--ink')}}}));
+  $('#odds-take').innerHTML = `Against high-resource languages, the adjusted odds of a correct answer are ${T.low.odds_ratio.toFixed(2)} for low and ${T['extremely-low'].odds_ratio.toFixed(2)} for extremely low-resource languages: high-resource communities have about <b>${f0(1 / T.low.odds_ratio)} and ${f0(1 / T['extremely-low'].odds_ratio)} times the odds</b>. About a third of riddles have a very rare word in their English reference answer, often a local term; their odds are ${L.odds_ratio.toFixed(2)} times those of riddles with common answers. The medium-resource estimate is less certain.`;
+});
+
+/* ---------- method ---------- */
+(function steps() {
+  const c = D.corpus, r = D.routing;
+  $('#steps').innerHTML = [
+    ['Write', `${c.writers} native speakers wrote ${n0(c.riddles)} riddles from scratch, on topics shared by every community and on topics of their own choosing. No riddle was translated from another community.`],
+    ['Review', 'Riddles are reviewed by members of the same community before they enter the benchmark.'],
+    ['Answer', `${c.models} model configurations answered ${n0(c.benchmarked_riddles)} riddles once each, with the same English prompt that names the country and topic: ${n0(r.responses)} answers in total.`],
+    ['Score', `Rules score the clear cases. Native speakers scored ${n0(r.human)} answers, and an LLM jury scored the rest where both judges agree.`],
+  ].map(([h, p], i) => `<div class="step"><div class="n">${i + 1}</div><h4>${h}</h4><p>${p}</p></div>`).join('');
+})();
+register(function fill() {
+  const F = Object.fromEntries(D.judge_fill.map(f => [f.model, f]));
+  const y = M.map(m => m.name).filter(n => F[n]);
+  plot('fill', [
+    ...y.map(n => ({type: 'scatter', mode: 'lines', showlegend: false, x: [F[n].before, F[n].after], y: [n, n], line: {color: css('--axis'), width: 3}, hoverinfo: 'skip'})),
+    {type: 'scatter', mode: 'markers', name: 'before', y, x: y.map(n => F[n].before), marker: {size: 10, color: css('--card'), line: {width: 2, color: css('--ink2')}}, hovertemplate: '%{y}<br>before: %{x:.1f}%<extra></extra>'},
+    {type: 'scatter', mode: 'markers', name: 'after', y, x: y.map(n => F[n].after), marker: {size: 10, color: css('--accent')}, hovertemplate: '%{y}<br>after: %{x:.1f}%<extra></extra>'}],
+    base({height: MOBILE() ? 620 : 720, showlegend: true, legend: {orientation: 'h', y: 1.04, x: 0}, margin: {l: 10, r: 20, t: 30, b: 40},
+      xaxis: {range: [0, 100], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true}, yaxis: {autorange: 'reversed', automargin: true, fixedrange: true, showgrid: false, tickfont: {size: MOBILE() ? 10 : 12}}}));
+  const ch = y.map(n => ({n, d: F[n].after - F[n].before})).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+  const small = ch.filter(c => Math.abs(c.d) < .5).length;
+  $('#fill-take').innerHTML = `The largest change is ${ch[0].n}, ${ch[0].d > 0 ? '+' : '−'}${f1(Math.abs(ch[0].d))} points. ${small} of ${ch.length} models move by less than half a point.`;
+});
+(function table() {
+  const cols = [['#', m => m.rank, 'r'], ['Model', m => m.name], ['Access', m => m.access], ['Parameters (B)', m => m.params_total ? (m.params_active ? `${m.params_active}/${m.params_total}` : m.params_total) : '', 'r'],
+    ['Accuracy', m => m.total, 'r', 1], ['Exact match', m => m.exact, 'r', 1], ['Added by review', m => m.review, 'r', 1], ['Communities below 50%', m => m.buckets[0] + m.buckets[1] + m.buckets[2], 'r'],
+    ['Lowest community', m => `${label(m.min_comm)} (${f1(m.min_acc)}%)`]];
+  let key = 0, dir = 1;
+  function draw() {
+    const rows = [...M].sort((a, b) => { const x = cols[key][1](a), y = cols[key][1](b); return (x > y ? 1 : x < y ? -1 : 0) * dir; });
+    $('#table').innerHTML = `<thead><tr>${cols.map((c, i) => `<th class="${c[2] || ''}" data-i="${i}">${c[0]}${i === key ? (dir > 0 ? ' ↑' : ' ↓') : ''}</th>`).join('')}</tr></thead><tbody>` +
+      rows.map(m => `<tr>${cols.map(c => { const v = c[1](m); return `<td class="${c[2] || ''} num">${c[3] ? f1(v) : v}</td>`; }).join('')}</tr>`).join('') + '</tbody>';
+    $$('#table th').forEach(th => th.onclick = () => { const i = +th.dataset.i; dir = i === key ? -dir : 1; key = i; draw(); });
+  }
+  draw();
+  $('#dl').onclick = e => {
+    e.preventDefault();
+    const q = v => `"${String(v).replace(/"/g, '""')}"`;
+    const csv = [cols.map(c => q(c[0])).join(','), ...M.map(m => cols.map(c => q(c[3] ? f1(c[1](m)) : c[1](m))).join(','))].join('\n');
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv'})); a.download = 'cultural_riddles_models.csv'; a.click();
+  };
+  const V = [...D.coverage].sort((a, b) => a.label.localeCompare(b.label));
+  $('#cov').innerHTML = `<thead><tr><th>Community</th><th class="r">Answers</th><th class="r">Rules</th><th class="r">Native speakers</th><th class="r">LLM jury</th><th class="r">Unscored</th><th>In results</th></tr></thead><tbody>` +
+    V.map(v => `<tr><td>${v.label}</td><td class="r num">${n0(v.answers)}</td><td class="r num">${n0(v.rules)}</td><td class="r num">${n0(v.human)}</td><td class="r num">${n0(v.judges)}</td><td class="r num">${n0(v.unscored)}</td><td>${v.in_results ? 'yes' : 'no'}</td></tr>`).join('') + '</tbody>';
+})();
+
+/* ---------- tabs, nav, theme, reveal ---------- */
+$$('#tabs button').forEach(b => b.onclick = () => {
+  $$('#tabs button').forEach(x => x.classList.toggle('on', x === b));
+  $$('.panel').forEach(p => p.classList.toggle('on', p.id === b.dataset.p));
+  window.dispatchEvent(new Event('resize'));
+});
+const secs = $$('main section'), links = $$('.nav a');
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id)); }), {rootMargin: '-45% 0px -50% 0px'});
+secs.forEach(s => io.observe(s));
+const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px'});
+$$('.reveal').forEach(el => rv.observe(el));
+function rerender() { renderers.forEach(f => f()); }
+$('#theme').onclick = () => {
+  const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('cr-theme', document.documentElement.dataset.theme); } catch (e) {}
+  rerender();
+};
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', rerender);
+let rt; let lastW = window.innerWidth;
+window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { if (Math.abs(window.innerWidth - lastW) > 30) { lastW = window.innerWidth; rerender(); } else { BC && renderers[0](); } }, 150); });
+</script>
+</body>
+</html>

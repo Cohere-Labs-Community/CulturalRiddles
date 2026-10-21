@@ -45,15 +45,15 @@ server is required. Before publishing, check these flows:
 
 1. Confirm that every section contains populated charts, the header shows
    corpus counts, and the browser console has no JavaScript errors.
-2. Hover over the leaderboard, ranking lines, and model-community heatmap.
-   Confirm that the model labels match the configuration table and that the
-   displayed percentages agree with their explanatory text.
-3. In **Cultures**, switch between all communities and the top and bottom communities.
-   Confirm that the chart updates and that map and region hover details appear.
-4. In **Answers**, switch the topic chart between **Overall** and **By model**.
-   Confirm that the score distribution and error-type charts remain populated.
-5. Inspect reasoning/search pairs, English translation intervals, and judge-fill
-   comparisons. Confirm that hover values agree with the paired markers.
+2. In **Every riddle, every model**, pick a community and hover over cells.
+   Confirm that the solve counts in the tooltip and the summary text update.
+3. In the leaderboard, switch between **With review** and **Exact match only**
+   and the access filters. Hover a community dot and confirm that the same
+   community highlights in every row; click it to open that community.
+4. In **Communities**, reorder the grid, click a square, and confirm that the
+   community page opens and its link (`#community=...`) reopens the same view.
+5. Switch the topic chart between **By model** and **Writers' expectations**,
+   open each comparison tab, and confirm that hover values agree with the text.
 6. Toggle the light and dark themes, reload to check theme persistence, and
    resize to a phone-width viewport. Confirm that charts remain readable and
    navigation reaches each section.
@@ -66,5 +66,5 @@ of a static Hugging Face Space or another static host. Keep `sdk: static` and
 source, canonical data, or aggregate JSON separately: the HTML embeds the data
 that it needs. Plotly and its map assets are fetched from the CDN at runtime.
 
-Optional demo, quiz, paper, and dataset links are configured in `LINKS` in
+Paper, dataset, and code links are configured in `LINKS` in
 `dashboard/build_static.py`. Empty links are hidden. Rebuild after editing them.

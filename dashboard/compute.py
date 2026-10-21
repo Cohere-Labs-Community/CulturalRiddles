@@ -7,9 +7,11 @@ Checks compare the dashboard's related views, not historical benchmark values.
 
 from __future__ import annotations
 
+import base64
 import json
 import math
 import statistics
+from collections import Counter
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parents[1] / "data/derived/dashboard/dashboard_data.json"
@@ -258,6 +260,74 @@ def verify(d: dict | None = None) -> None:
         sum(sum(x.values()) for x in d["agreement"]["by_n"].values()),
         d["agreement"]["riddles"],
     )
+    check(
+        "score outcomes cover scored answers",
+        sum(routing["scores"].values()),
+        routing["responses"] - routing["unscored"],
+    )
+    check("admits-not-knowing score", routing["scores"].get("1", 0), routing["admits_not_knowing"])
+    percentage("abstention maximum", d["abstention_max"])
+    check("corpus model count", d["corpus"]["models"], len(lb))
+    sizes = indexed("model sizes", d["model_sizes"], "model_display")
+    check("model sizes cover leaderboard", set(sizes), set(lb))
+
+    for community, row in communities.items():
+        percentage(f"{community} pooled accuracy", row["pooled_accuracy"])
+        total = sum(cells[m, community]["total"] for m in lb)
+        pooled = sum(cells[m, community]["value"] * cells[m, community]["total"] for m in lb)
+        check(f"{community} pooled accuracy from grid", pooled / total, row["pooled_accuracy"])
+    for group in d["resource"]:
+        values = [
+            x["pooled_accuracy"]
+            for x in communities.values()
+            if x["language_resourcedness"] == group["group"]
+        ]
+        check(f"resource {group['group']} community count", len(values), group["communities"])
+        check(
+            f"resource {group['group']} community mean",
+            statistics.mean(values),
+            group["mean_community_accuracy"],
+        )
+
+    by_topic = {(x["community"], x["topic_group"]): x for x in d["community_topics"]}
+    check("community topics unique", len(by_topic), len(d["community_topics"]))
+    check("community topics communities", {c for c, _ in by_topic}, set(communities))
+    for community in communities:
+        rows = [x for (c, _), x in by_topic.items() if c == community]
+        for x in rows:
+            percentage(f"{community} {x['topic_group']} accuracy", x["accuracy"])
+        check(
+            f"{community} topic responses",
+            sum(x["responses"] for x in rows),
+            sum(cells[m, community]["total"] for m in lb),
+        )
+        check(
+            f"{community} topic pooled accuracy",
+            sum(x["accuracy"] * x["responses"] for x in rows) / sum(x["responses"] for x in rows),
+            communities[community]["pooled_accuracy"],
+        )
+
+    matrix = d["riddle_matrix"]
+    solved_by = matrix["solved_by"]
+    check("riddle matrix models", matrix["models"], [row["model"] for row in d["leaderboard"]])
+    check("riddle matrix riddles", len(solved_by), d["riddle_solves"]["riddles"])
+    check("riddle matrix communities", len(matrix["community"]), len(solved_by))
+    check("riddle matrix community keys", set(matrix["community"]) <= set(communities), True)
+    check(
+        "riddle matrix histogram",
+        dict(Counter(solved_by)),
+        {int(k): v for k, v in d["riddle_solves"]["hist"].items()},
+    )
+    check("riddle matrix order", solved_by, sorted(solved_by, reverse=True))
+    rows = [base64.b64decode(bits) for bits in matrix["bits"]]
+    check("riddle matrix rows", len(rows), len(lb))
+    width = (len(solved_by) + 7) // 8
+    check("riddle matrix row width", {len(row) for row in rows}, {width})
+    column_sums = [
+        sum((row[i >> 3] >> (7 - (i & 7))) & 1 for row in rows) for i in range(len(solved_by))
+    ]
+    check("riddle matrix column sums", column_sums, solved_by)
+
     if errors:
         raise ValueError("Dashboard data failed consistency checks:\n" + "\n".join(errors))
     print(f"verify: all {n_checks} checks passed")
