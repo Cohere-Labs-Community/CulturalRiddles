@@ -1,6 +1,7 @@
 # Cultural Riddles
 
 [![Dataset on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-CulturalRiddles-yellow)](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)
+[![Results dashboard on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Dashboard-CulturalRiddles-orange)](https://huggingface.co/spaces/CohereLabsCommunity/CulturalRiddles)
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue)](LICENSE)
 [![Data terms](https://img.shields.io/badge/data-evaluation--only-lightgrey)](data/LICENSE)
 
