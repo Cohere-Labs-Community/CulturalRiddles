@@ -220,6 +220,34 @@ def build_tables(root: Path, riddles: pd.DataFrame) -> dict[str, pd.DataFrame]:
     }
 
 
+def contributor_credits(root: Path, metadata: pd.DataFrame, communities: list[str]) -> str:
+    """List writers who consented to be credited, by community.
+
+    ``docs/contributors.csv`` has one row per (community, name), using the name each writer
+    chose, and an optional note such as a published source the riddles draw on. Writers who
+    asked not to be named, or have not answered yet, are not in the file.
+    """
+    credits = pd.read_csv(root / "docs/contributors.csv", dtype=str, keep_default_na=False)
+    if list(credits.columns) != ["community", "name", "note"]:
+        raise ValueError("docs/contributors.csv must have the columns community,name,note.")
+    unknown = sorted(set(credits["community"]) - set(communities))
+    if unknown:
+        raise ValueError(f"docs/contributors.csv names communities outside the release: {unknown}")
+    labels = (metadata["language"] + " (" + metadata["country"] + ")").set_axis(
+        metadata["community"]
+    )
+    lines = []
+    for community, group in sorted(
+        credits.groupby("community"), key=lambda item: labels.get(item[0], item[0])
+    ):
+        names = " · ".join(
+            name.strip() + (f" ({note.strip()})" if note.strip() else "")
+            for name, note in sorted(zip(group["name"], group["note"]))
+        )
+        lines.append(f"- **{labels.get(community, community)}:** {names}")
+    return "\n".join(lines)
+
+
 def render_card(root: Path, tables: dict[str, pd.DataFrame]) -> str:
     riddles, answers = tables["riddles"], tables["model_answers"]
     annotations, models = tables["human_annotations"], tables["models"]
@@ -239,6 +267,7 @@ def render_card(root: Path, tables: dict[str, pd.DataFrame]) -> str:
     second = annotations[annotations["annotation"].eq("second")]
     writers, annotators = int(people["riddle_writers"]), int(people["annotators"])
     language_yaml = "\n".join(f"- {code}" for code in languages)
+    credits = contributor_credits(root, metadata, communities)
     configs = "\n".join(
         f"- config_name: {name}\n"
         + ("  default: true\n" if name == "riddles" else "")
@@ -352,6 +381,12 @@ Riddles flagged in a content review carry a short content note in their `riddle_
 ## Contributors
 
 This benchmark was proposed by **Károly Boczka** and **Julia Kreutzer**, and built by native-speaker contributors across the Cohere Labs Community.
+
+### Riddle writers by community
+
+Writers who agreed to be credited, by the name they chose. Some writers asked not to be named or have not confirmed yet; they are part of the Cohere Labs Community credit.
+
+{credits}
 
 ## Updates
 
