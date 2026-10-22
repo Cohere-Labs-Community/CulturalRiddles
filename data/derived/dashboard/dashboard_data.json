@@ -1683,7 +1683,9 @@
    "country_code": "IDN",
    "language_resourcedness": "extremely-low",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 0.0,
+   "common_crawl_note": "Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages)."
   },
   {
    "community": "bugisnese_indonesia",
@@ -1700,7 +1702,9 @@
    "country_code": "IDN",
    "language_resourcedness": "extremely-low",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 0.0,
+   "common_crawl_note": "Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages)."
   },
   {
    "community": "lumasaba_uganda",
@@ -1717,7 +1721,9 @@
    "country_code": "UGA",
    "language_resourcedness": "extremely-low",
    "un_m49_subregion": "Sub-Saharan Africa",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 0.0,
+   "common_crawl_note": "Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages)."
   },
   {
    "community": "arabic_sudan",
@@ -1734,7 +1740,9 @@
    "country_code": "SDN",
    "language_resourcedness": "high",
    "un_m49_subregion": "North Africa",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 14286482.0,
+   "common_crawl_note": "Mapped to Arabic macro-language; dialect is not separated by CLD2."
   },
   {
    "community": "yoruba_nigeria",
@@ -1751,7 +1759,9 @@
    "country_code": "NGA",
    "language_resourcedness": "low",
    "un_m49_subregion": "Sub-Saharan Africa",
-   "riddle_writers": 4
+   "riddle_writers": 4,
+   "common_crawl_pages": 36052.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "luganda_uganda",
@@ -1768,7 +1778,9 @@
    "country_code": "UGA",
    "language_resourcedness": "extremely-low",
    "un_m49_subregion": "Sub-Saharan Africa",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 7704.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "afaan_oromo_oromo",
@@ -1785,7 +1797,9 @@
    "country_code": "ETH",
    "language_resourcedness": "low",
    "un_m49_subregion": "Sub-Saharan Africa",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": null,
+   "common_crawl_note": null
   },
   {
    "community": "swahili_kenya",
@@ -1802,7 +1816,9 @@
    "country_code": "KEN",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Sub-Saharan Africa",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 249945.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "assamese_india",
@@ -1819,7 +1835,9 @@
    "country_code": "IND",
    "language_resourcedness": "low",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 4
+   "riddle_writers": 4,
+   "common_crawl_pages": 66726.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "belarusian_belarus",
@@ -1836,7 +1854,9 @@
    "country_code": "BLR",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Eastern Europe",
-   "riddle_writers": 4
+   "riddle_writers": 4,
+   "common_crawl_pages": 367299.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "kannada_india",
@@ -1853,7 +1873,9 @@
    "country_code": "IND",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 323079.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "malayalam_india",
@@ -1870,7 +1892,9 @@
    "country_code": "IND",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 509416.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "konkani_india",
@@ -1887,7 +1911,9 @@
    "country_code": "IND",
    "language_resourcedness": "extremely-low",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 0.0,
+   "common_crawl_note": "Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages)."
   },
   {
    "community": "hungarian_hungary",
@@ -1904,7 +1930,9 @@
    "country_code": "HUN",
    "language_resourcedness": "high",
    "un_m49_subregion": "Eastern Europe",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 11427802.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "chinese_malaysia",
@@ -1921,7 +1949,9 @@
    "country_code": "MYS",
    "language_resourcedness": "high",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 93776922.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "uzbek_uzbekistan",
@@ -1938,7 +1968,9 @@
    "country_code": "UZB",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Central Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 669583.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "german_germany",
@@ -1955,7 +1987,9 @@
    "country_code": "DEU",
    "language_resourcedness": "high",
    "un_m49_subregion": "Western Europe",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 126414617.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "arabic_syria",
@@ -1972,7 +2006,9 @@
    "country_code": "SYR",
    "language_resourcedness": "high",
    "un_m49_subregion": "West Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 14286482.0,
+   "common_crawl_note": "Mapped to Arabic macro-language; dialect is not separated by CLD2."
   },
   {
    "community": "persian_iran",
@@ -1989,7 +2025,9 @@
    "country_code": "IRN",
    "language_resourcedness": "high",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 10
+   "riddle_writers": 10,
+   "common_crawl_pages": 16267415.0,
+   "common_crawl_note": "Mapped from Iranian Persian (pes) to Persian macro-language (fas)."
   },
   {
    "community": "thai_thailand",
@@ -2006,7 +2044,9 @@
    "country_code": "THA",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 5
+   "riddle_writers": 5,
+   "common_crawl_pages": 8002604.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "chinese_china",
@@ -2023,7 +2063,9 @@
    "country_code": "CHN",
    "language_resourcedness": "high",
    "un_m49_subregion": "East Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 93776922.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "spanish_argentina",
@@ -2040,7 +2082,9 @@
    "country_code": "ARG",
    "language_resourcedness": "high",
    "un_m49_subregion": "Latin America",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 98972317.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "cantonese_china",
@@ -2057,7 +2101,9 @@
    "country_code": "CHN",
    "language_resourcedness": "extremely-low",
    "un_m49_subregion": "East Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 0.0,
+   "common_crawl_note": "Not reported as a CLD2 primary language in this crawl; page count set to 0 (not proof of zero web pages)."
   },
   {
    "community": "telugu_india",
@@ -2074,7 +2120,9 @@
    "country_code": "IND",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 8
+   "riddle_writers": 8,
+   "common_crawl_pages": 425530.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "catalan_catalonia",
@@ -2091,7 +2139,9 @@
    "country_code": "ESP",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Southern Europe",
-   "riddle_writers": 5
+   "riddle_writers": 5,
+   "common_crawl_pages": 4383390.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "nepali_nepal",
@@ -2108,7 +2158,9 @@
    "country_code": "NPL",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 1274697.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "chinese_simplified_china",
@@ -2125,7 +2177,9 @@
    "country_code": "CHN",
    "language_resourcedness": "high",
    "un_m49_subregion": "East Asia",
-   "riddle_writers": 7
+   "riddle_writers": 7,
+   "common_crawl_pages": 93776922.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "luxembourgish_luxembourg",
@@ -2142,7 +2196,9 @@
    "country_code": "LUX",
    "language_resourcedness": "low",
    "un_m49_subregion": "Western Europe",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 80957.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "russian_russia",
@@ -2159,7 +2215,9 @@
    "country_code": "RUS",
    "language_resourcedness": "high",
    "un_m49_subregion": "Eastern Europe",
-   "riddle_writers": 5
+   "riddle_writers": 5,
+   "common_crawl_pages": 146902975.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "indonesian_indonesia",
@@ -2176,7 +2234,9 @@
    "country_code": "IDN",
    "language_resourcedness": "high",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 23924783.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "ukrainian_ukraine",
@@ -2193,7 +2253,9 @@
    "country_code": "UKR",
    "language_resourcedness": "high",
    "un_m49_subregion": "Eastern Europe",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 17911708.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "serbian_serbia",
@@ -2210,7 +2272,9 @@
    "country_code": "SRB",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Southern Europe",
-   "riddle_writers": 4
+   "riddle_writers": 4,
+   "common_crawl_pages": 5713950.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "polish_poland",
@@ -2227,7 +2291,9 @@
    "country_code": "POL",
    "language_resourcedness": "high",
    "un_m49_subregion": "Eastern Europe",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 44157233.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "urdu_pakistan",
@@ -2244,7 +2310,9 @@
    "country_code": "PAK",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 689187.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "arabic_morocco",
@@ -2261,7 +2329,9 @@
    "country_code": "MAR",
    "language_resourcedness": "high",
    "un_m49_subregion": "North Africa",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 14286482.0,
+   "common_crawl_note": "Mapped to Arabic macro-language; dialect is not separated by CLD2."
   },
   {
    "community": "tamil_india",
@@ -2278,7 +2348,9 @@
    "country_code": "IND",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 960601.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "marathi_india",
@@ -2295,7 +2367,9 @@
    "country_code": "IND",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 571814.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "arabic_egypt",
@@ -2312,7 +2386,9 @@
    "country_code": "EGY",
    "language_resourcedness": "high",
    "un_m49_subregion": "North Africa",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 14286482.0,
+   "common_crawl_note": "Mapped to Arabic macro-language; dialect is not separated by CLD2."
   },
   {
    "community": "bengali_bangladesh",
@@ -2329,7 +2405,9 @@
    "country_code": "BGD",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 2318326.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "bulgarian_bulgaria",
@@ -2346,7 +2424,9 @@
    "country_code": "BGR",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Eastern Europe",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 6211572.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "italian_italy",
@@ -2363,7 +2443,9 @@
    "country_code": "ITA",
    "language_resourcedness": "high",
    "un_m49_subregion": "Southern Europe",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 52686575.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "tunisian_arabic_tunisia",
@@ -2380,7 +2462,9 @@
    "country_code": "TUN",
    "language_resourcedness": "high",
    "un_m49_subregion": "North Africa",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 14286482.0,
+   "common_crawl_note": "Mapped to Arabic macro-language; dialect is not separated by CLD2."
   },
   {
    "community": "portuguese_portugal",
@@ -2397,7 +2481,9 @@
    "country_code": "PRT",
    "language_resourcedness": "high",
    "un_m49_subregion": "Southern Europe",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 54053402.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "vietnamese_vietnam",
@@ -2414,7 +2500,9 @@
    "country_code": "VNM",
    "language_resourcedness": "high",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 23000895.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "spanish_peru",
@@ -2431,7 +2519,9 @@
    "country_code": "PER",
    "language_resourcedness": "high",
    "un_m49_subregion": "Latin America",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 98972317.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "sinhala_sri_lanka",
@@ -2448,7 +2538,9 @@
    "country_code": "LKA",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 189589.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "bengali_india",
@@ -2465,7 +2557,9 @@
    "country_code": "IND",
    "language_resourcedness": "medium",
    "un_m49_subregion": "South Asia",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 2318326.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "spanish_cuba",
@@ -2482,7 +2576,9 @@
    "country_code": "CUB",
    "language_resourcedness": "high",
    "un_m49_subregion": "Caribbean",
-   "riddle_writers": 3
+   "riddle_writers": 3,
+   "common_crawl_pages": 98972317.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "chinese_singapore",
@@ -2499,7 +2595,9 @@
    "country_code": "SGP",
    "language_resourcedness": "high",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 93776922.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "french_canada",
@@ -2516,7 +2614,9 @@
    "country_code": "CAN",
    "language_resourcedness": "high",
    "un_m49_subregion": "North America",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 103720803.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "malay_malaysia",
@@ -2533,7 +2633,9 @@
    "country_code": "MYS",
    "language_resourcedness": "medium",
    "un_m49_subregion": "Southeast Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 1840421.0,
+   "common_crawl_note": "Mapped from Standard Malay (zsm) to Malay macro-language (msa)."
   },
   {
    "community": "english_canada",
@@ -2550,7 +2652,9 @@
    "country_code": "CAN",
    "language_resourcedness": "high",
    "un_m49_subregion": "North America",
-   "riddle_writers": 4
+   "riddle_writers": 4,
+   "common_crawl_pages": 865530140.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "dutch_netherlands",
@@ -2567,7 +2671,9 @@
    "country_code": "NLD",
    "language_resourcedness": "high",
    "un_m49_subregion": "Western Europe",
-   "riddle_writers": 4
+   "riddle_writers": 4,
+   "common_crawl_pages": 38004267.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "brazilian_portuguese",
@@ -2584,7 +2690,9 @@
    "country_code": "BRA",
    "language_resourcedness": "high",
    "un_m49_subregion": "Latin America",
-   "riddle_writers": 9
+   "riddle_writers": 9,
+   "common_crawl_pages": 54053402.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "french_france",
@@ -2601,7 +2709,9 @@
    "country_code": "FRA",
    "language_resourcedness": "high",
    "un_m49_subregion": "Western Europe",
-   "riddle_writers": 2
+   "riddle_writers": 2,
+   "common_crawl_pages": 103720803.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "japanese_japan",
@@ -2618,7 +2728,9 @@
    "country_code": "JPN",
    "language_resourcedness": "high",
    "un_m49_subregion": "East Asia",
-   "riddle_writers": 1
+   "riddle_writers": 1,
+   "common_crawl_pages": 112295117.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   },
   {
    "community": "english_usa",
@@ -2635,8 +2747,35 @@
    "country_code": "USA",
    "language_resourcedness": "high",
    "un_m49_subregion": "North America",
-   "riddle_writers": 5
+   "riddle_writers": 5,
+   "common_crawl_pages": 865530140.0,
+   "common_crawl_note": "Exact ISO 639-3 code match."
   }
+ ],
+ "resource_levels": [
+  {
+   "group": "high",
+   "min_pages": 10000000,
+   "max_pages": null
+  },
+  {
+   "group": "medium",
+   "min_pages": 100000,
+   "max_pages": 10000000
+  },
+  {
+   "group": "low",
+   "min_pages": 10000,
+   "max_pages": 100000
+  },
+  {
+   "group": "extremely-low",
+   "min_pages": null,
+   "max_pages": 10000
+  }
+ ],
+ "common_crawl_archive": [
+  "CC-MAIN-2026-34"
  ],
  "cells": [
   {

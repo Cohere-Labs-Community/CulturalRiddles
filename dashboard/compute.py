@@ -307,6 +307,20 @@ def verify(d: dict | None = None) -> None:
             communities[community]["pooled_accuracy"],
         )
 
+    levels = indexed("resource levels", d["resource_levels"], "group")
+    check("resource levels match groups", set(levels), {x["group"] for x in d["resource"]})
+    for community, row in communities.items():
+        pages = row.get("common_crawl_pages")
+        if pages is None:
+            continue
+        level = levels[row["language_resourcedness"]]
+        low, high = level["min_pages"], level["max_pages"]
+        check(
+            f"{community} Common Crawl pages within its level",
+            (low is None or pages >= low) and (high is None or pages < high),
+            True,
+        )
+
     matrix = d["riddle_matrix"]
     solved_by = matrix["solved_by"]
     check("riddle matrix models", matrix["models"], [row["model"] for row in d["leaderboard"]])
