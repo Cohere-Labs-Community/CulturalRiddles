@@ -1,5 +1,6 @@
 # Cultural Riddles
 
+[![arXiv](https://img.shields.io/badge/arXiv-2610.29968-b31b1b)](https://arxiv.org/abs/2610.29968)
 [![Dataset on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-CulturalRiddles-yellow)](https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles)
 [![Results dashboard on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Dashboard-CulturalRiddles-orange)](https://huggingface.co/spaces/CohereLabsCommunity/CulturalRiddles)
 [![Play the riddles](https://img.shields.io/badge/%F0%9F%A7%A9%20Play-culturalriddles.ai-green)](https://culturalriddles.ai/)
