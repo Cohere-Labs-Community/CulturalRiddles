@@ -204,5 +204,8 @@ def test_export_writes_every_public_table_and_card(tmp_path):
         for name, path in dataset_card.TABLES.items():
             assert f"config_name: {name}" in card and path in card
         assert "must not be used to train" in card
+        credits = pd.read_csv(app.ROOT / "docs/contributors.csv", dtype=str)
+        assert "Riddle writers by community" in card
+        assert all(name.strip() in card for name in credits["name"])
     finally:
         shutil.rmtree(target, ignore_errors=True)
