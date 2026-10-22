@@ -322,7 +322,7 @@ footer p{max-width:80ch}
         <div class="seg" id="hm-sort" role="group" aria-label="Order communities">
           <button data-s="mean" class="on">By difficulty</button>
           <button data-s="region">By region</button>
-          <button data-s="resource">By language resources</button>
+          <button data-s="resource" id="hm-res-btn">By language resources</button>
         </div>
       </div>
       <div class="tscroll"><div id="heat" class="plot"></div></div>
@@ -361,7 +361,7 @@ footer p{max-width:80ch}
 
     <div class="card reveal">
       <h3>Language resources</h3>
-      <p class="sub">Each dot is a community, placed by the accuracy of all its scored answers pooled over models. Diamonds pool every answer in the level, with 95% intervals from resampling communities. Levels follow Common Crawl page counts for the language.</p>
+      <p class="sub">Each dot is a community, placed by the accuracy of all its scored answers pooled over models. Diamonds pool every answer in the level, with 95% intervals from resampling communities. <span id="res-def"></span></p>
       <div id="resource" class="plot"></div>
       <p class="take" id="res-take"></p>
       <div class="src">Source: Section 5 and Figure 8 of the paper.</div>
@@ -528,6 +528,7 @@ function adapt(R) {
     region: c.un_m49_subregion, resource: c.language_resourcedness, writers: c.riddle_writers,
     mean: c.mean_accuracy, median_model: c.median_model, frontier: c.frontier_accuracy, small: c.small_accuracy,
     below10: c.n_below_10, above20: c.n_above_20, pooled: c.pooled_accuracy, rank_from_hardest: i + 1,
+    pages: c.common_crawl_pages, pages_note: c.common_crawl_note,
   }));
   const ci = Object.fromEntries(comms.map((c, i) => [c.id, i]));
   const cell = Object.fromEntries(R.cells.map(x => [x.model_display + '|' + x.community, x]));
@@ -555,6 +556,7 @@ function adapt(R) {
     pairs: R.pairs, pair_models: R.pair_models, search_losses: R.search_losses, english: R.english, english_models: R.english_models,
     english_high: R.english_high_resource_accuracy, chinese: R.chinese, tier_effects: R.tier_effects, local_term: R.local_term_effect,
     coverage: R.coverage, frontier_models: R.frontier_models, small_models: R.small_models, links: R.links || {},
+    levels: R.resource_levels, cc_archive: (R.common_crawl_archive || []).join(', '),
   };
 }
 const $ = s => document.querySelector(s);
@@ -571,6 +573,16 @@ const byId = Object.fromEntries(C.map((c, i) => [c.id, {...c, i}]));
 const label = id => (byId[id] || {}).label || id;
 const MOBILE = () => window.innerWidth < 640;
 const MD = D.md;
+const pagesFmt = n => n >= 1e6 ? (n / 1e6).toLocaleString('en-US', {maximumFractionDigits: 1}) + 'M' : n >= 1e3 ? Math.round(n / 1e3).toLocaleString('en-US') + 'K' : n0(n);
+function levelRange(l) {
+  if (l.min_pages == null) return `under ${pagesFmt(l.max_pages)} pages, or not detected`;
+  if (l.max_pages == null) return `${pagesFmt(l.min_pages)} pages or more`;
+  return `${pagesFmt(l.min_pages)} to ${pagesFmt(l.max_pages)} pages`;
+}
+const RES_DEF = `Resource levels count the web pages in the language in Common Crawl${D.cc_archive ? ' (' + D.cc_archive + ')' : ''}: ` +
+  D.levels.map(l => `${RES_LABEL[l.group].toLowerCase()}, ${levelRange(l)}`).join('; ') +
+  `. Dialects take their main language's count; for example, every Arabic variety uses the count for Arabic.`;
+document.getElementById('hm-res-btn').title = RES_DEF;
 document.querySelectorAll('[data-k="nhe"]').forEach(e => e.textContent = C.length);
 document.querySelectorAll('[data-k="nm"]').forEach(e => e.textContent = M.length);
 // Communities where no model reaches a quarter of the riddles.
@@ -865,7 +877,8 @@ const EX = (function () {
     const c = byId[cur], j = c.i;
     const easyRank = C.length - c.rank_from_hardest + 1;
     $('#ex-name').textContent = c.label;
-    $('#ex-meta').innerHTML = `${c.language} · ${c.country} · ${c.region}<span class="chip">${RES_LABEL[c.resource]} resource</span>`;
+    const pagesText = c.pages == null ? '' : c.pages > 0 ? ` · about ${pagesFmt(c.pages)} Common Crawl pages` : ' · not detected in Common Crawl';
+    $('#ex-meta').innerHTML = `${c.language} · ${c.country} · ${c.region}<span class="chip" title="${RES_DEF}">${RES_LABEL[c.resource]} resource</span><span style="font-size:13.5px">${pagesText}</span>`;
     $('#ex-link').href = '#community=' + cur;
     const vals = M.map((m, i) => D.grid[i][j]);
     const bi = vals.indexOf(Math.max(...vals));
@@ -908,6 +921,7 @@ document.getElementById('heat').on('plotly_click', ev => { const p = ev.points[0
 
 /* ---------- resource ---------- */
 register(function resource() {
+  $('#res-def').textContent = RES_DEF;
   const tiers = ['high', 'medium', 'low', 'extremely-low'];
   const R = Object.fromEntries(D.resource.map(r => [r.group, r]));
   const tr = [];
@@ -919,7 +933,7 @@ register(function resource() {
       hovertemplate: '<b>%{text}</b><br>%{x:.1f}%<extra></extra>'});
     tr.push({type: 'scatter', mode: 'markers', x: [R[t].pooled], y: [k], error_x: {type: 'data', symmetric: false, array: [R[t].chi - R[t].pooled], arrayminus: [R[t].pooled - R[t].clo], color: css('--ink'), thickness: 2, width: 6},
       marker: {symbol: 'diamond', size: 18, color: css('--ink'), line: {width: 2, color: css('--card')}},
-      hovertemplate: `<b>${RES_LABEL[t]} resource</b><br>pooled %{x:.1f}%<br>${R[t].communities} communities<extra></extra>`});
+      hovertemplate: `<b>${RES_LABEL[t]} resource</b> (${levelRange(D.levels.find(l => l.group === t))})<br>pooled %{x:.1f}%<br>${R[t].communities} communities<extra></extra>`});
   });
   plot('resource', tr, base({height: 380, margin: {l: 10, r: 20, t: 6, b: 44},
     xaxis: {range: [0, 80], ticksuffix: '%', gridcolor: css('--grid'), fixedrange: true, title: {text: 'accuracy', font: {size: 12}}},

@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 
 from analysis.constants import (
+    COMMONCRAWL_STATS_CSV,
     CONTRIBUTOR_COUNTS_CSV,
     DERIVED_DIR,
     DIFFICULTY_OUTPUT_DIR,
@@ -46,6 +47,14 @@ from analysis.tables.human_error_types import build_human_error_types
 from analysis.tables.model_performance_summary import build_model_performance
 
 OUT = DERIVED_DIR / "dashboard" / "dashboard_data.json"
+# Language-resource levels by Common Crawl page count, as defined in the paper.
+# A level covers counts from min_pages (inclusive) up to max_pages (exclusive).
+RESOURCE_LEVELS = (
+    {"group": "high", "min_pages": 10_000_000, "max_pages": None},
+    {"group": "medium", "min_pages": 100_000, "max_pages": 10_000_000},
+    {"group": "low", "min_pages": 10_000, "max_pages": 100_000},
+    {"group": "extremely-low", "min_pages": None, "max_pages": 10_000},
+)
 PAIR_MODELS = {
     "claude_reasoning": ("claude-opus-4-7", "claude-opus-4-7-thinking"),
     "deepseek_reasoning": ("deepseek-v4-pro", "deepseek-v4-pro-thinking"),
@@ -213,7 +222,22 @@ def export() -> dict:
         on="community",
         validate="1:1",
     ).sort_values("mean_accuracy")
+    crawl = pd.read_csv(COMMONCRAWL_STATS_CSV)
+    pages = meta[["community", "language_code"]].merge(
+        crawl[["language_code", "common_crawl_pages", "mapping_note"]],
+        on="language_code",
+        how="left",
+        validate="m:1",
+    )
+    communities = communities.merge(
+        pages.drop(columns="language_code").rename(columns={"mapping_note": "common_crawl_note"}),
+        on="community",
+        how="left",
+        validate="1:1",
+    )
     out["communities"] = records(communities)
+    out["resource_levels"] = list(RESOURCE_LEVELS)
+    out["common_crawl_archive"] = sorted(crawl["common_crawl_archive"].dropna().unique())
     out["cells"] = records(cells[["model_display", "community", "value", "total"]])
 
     grouping = community_accuracy()
