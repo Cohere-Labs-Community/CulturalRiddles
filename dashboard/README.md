@@ -10,6 +10,8 @@ pinned: false
 
 # Cultural Riddles: results dashboard
 
+Paper: [CulturalRiddles: A Multicultural Benchmark of Riddles](https://arxiv.org/abs/2610.29968)
+
 The dashboard is one static HTML page with Plotly loaded from a CDN. It shows
 which model solved which riddle, the leaderboard with each model's spread across
 communities, a model-by-community grid, a page for each community, geography
