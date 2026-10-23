@@ -10,6 +10,7 @@ REPO_ID = "CohereLabsCommunity/CulturalRiddles"
 REPO_URL = "https://github.com/Cohere-Labs-Community/CulturalRiddles"
 DASHBOARD_URL = "https://huggingface.co/spaces/CohereLabsCommunity/CulturalRiddles"
 PLAY_URL = "https://culturalriddles.ai/"
+PAPER_URL = "https://arxiv.org/abs/2610.29968"
 
 # Published table -> file inside the bundle. The riddles table stays the default.
 TABLES = {
@@ -306,7 +307,7 @@ configs:
 
 # Cultural Riddles
 
-**Explore the results:** [dashboard]({DASHBOARD_URL}) · **Play:** [try the riddles yourself]({PLAY_URL}) · **Code:** [{REPO_URL.removeprefix("https://")}]({REPO_URL})
+**Paper:** [arXiv:2610.29968]({PAPER_URL}) · **Explore the results:** [dashboard]({DASHBOARD_URL}) · **Play:** [try the riddles yourself]({PLAY_URL}) · **Code:** [{REPO_URL.removeprefix("https://")}]({REPO_URL})
 
 A community-built benchmark of original cultural riddles from **{len(communities)} communities across {len(languages)} languages and {countries} countries**, written by {writers} native speakers. Each riddle describes something without naming it, so answering it takes cultural knowledge, not translation or web search. A native speaker recognises the answer at once; a model succeeds only if it carries that culture's knowledge.
 
@@ -396,6 +397,22 @@ This card is generated from the [source repository]({REPO_URL}) on each release.
 - After a content review, some riddles were removed or corrected. Every change is listed in `data/corrections.csv` in the source repository.
 
 ## Citation
+
+If you use this dataset, please cite the paper:
+
+```bibtex
+@misc{{nguyen2026culturalriddles,
+  title         = {{CulturalRiddles: A Multicultural Benchmark of Riddles}},
+  author        = {{Nguyen, My Chiffon and Hu, Tianyi and Anbalagan, Vinod and Gagnier, Henry and Sadeghi, Pouya and others}},
+  year          = {{2026}},
+  eprint        = {{2610.29968}},
+  archivePrefix = {{arXiv}},
+  primaryClass  = {{cs.CL}},
+  url           = {{{PAPER_URL}}}
+}}
+```
+
+To cite the dataset release itself:
 
 ```bibtex
 @misc{{cultural_riddles_2026,

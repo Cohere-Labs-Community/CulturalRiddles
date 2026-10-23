@@ -23,7 +23,7 @@ TEMPLATE = HERE / "template.html"
 
 LINKS = {
     "play": "https://culturalriddles.ai/",
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2610.29968",
     "dataset": "https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles",
     "code": "https://github.com/Cohere-Labs-Community/CulturalRiddles",
 }
