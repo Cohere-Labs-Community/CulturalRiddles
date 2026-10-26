@@ -8,8 +8,6 @@ A cultural riddle describes something without naming it. Someone who grew up in 
 
 Good riddles draw on lived experience: the food at home, the games children play in the street, the jokes everyone knows, the small rituals around festivals. These are the things a model can only get right if it truly carries your culture's knowledge.
 
-![Overview of the benchmark. Panel A shows example riddles from Canada and Thailand and the topics they cover. Panel B shows how answers are scored: rules first, then native speakers, then an LLM jury. Panel C summarizes the results: accuracy falls with fewer language resources, and models more often hallucinate than admit that they don't know.](assets/overview.png)
-
 ## What makes a good riddle
 
 - **It never names the answer.** Describe it through clues, wordplay, or the experience around it.
