@@ -31,7 +31,7 @@ Each goal has its own extra requirements:
 
 ## Submit riddles
 
-You contribute one community's set of 100 riddles in an anonymous Excel workbook. A maintainer reviews the content before it enters the corpus.
+You contribute one community's set of 100 riddles in an anonymous Excel workbook. A maintainer reviews the content before it enters the corpus. For guidance on writing the riddles themselves, see [Writing riddles for your community](writing-riddles.md).
 
 1. Copy the blank template to a new file. Replace `YOUR_WORKBOOK` with an anonymous description of your community, such as `example_country`:
 

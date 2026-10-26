@@ -4,6 +4,8 @@ Submit an anonymous workbook through a pull request from your fork. Automated ch
 
 ## Before you begin
 
+New to Cultural Riddles? Start with [Writing riddles for your community](docs/writing-riddles.md). It explains what makes a good riddle, how to choose your two wildcard topics, and what goes in each column.
+
 Check [the list of communities](docs/communities.md) already in the benchmark. If yours is not there, open an [Add my community](https://github.com/Cohere-Labs-Community/CulturalRiddles/issues/new?template=add-community.yml) issue before you start writing, so that others can see it is in progress and maintainers can confirm the community key. If your community is already listed, open an issue to discuss improvements instead of submitting a replacement: an import replaces the community's whole set.
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/), clone your fork, and run `uv sync --frozen` from the repository root. These checks run locally without API keys or network downloads after dependency installation.
