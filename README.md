@@ -65,6 +65,7 @@ The following guides cover each area in depth:
 
 | Guide | Read it to |
 | --- | --- |
+| [Writing riddles](docs/writing-riddles.md) | What makes a good riddle, choosing wildcard topics, and filling in the workbook |
 | [Contributing riddles](CONTRIBUTING.md) | Prepare a workbook, open a pull request, and propose corrections |
 | [Submission tools](submissions/README.md) | Learn the validation rules and the maintainer import workflow |
 | [Benchmark guide](benchmark/README.md) | Run and score models, configure providers, and run judges |
