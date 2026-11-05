@@ -24,6 +24,10 @@ The dataset, its schemas, and its terms are available at these locations:
 - **Data contract:** [schemas, score meanings, and snapshot boundaries](data/README.md)
 - **Licenses:** code under [Apache-2.0](LICENSE); data under the separate [data terms](data/LICENSE)
 
+## Contribute riddles
+
+Is your community missing? You can add it, with or without GitHub: send us a filled-in workbook, upload it on the GitHub website, or open a pull request. Start with [Writing riddles for your community](docs/writing-riddles.md), then see [Three ways to send your riddles](CONTRIBUTING.md#three-ways-to-send-your-riddles).
+
 ## Get started
 
 You need [uv](https://docs.astral.sh/uv/getting-started/installation/) and nothing else. It installs the pinned Python 3.12 environment for you.
