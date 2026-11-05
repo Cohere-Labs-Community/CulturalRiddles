@@ -1,6 +1,20 @@
 # Contributing riddles
 
-Submit an anonymous workbook through a pull request from your fork. Automated checks validate the intake contract; a maintainer reviews the content before importing it. Passing validation is not content approval and never automatically adds riddles to the canonical corpus.
+You don't need to know GitHub to add riddles for your community. Pick the way that suits you; every route ends with a maintainer reviewing your riddles before they join the dataset.
+
+## Three ways to send your riddles
+
+1. **Send us your workbook (no GitHub needed).** Download the [blank template](data/submissions/submission_template.xlsx), fill it in following [Writing riddles for your community](docs/writing-riddles.md), and email it to a maintainer: Vinod Anbalagan at vinodanbalagan@gmail.com. We run the checks and submit it for you.
+2. **Upload it on the GitHub website (no command line).** Open an [Add my community](https://github.com/Cohere-Labs-Community/CulturalRiddles/issues/new?template=add-community.yml) issue, then fork this repository on github.com, choose **Add file** and then **Upload files**, and put your workbook in `data/submissions/`. GitHub offers to open a pull request, and the checks run on it automatically.
+3. **Use git and run the checks yourself.** Follow the rest of this page.
+
+Whichever route you choose:
+
+- Start with the [writing guide](docs/writing-riddles.md) and check [the list of communities](docs/communities.md) already included.
+- Keep the workbook anonymous: no names in cells, comments, the file name, or the file's author properties. To be credited as a writer, tell a maintainer privately how you'd like your name to appear.
+- New communities join the dataset. The model results published with the paper cover the communities benchmarked for that release.
+
+The rest of this page describes route 3 and how maintainers review and import submissions. Automated checks validate the intake contract; a maintainer reviews the content before importing it. Passing validation is not content approval and never automatically adds riddles to the canonical corpus.
 
 ## Before you begin
 

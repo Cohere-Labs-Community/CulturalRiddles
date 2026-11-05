@@ -1,6 +1,6 @@
 # Writing riddles for your community
 
-This guide is for native speakers who want to add their community to Cultural Riddles. It explains what we look for in a riddle, how to choose your topics, and how to fill in the workbook. When your riddles are ready, [CONTRIBUTING.md](../CONTRIBUTING.md) walks you through checking and submitting them.
+This guide is for native speakers who want to add their community to Cultural Riddles. It explains what we look for in a riddle, how to choose your topics, and how to fill in the workbook. When your riddles are ready, [Three ways to send your riddles](../CONTRIBUTING.md#three-ways-to-send-your-riddles) explains how to submit them, with or without GitHub.
 
 ## What we are looking for
 
@@ -76,4 +76,4 @@ If you would like to be credited as a writer, don't post your name in a public i
 
 - Ask another native speaker to read your riddles. If they can't solve one, or find a second answer that also fits, reword it.
 - Read every answer once more: is it short, fixed, and correct?
-- Then follow [CONTRIBUTING.md](../CONTRIBUTING.md) to check your workbook and open a pull request.
+- Then send your workbook using one of the [three ways to send your riddles](../CONTRIBUTING.md#three-ways-to-send-your-riddles).
