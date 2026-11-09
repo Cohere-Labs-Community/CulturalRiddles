@@ -11,6 +11,9 @@ REPO_URL = "https://github.com/Cohere-Labs-Community/CulturalRiddles"
 DASHBOARD_URL = "https://huggingface.co/spaces/CohereLabsCommunity/CulturalRiddles"
 PLAY_URL = "https://culturalriddles.ai/"
 PAPER_URL = "https://arxiv.org/abs/2610.29968"
+CONTRIBUTING_URL = f"{REPO_URL}/blob/main/CONTRIBUTING.md"
+CROSSWORDS_URL = "https://www.poindexterlabs.ai/brainteasers/crosswords"
+POINDEXTER_HF_URL = "https://huggingface.co/Poindexter-Labs"
 
 # Published table -> file inside the bundle. The riddles table stays the default.
 TABLES = {
@@ -307,7 +310,12 @@ configs:
 
 # Cultural Riddles
 
-**Paper:** [arXiv:2610.29968]({PAPER_URL}) · **Explore the results:** [dashboard]({DASHBOARD_URL}) · **Play:** [try the riddles yourself]({PLAY_URL}) · **Code:** [{REPO_URL.removeprefix("https://")}]({REPO_URL})
+- **Paper:** [arXiv:2610.29968]({PAPER_URL})
+- **Explore the results:** [interactive dashboard]({DASHBOARD_URL})
+- **Play:** [try the riddles yourself]({PLAY_URL})
+- **Code:** [{REPO_URL.removeprefix("https://")}]({REPO_URL})
+- **Contribute riddles:** [add your community, with or without GitHub]({CONTRIBUTING_URL})
+- **Crosswords:** [Poindexter Labs]({POINDEXTER_HF_URL}) turned riddles from this benchmark into [crosswords]({CROSSWORDS_URL})
 
 A community-built benchmark of original cultural riddles from **{len(communities)} communities across {len(languages)} languages and {countries} countries**, written by {writers} native speakers. Each riddle describes something without naming it, so answering it takes cultural knowledge, not translation or web search. A native speaker recognises the answer at once; a model succeeds only if it carries that culture's knowledge.
 
@@ -383,6 +391,10 @@ Riddles flagged in a content review carry a short content note in their `riddle_
 
 This benchmark was proposed by **Károly Boczka** and **Julia Kreutzer**, and built by native-speaker contributors across the Cohere Labs Community.
 
+**Senior leads and advisors:** Julia Kreutzer · Akhil Arora · Károly Boczka
+
+**Leads:** My Chiffon Nguyen · Tianyi Hu · Vinod Anbalagan · Henry Gagnier · Pouya Sadeghi
+
 ### Riddle writers by community
 
 Writers who agreed to be credited, by the name they chose. Some writers asked not to be named or have not confirmed yet; they are part of the Cohere Labs Community credit.
@@ -409,18 +421,6 @@ If you use this dataset, please cite the paper:
   archivePrefix = {{arXiv}},
   primaryClass  = {{cs.CL}},
   url           = {{{PAPER_URL}}}
-}}
-```
-
-To cite the dataset release itself:
-
-```bibtex
-@misc{{cultural_riddles_2026,
-  title        = {{Cultural Riddles}},
-  author       = {{Boczka, K{{\\'a}}roly and Kreutzer, Julia and the Cohere Labs Community}},
-  year         = {{2026}},
-  publisher    = {{Hugging Face}},
-  howpublished = {{\\url{{https://huggingface.co/datasets/{REPO_ID}}}}}
 }}
 ```
 """
