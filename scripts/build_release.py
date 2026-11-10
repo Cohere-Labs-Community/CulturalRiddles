@@ -54,7 +54,7 @@ def is_public_data_path(relative: Path, *, is_directory: bool = False) -> bool:
         return True
     if len(parts) < 2 or parts[0] != "data" or ".." in parts:
         return False
-    if parts[1] in {"canonical", "reference", "manifests"}:
+    if parts[1] in {"canonical", "reference", "manifests", "crosswords"}:
         return len(parts) > 2 or is_directory
     if parts[1] == "derived":
         return (

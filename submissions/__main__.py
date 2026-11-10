@@ -348,7 +348,7 @@ def export(args) -> int:
     target = data_output(args.output)
     if not args.write:
         print(
-            f"Dry run: export the riddles, model answers, human annotations, models, manifest, "
+            f"Dry run: export the riddles, model answers, human annotations, models, crosswords, manifest, "
             f"card, and LICENSE to {target}."
         )
         print("No files written. Pass --write to export.")
@@ -379,6 +379,7 @@ def export(args) -> int:
     (target / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     (target / "README.md").write_text(dataset_card.render_card(ROOT, tables), encoding="utf-8")
     shutil.copyfile(license_path, target / "LICENSE")
+    shutil.copytree(ROOT / dataset_card.CROSSWORDS_SOURCE, target / dataset_card.CROSSWORDS_BUNDLE)
     counts = ", ".join(f"{name} {len(frame):,}" for name, frame in tables.items())
     print(f"Exported {counts} rows to {target}; riddle fingerprint {manifest['dataset_sha256']}")
     return 0
@@ -394,7 +395,13 @@ def publish(args) -> int:
         return 0
     if not args.native_review_approved:
         raise ValueError("Publishing requires recorded native-speaker review approval.")
-    required = {*dataset_card.TABLES.values(), "manifest.json", "README.md", "LICENSE"}
+    required = {
+        *dataset_card.TABLES.values(),
+        dataset_card.CROSSWORDS_TABLE,
+        "manifest.json",
+        "README.md",
+        "LICENSE",
+    }
     missing = sorted(name for name in required if not (bundle / name).is_file())
     if missing:
         raise FileNotFoundError(f"Release bundle is incomplete at {bundle}: missing {missing}")
