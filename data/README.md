@@ -10,6 +10,7 @@ The following table lists each directory or file and its contract:
 | `reference/` | External reference inputs used by the analysis |
 | `derived/` | Rebuilt scores, summaries, statistical-model inputs/fits, tables, macros, machine-readable claims, and dashboard JSON |
 | `manifests/canonical.json` | Exact approved input inventory, SHA-256 content/schema hashes, row counts, and primary keys |
+| `crosswords/` | Crosswords built from the riddles by Poindexter Labs, kept as delivered; the export copies this folder into the dataset release unchanged. See `crosswords/README.md` |
 | `corrections.csv` | Reviewed remove/replace/append ledger; applying an already-applied or stale entry fails rather than guessing |
 | `submissions/` | Anonymous contribution template and intake location; see `../CONTRIBUTING.md` |
 | `runs/` | Local model/judge run artifacts; ignored and excluded from release archives |

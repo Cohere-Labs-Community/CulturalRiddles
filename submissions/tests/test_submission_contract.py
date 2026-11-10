@@ -204,8 +204,29 @@ def test_export_writes_every_public_table_and_card(tmp_path):
         for name, path in dataset_card.TABLES.items():
             assert f"config_name: {name}" in card and path in card
         assert "must not be used to train" in card
+        crosswords = pd.read_parquet(target / dataset_card.CROSSWORDS_TABLE)
+        assert len(crosswords) > 0
+        assert "config_name: crosswords" in card and dataset_card.CROSSWORDS_TABLE in card
+        assert (target / dataset_card.CROSSWORDS_BUNDLE / "README.md").is_file()
         credits = pd.read_csv(app.ROOT / "docs/contributors.csv", dtype=str)
         assert "Riddle writers by community" in card
         assert all(name.strip() in card for name in credits["name"])
     finally:
         shutil.rmtree(target, ignore_errors=True)
+
+
+def test_crosswords_contain_no_removed_riddles():
+    from submissions import dataset_card
+
+    path = app.ROOT / dataset_card.CROSSWORDS_SOURCE / "data/crosswords.jsonl"
+    corrections = pd.read_csv(app.ROOT / "data/corrections.csv", dtype=str)
+    removed = set(corrections.loc[corrections["action"].eq("remove"), "riddle_id"])
+    public = {row["riddle_id"] for row in app.load_rows()}
+    sources = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        for entry in json.loads(line)["entries"]:
+            sources.add(entry["source_riddle_id"])
+            sources.update(entry["source_riddle_id_candidates"] or [])
+    sources.discard(None)
+    assert sources and not sources & removed
+    assert sources <= public

@@ -14,6 +14,13 @@ PAPER_URL = "https://arxiv.org/abs/2610.29968"
 CONTRIBUTING_URL = f"{REPO_URL}/blob/main/CONTRIBUTING.md"
 CROSSWORDS_URL = "https://www.poindexterlabs.ai/brainteasers/crosswords"
 POINDEXTER_HF_URL = "https://huggingface.co/Poindexter-Labs"
+CROSSWORDS_PAPER_URL = "https://arxiv.org/abs/2611.10044"
+
+# The crosswords are a derived dataset from Poindexter Labs, kept as delivered in the
+# repository and copied into the bundle unchanged.
+CROSSWORDS_SOURCE = "data/crosswords"
+CROSSWORDS_BUNDLE = "crosswords"
+CROSSWORDS_TABLE = "crosswords/data/crosswords.parquet"
 
 # Published table -> file inside the bundle. The riddles table stays the default.
 TABLES = {
@@ -278,6 +285,11 @@ def render_card(root: Path, tables: dict[str, pd.DataFrame]) -> str:
         + f"  data_files:\n  - split: test\n    path: {path}"
         for name, path in TABLES.items()
     )
+    crosswords = pd.read_parquet(root / CROSSWORDS_SOURCE / "data/crosswords.parquet")
+    crossword_clues = int(crosswords["entries"].map(len).sum())
+    configs += (
+        f"\n- config_name: crosswords\n  data_files:\n  - split: test\n    path: {CROSSWORDS_TABLE}"
+    )
     return f"""---
 license: other
 license_name: culturalriddles-evaluation-only
@@ -327,6 +339,7 @@ The release has four tables:
 | `model_answers` | {len(answers):,} | Every answer from {models["model"].nunique()} model configurations on the {answered:,} benchmarked riddles, with its final score and who scored it. |
 | `human_annotations` | {len(annotations):,} | Every native-speaker label on a unique answer, including independent second labels. |
 | `models` | {len(models)} | The model configurations, their sizes, and their recorded reasoning settings. |
+| `crosswords` | {len(crosswords)} | Crosswords built from the riddles by Poindexter Labs. See [Crosswords](#crosswords). |
 
 ## Why riddles
 
@@ -345,6 +358,7 @@ riddles = load_dataset("{REPO_ID}", split="test")
 answers = load_dataset("{REPO_ID}", "model_answers", split="test")
 labels = load_dataset("{REPO_ID}", "human_annotations", split="test")
 models = load_dataset("{REPO_ID}", "models", split="test")
+crosswords = load_dataset("{REPO_ID}", "crosswords", split="test")
 
 tamil = riddles.filter(lambda r: r["community"] == "tamil_india")
 ```
@@ -370,6 +384,14 @@ Native speakers labeled each unique (riddle, answer) pair once, so one label can
 ### `models`
 
 {_table(MODEL_FIELDS)}
+
+## Crosswords
+
+[Poindexter Labs]({POINDEXTER_HF_URL}) turned riddles from this benchmark into {len(crosswords)} crosswords with {crossword_clues:,} clues, described in [CulturalCrosswords: A Multilingual Benchmark of Answer Constraints and Grid Completion]({CROSSWORDS_PAPER_URL}). Each row is one crossword with its blank and solved grids, clues, answers, and the source riddle each clue came from. The files and a full description of the fields are in the [`crosswords` folder](https://huggingface.co/datasets/{REPO_ID}/tree/main/crosswords).
+
+This is a content-reviewed public edition: clues from riddles removed in our content review were taken out, and three layouts were revised. It therefore differs from the puzzles used in the CulturalCrosswords experiments.
+
+Crosswords derived from CulturalRiddles by Isaac Saxton-Knight, Gabriel Saxton-Knight, Diego Oliveira, Tidor-Vlad Pricope, Aston Garratt and Jocelyn D'Arcy (Poindexter Labs). Original crossword layouts by Diego Oliveira, constructed with Crossword Compiler 11.51. The Telugu, Belarusian and Mongondow layouts were revised by Poindexter Labs for this content-reviewed release.
 
 ## Curation
 
