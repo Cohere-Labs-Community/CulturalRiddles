@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for contributing. Before you start, check [docs/communities.md](https://github.com/Cohere-Labs-Community/CulturalRiddles/blob/main/docs/communities.md) to see whether your community is already in the benchmark, and read [Writing riddles for your community](https://github.com/Cohere-Labs-Community/CulturalRiddles/blob/main/docs/writing-riddles.md) for what makes a good riddle.
+        Thank you for contributing. Before you start, check [docs/communities.md](https://github.com/Cohere-Labs-Community/CulturalRiddles/blob/main/docs/communities.md) to see whether your community is already in the benchmark, and read [Add your community's riddles](https://github.com/Cohere-Labs-Community/CulturalRiddles/blob/main/CONTRIBUTING.md) for how to write and send your riddles.
 
         This issue is public. Do not include your name, email address, or other personal details; maintainers will reply here. If you would like to be credited as a writer, a maintainer will ask you privately how your name should appear.
   - type: input
