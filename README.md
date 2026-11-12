@@ -44,12 +44,10 @@ Choose what you want to do. The following table links each goal to a step-by-ste
 
 | Your goal | Start with | You get |
 | --- | --- | --- |
-| [Submit riddles](docs/getting-started.md#submit-riddles) | `uv run --frozen python -m submissions check data/submissions/YOUR_WORKBOOK.xlsx` | A pass or fail report for your anonymous workbook |
+| [Add your community's riddles](CONTRIBUTING.md) | The one-page guide; no setup or coding needed | Your riddles in the dataset, with credit for your community |
 | [Benchmark a model](docs/getting-started.md#benchmark-a-model) | `uv run --frozen riddles-framework --config benchmark/configs/dummy.yaml --limit 5` | Raw answers under `data/runs/`, ready to score |
 | [Reproduce the paper](docs/getting-started.md#reproduce-the-paper) | `uv run --frozen python -m analysis.run_all` | Figures, LaTeX tables, number macros, and JSON claims |
 | [Use the data](docs/getting-started.md#use-the-data) | `pd.read_json("data/canonical/riddles.jsonl", lines=True)` | One row per riddle |
-
-Replace `YOUR_WORKBOOK` with the name of your completed workbook.
 
 Reproducing the paper doesn't need R, because `analysis.run_all` replays the released summaries of the statistical models. Refitting those models with `analysis.difficulty_decomposition` is optional and slow, and it requires R with the `lme4` and `data.table` packages. For more information, see [Refit all statistical models](docs/reproduction.md#refit-all-statistical-models).
 
