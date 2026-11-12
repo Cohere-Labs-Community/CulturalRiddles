@@ -22,11 +22,12 @@ Any community that is not yet [in the dataset](docs/communities.md) is welcome. 
 
 ## How it works
 
-1. **Tell us you're starting.** Email Vinod Anbalagan at vinodanbalagan@gmail.com, or open an [Add my community](https://github.com/Cohere-Labs-Community/CulturalRiddles/issues/new?template=add-community.yml) issue. We confirm your community and make sure no one else is already writing for it.
-2. **Download the [template](data/submissions/submission_template.xlsx).** It's an Excel workbook with everything set up.
-3. **Write 100 riddles**: 10 for each of 10 topics. You can write alone or with friends and family from your community.
-4. **Ask another native speaker to check them.** If they can't solve a riddle, or find a second answer that also fits, reword it.
-5. **Send us the workbook** (see below). We check it, review it, and add it to the dataset.
+1. **Check [the communities already included](docs/communities.md).** If yours is there, see the questions at the end of this page.
+2. **Tell us you're starting.** Email Vinod Anbalagan at vinodanbalagan@gmail.com, or open an [Add my community](https://github.com/Cohere-Labs-Community/CulturalRiddles/issues/new?template=add-community.yml) issue. We confirm your community and make sure no one else is already writing for it.
+3. **Download the [template](data/submissions/submission_template.xlsx).** It's an Excel workbook with everything set up.
+4. **Write 100 riddles**: 10 for each of 10 topics. You can write alone or with friends and family from your community.
+5. **Ask another native speaker to check them.** If they can't solve a riddle, or find a second answer that also fits, reword it.
+6. **Send us the workbook** (see below). We check it, review it, and add it to the dataset.
 
 ## Three ways to send your riddles
 
