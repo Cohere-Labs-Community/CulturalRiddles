@@ -31,7 +31,7 @@ Each goal has its own extra requirements:
 
 ## Submit riddles
 
-You contribute one community's set of 100 riddles in an anonymous Excel workbook. A maintainer reviews the content before it enters the corpus. For guidance on writing the riddles themselves, see [Writing riddles for your community](writing-riddles.md).
+You contribute one community's set of 100 riddles in an anonymous Excel workbook. A maintainer reviews the content before it enters the corpus. For guidance on writing the riddles themselves, see [Add your community's riddles](../CONTRIBUTING.md).
 
 1. Copy the blank template to a new file. Replace `YOUR_WORKBOOK` with an anonymous description of your community, such as `example_country`:
 
@@ -57,7 +57,7 @@ PASS: data/submissions/YOUR_WORKBOOK.xlsx (0 issue(s), 0 warning(s))
 
 If the check prints `FAIL`, it exits with code 1 and lists each blocking problem with worksheet row numbers. The unmodified template always fails, because it has no community row and no riddles. Review any `WARNING` lines too: duplicate answers are allowed but can point to a copy-and-paste mistake.
 
-The check never changes the canonical corpus. A passing check also isn't content approval. To submit the workbook, follow [Submit through GitHub](../CONTRIBUTING.md#submit-through-github), which explains how to add your ignored workbook to a pull request after you review it for personal information.
+The check never changes the canonical corpus. A passing check also isn't content approval. To submit the workbook, follow [Submit through GitHub](contributing-with-git.md#submit-through-github), which explains how to add your ignored workbook to a pull request after you review it for personal information.
 
 Maintainers preview the import with `uv run --frozen python -m submissions import PATH_TO_WORKBOOK`. The preview ends with `Dry run; canonical data was not changed.` Writing requires both `--approved` and `--write`. For correction ledgers and the full validation rules, see the [submission tools guide](../submissions/README.md).
 

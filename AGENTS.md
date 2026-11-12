@@ -6,7 +6,7 @@ Run all commands from the repository root. Use `uv sync --frozen` and the shared
 
 | Task | Read first | Offline first check |
 | --- | --- | --- |
-| Submit or review riddles | `CONTRIBUTING.md`, `submissions/README.md` | `uv run --frozen python -m submissions check PATH_TO_WORKBOOK.xlsx` |
+| Submit or review riddles | `CONTRIBUTING.md`, `docs/contributing-with-git.md`, `submissions/README.md` | `uv run --frozen python -m submissions check PATH_TO_WORKBOOK.xlsx` |
 | Reproduce paper outputs | `analysis/README.md`, `docs/reproduction.md` | `uv run --frozen python -m scripts.release_support`, then `uv run --frozen python -m analysis.run_all` |
 | Benchmark a model | `benchmark/README.md`, `human_eval/README.md` | `uv run --frozen riddles-framework --config benchmark/configs/dummy.yaml --limit 5` |
 
@@ -17,7 +17,7 @@ Replace `PATH_TO_WORKBOOK.xlsx` with an actual completed anonymous workbook. The
 - Keep code in the root packages, approved inputs in `data/canonical/` and `data/reference/`, generated analytical artifacts in `data/derived/`, and figures in `figures/`.
 - Treat `data/canonical/benchmark_results.parquet` as frozen comparison evidence, not a generated output. Downstream analyses read rebuilt scores, not this reference.
 - Do not edit canonical inputs, re-freeze `data/manifests/canonical.json`, or apply corrections merely to make a check pass. Canonical changes require content and anonymity review.
-- Release only files that `scripts/build_release.py` allowlists. Intake workbooks, pending correction ledgers, `.env` files, and `data/runs/` stay local: `data/submissions/` intake and `data/runs/` are ignored. Never stage them broadly; a contributor explicitly stages only the reviewed anonymous workbook described in `CONTRIBUTING.md`.
+- Release only files that `scripts/build_release.py` allowlists. Intake workbooks, pending correction ledgers, `.env` files, and `data/runs/` stay local: `data/submissions/` intake and `data/runs/` are ignored. Never stage them broadly; a contributor explicitly stages only the reviewed anonymous workbook described in `docs/contributing-with-git.md`.
 - `submissions check` and import previews must not change canonical files. Import and correction writes require both `--approved` and `--write`. Publishing is a distinct explicitly approved network operation.
 - New or changed riddle context cannot inherit historical benchmark labels solely because its ID matches. Preserve evaluated-content fingerprints and stable workbook numbers.
 - Preserve the separate dataset terms in `data/LICENSE`; the code's Apache-2.0 license does not replace them.

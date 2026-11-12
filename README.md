@@ -26,7 +26,7 @@ The dataset, its schemas, and its terms are available at these locations:
 
 ## Contribute riddles
 
-Is your community missing? You can add it, with or without GitHub: send us a filled-in workbook, upload it on the GitHub website, or open a pull request. Start with [Writing riddles for your community](docs/writing-riddles.md), then see [Three ways to send your riddles](CONTRIBUTING.md#three-ways-to-send-your-riddles).
+Is your community missing? You can add it in a few steps, with no GitHub or coding needed. Everything is on one page: [Add your community's riddles](CONTRIBUTING.md).
 
 ## Get started
 
@@ -69,8 +69,8 @@ The following guides cover each area in depth:
 
 | Guide | Read it to |
 | --- | --- |
-| [Writing riddles](docs/writing-riddles.md) | What makes a good riddle, choosing wildcard topics, and filling in the workbook |
-| [Contributing riddles](CONTRIBUTING.md) | Prepare a workbook, open a pull request, and propose corrections |
+| [Add your community's riddles](CONTRIBUTING.md) | Write riddles for your community and send them, with or without GitHub |
+| [Contributing with git](docs/contributing-with-git.md) | Check a workbook, open a pull request, review imports, and propose corrections |
 | [Submission tools](submissions/README.md) | Learn the validation rules and the maintainer import workflow |
 | [Benchmark guide](benchmark/README.md) | Run and score models, configure providers, and run judges |
 | [Reproduction guide](docs/reproduction.md) | Verify results, refit the statistical models, and build a release archive |
