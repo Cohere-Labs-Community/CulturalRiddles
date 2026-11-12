@@ -14,11 +14,14 @@ AI models speak most major languages fluently, but they still miss the culture b
 
 Any community that is not yet [in the dataset](docs/communities.md) is welcome. We especially want riddles from:
 
-- **Oceania**
-- **Africa**, beyond the communities already included
-- **Central Asia**
+- **Hindi (India)**
+- **Oceania:** for example Māori (New Zealand), Samoan (Samoa), Tongan (Tonga), Fijian (Fiji), Tok Pisin (Papua New Guinea)
+- **Africa**, beyond the communities already included: for example Amharic (Ethiopia), Hausa or Igbo (Nigeria), Zulu or Xhosa (South Africa), Wolof (Senegal), Kinyarwanda (Rwanda), Somali (Somalia)
+- **Central Asia:** for example Kazakh (Kazakhstan), Kyrgyz (Kyrgyzstan), Tajik (Tajikistan), Turkmen (Turkmenistan)
 - **Southeast Asia:** Laos, Cambodia, Myanmar, the Philippines
 - **East Asia:** Mongolia, Korea
+
+These are only examples. If your community isn't listed here or in the dataset, we'd love to hear from you.
 
 ## How it works
 
@@ -26,7 +29,9 @@ Any community that is not yet [in the dataset](docs/communities.md) is welcome. 
 2. **Tell us you're starting.** Email Vinod Anbalagan at vinodanbalagan@gmail.com, or open an [Add my community](https://github.com/Cohere-Labs-Community/CulturalRiddles/issues/new?template=add-community.yml) issue. We confirm your community and make sure no one else is already writing for it.
 3. **Download the [template](data/submissions/submission_template.xlsx).** It's an Excel workbook with everything set up.
 4. **Write 100 riddles**: 10 for each of 10 topics. You can write alone or with friends and family from your community.
-5. **Ask another native speaker to check them.** If they can't solve a riddle, or find a second answer that also fits, reword it.
+5. **Have someone from your community check them.** Ask a family member or friend who grew up there to read your riddles before you send them. This helps most with history and politics riddles, where details are easy to get wrong, and if you are writing in a language you don't speak every day. They are checking two things:
+    - **Is it correct?** Facts, names, and spellings should be right.
+    - **Is there only one answer?** If they think of a different answer that also fits, reword the riddle so only yours works. If even they can't solve it, add a clue or a hint.
 6. **Send us the workbook** (see below). We check it, review it, and add it to the dataset.
 
 ## Three ways to send your riddles
@@ -34,6 +39,15 @@ Any community that is not yet [in the dataset](docs/communities.md) is welcome. 
 1. **Email it (no GitHub needed).** Send the workbook to Vinod Anbalagan at vinodanbalagan@gmail.com. We run the checks and submit it for you.
 2. **Upload it on the GitHub website.** Fork this repository on github.com, choose **Add file** and then **Upload files**, and put your workbook in `data/submissions/`. GitHub offers to open a pull request, and the checks run on it automatically.
 3. **Use git.** Run the checks yourself and open a pull request. See [Contributing with git](docs/contributing-with-git.md).
+
+## Optional: add your riddles to the quiz
+
+[culturalriddles.ai](https://culturalriddles.ai/) has a quiz where people try the riddles against AI models. It doesn't include every community, and that's fine: your riddles join the dataset either way. If you'd like your community in the quiz, you can also send, for at least 5 riddles:
+
+- **A few wrong answers that sound right**, in your language. Good wrong answers tempt someone from outside your community but are clearly wrong to someone from inside it. Avoid any that could also be correct.
+- **English translations** of the correct answer and of each wrong answer.
+
+Include them in your email with the workbook. Adding a community to the quiz takes extra work, so it may take a while to appear.
 
 ## Writing good riddles
 
