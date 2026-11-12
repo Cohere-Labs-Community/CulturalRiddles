@@ -418,6 +418,8 @@ This benchmark was proposed by **Károly Boczka** and **Julia Kreutzer**, and bu
 
 **Leads:** My Chiffon Nguyen · Tianyi Hu · Vinod Anbalagan · Henry Gagnier · Pouya Sadeghi
 
+**Human evaluation community leads:** Henry Gagnier · Aylin Naebzadeh · Zena Al Khalili · Lakshmi Tejaswi Sunkara · Ruchira Dhar · Luis Fernando Solis · Silvia Fernández · Ahanaf Aziz · Rabius Sany · Ahmad Mufli Ramadhan · Divas Poudel · Arya Hariharan · Vivek Silimkhan · Ralitza Rizova · Nobin Sarwar · Haichang Li · Christian Hoang · Hanna Yukhymenko · Santhoshini Pranathi Singaraju · Ona de Gibert · Weihua Zheng · Micol Altomare · Fred Philippy · My Chiffon Nguyen · Rafay Mustafa
+
 ### Riddle writers by community
 
 Writers who agreed to be credited, by the name they chose. Some writers asked not to be named or have not confirmed yet; they are part of the Cohere Labs Community credit.
