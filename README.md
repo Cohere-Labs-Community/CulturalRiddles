@@ -114,6 +114,185 @@ uv run --frozen ruff format --check .
 
 To build and verify a self-contained archive after you regenerate the outputs, see [Verify a self-contained release](docs/reproduction.md#verify-a-self-contained-release).
 
+## Citation
+
+If you use Cultural Riddles, please cite the paper. The BibTeX is also in [`CITATION.bib`](CITATION.bib).
+
+```bibtex
+@misc{nguyen2026culturalriddles,
+  title = {CulturalRiddles: A Multicultural Benchmark of Riddles},
+  author = {Nguyen, My Chiffon
+            and Hu, Tianyi
+            and Anbalagan, Vinod
+            and Gagnier, Henry
+            and Sadeghi, Pouya
+            and Abdou, Farah
+            and Pricope, Tidor-Vlad
+            and Oliveira, Diego MMS
+            and D'Arcy, Jocelyn K
+            and Smith, Madeline
+            and Ajayi, Oluwaseun A
+            and Al Ghussin, Yusser
+            and Al-Khalili, Zena
+            and Altomare, Micol
+            and Amir, Shayan
+            and Aziz, Ahanaf
+            and Chen, Bryan
+            and Dhar, Ruchira
+            and El Mekki, Abdellah
+            and Elframawy, Rawan Mohammed
+            and Eppa, Akhil
+            and Fernandez, Silvia
+            and Gimei, Alex
+            and Hariharan, Arya
+            and Hoang, Christian
+            and Kadiyala, RamMohanRao
+            and Kozachek, Diana
+            and Limkonchotiwat, Peerat
+            and Maity, Ankita
+            and Mo, Di
+            and Munot, Ayush
+            and Naebzadeh, Aylin
+            and Nikitina, Anastasiia
+            and Pisarevskaya, Dina
+            and Poudel, Divas
+            and Purbey, Jebish
+            and Rabius Sany Apu, Md
+            and Ramadhan, Ahmad Mufli
+            and Rizova, Ralitza Nikolova
+            and Serrano-Miranda, Diogo M.
+            and Silimkhan, Vivek Gopalkrishna
+            and Solis Navarro, Luis Fernando
+            and Sun, Kaiser
+            and Suneesh, Arya
+            and Sunkara, Manaswitha
+            and Sunkara, Tejaswi
+            and Swindell, Jonathan E
+            and Yukhymenko, Hanna
+            and Zheng, Jingyi
+            and Zheng, Weihua
+            and Adenuga, Esther
+            and Afanasev, Ilia
+            and Agarwal, Amit
+            and Aissa, Wafa
+            and Alazraki, Lisa
+            and Altomare, Lauren C
+            and Amuok, Priscilla Amondi
+            and Anand, Emile
+            and Anbalagan, Vivek
+            and Assis, Gabriel
+            and Avalos, José Matías
+            and Avila, Silvia Lorena
+            and Baannou, Zakaria
+            and Bafna, Niyati
+            and Bagla, Yash
+            and Bahrami, Sarah
+            and Balcha, Bontu F
+            and Bannihatti Kumar, Vanya
+            and Baucells, Irene
+            and Begmuratov, Abdumutalib
+            and Berk, Ceren
+            and Bhatia, Naman
+            and Bhattacharyya, Souvik
+            and Binte Md Johan, Nabilah
+            and Blanco Ferreiro, Isabel
+            and Bochini, Felipe
+            and Bopitiya, Sayuru
+            and Borah, Angana
+            and Bose, Tulika
+            and Bugaiova, Olena
+            and Carvalho, Juliana
+            and Chen, Nancy F
+            and Chen, Stephy
+            and Choenni, Rochelle
+            and Chundru, Jayanth Krishna
+            and Cossio, Leandro A
+            and Damnjanović, Nebojša
+            and de Gibert, Ona
+            and De Santis, Marco
+            and Delgado, Pedro
+            and Dholé, Kaustubh
+            and El Assadi, Adnan
+            and El-Sayed, Wesam
+            and Elframawy, Nadine M
+            and Essarhi, Oumayma
+            and Etori, Naome A
+            and Fernandes, Reuben Chagas
+            and Gade, Saanidhi Pravin
+            and García Gilabert, Javier
+            and González-Escapa, Álvaro
+            and Hu, Bin
+            and Huang, Kaiyu
+            and Ilasariya, Fenal Ashokbhai
+            and Issam, Abderrahmane
+            and Jokić, Danka
+            and Khalilov, Ulugbek
+            and Krzemiński, Dominik
+            and Lee, Roy Ka-Wei
+            and Li, Haichang
+            and Liu, Chen Cecilia
+            and Liu, Zhengyuan
+            and Lothritz, Cedric
+            and Mehrafarin, Houman
+            and Miranda-Escalada, Antonio
+            and Mo, Fengran
+            and Mofakhami, Mehrnaz
+            and Mohammed, Wafaa
+            and Moreno-Vera, Felipe
+            and Movva, Prahitha
+            and Nayem, Jannatul
+            and Ngo, Van
+            and Olusanya, Joy
+            and Pàmies, Marc
+            and Pandey, Avinash Kumar
+            and Paniv, Yurii
+            and Patel, Hitesh Laxmichand
+            and Philippy, Fred
+            and Poritski, Vladislav
+            and Poudel, Dikshya
+            and Radoła, Joanna
+            and Rajaee, Sara
+            and Rajwal, Swati
+            and Rane, Prerana
+            and Ravi Shulthan Habibi, Muhammad
+            and Resck, Lucas
+            and Roy Dipta, Shubhashis
+            and Sahu, Ananya
+            and Sánchez, Eduardo
+            and Sánchez Clemente, Borja
+            and Sant, Aleix
+            and Sarwar, Nobin
+            and Shihab, Istiak
+            and Singaraju, Santhoshini Pranathi
+            and Smith, Jane
+            and Stap, David
+            and Su, Emily Z
+            and Suresh, Ananth K
+            and Swami, Sajag
+            and Tan, Ruiyang
+            and Tasnim, Nazia
+            and Tounoussi, Khalid
+            and Triamamornwooth, Patteera
+            and Umar, Muhammad Saad
+            and Venkitachalam, Shankar
+            and Volchek, Oksana
+            and Wang, Lingbo
+            and Yadeta, Debela Desalegn
+            and Zawar, Rushikesh
+            and Zhang, Jinghan
+            and Zhang, Mike
+            and Fadaee, Marzieh
+            and Arora, Akhil
+            and Boczka, Károly
+            and Kreutzer, Julia},
+  year = {2026},
+  eprint = {2610.29968},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  url = {https://arxiv.org/abs/2610.29968},
+}
+```
+
 ## License and use
 
 Code uses [Apache-2.0](LICENSE). The dataset has separate terms in [`data/LICENSE`](data/LICENSE): attribution is required, and you must not use the data to train, fine-tune, or distill models, or to seed synthetic data. The data terms aren't unmodified CC-BY-4.0.

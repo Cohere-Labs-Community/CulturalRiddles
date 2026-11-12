@@ -204,6 +204,8 @@ def test_export_writes_every_public_table_and_card(tmp_path):
         for name, path in dataset_card.TABLES.items():
             assert f"config_name: {name}" in card and path in card
         assert "must not be used to train" in card
+        citation = (app.ROOT / "CITATION.bib").read_text(encoding="utf-8").rstrip("\n")
+        assert citation in card
         crosswords = pd.read_parquet(target / dataset_card.CROSSWORDS_TABLE)
         assert len(crosswords) > 0
         assert "config_name: crosswords" in card and dataset_card.CROSSWORDS_TABLE in card
@@ -230,3 +232,10 @@ def test_crosswords_contain_no_removed_riddles():
     sources.discard(None)
     assert sources and not sources & removed
     assert sources <= public
+
+
+def test_citation_matches_readme():
+    citation = (app.ROOT / "CITATION.bib").read_text(encoding="utf-8").rstrip("\n")
+    assert citation.startswith("@misc{nguyen2026culturalriddles,")
+    readme = (app.ROOT / "README.md").read_text(encoding="utf-8")
+    assert f"```bibtex\n{citation}\n```" in readme
