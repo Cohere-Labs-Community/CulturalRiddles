@@ -32,6 +32,7 @@ ROOT_FILES = (
     "README.md",
     "AGENTS.md",
     "CONTRIBUTING.md",
+    "CITATION.bib",
     "LICENSE",
 )
 EXCLUDED_PARTS = {".git", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache", ".cache"}

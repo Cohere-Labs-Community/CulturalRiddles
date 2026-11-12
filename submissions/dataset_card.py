@@ -279,6 +279,7 @@ def render_card(root: Path, tables: dict[str, pd.DataFrame]) -> str:
     writers, annotators = int(people["riddle_writers"]), int(people["annotators"])
     language_yaml = "\n".join(f"- {code}" for code in languages)
     credits = contributor_credits(root, metadata, communities)
+    citation = (root / "CITATION.bib").read_text(encoding="utf-8").rstrip("\n")
     configs = "\n".join(
         f"- config_name: {name}\n"
         + ("  default: true\n" if name == "riddles" else "")
@@ -435,14 +436,6 @@ This card is generated from the [source repository]({REPO_URL}) on each release.
 If you use this dataset, please cite the paper:
 
 ```bibtex
-@misc{{nguyen2026culturalriddles,
-  title         = {{CulturalRiddles: A Multicultural Benchmark of Riddles}},
-  author        = {{Nguyen, My Chiffon and Hu, Tianyi and Anbalagan, Vinod and Gagnier, Henry and Sadeghi, Pouya and others}},
-  year          = {{2026}},
-  eprint        = {{2610.29968}},
-  archivePrefix = {{arXiv}},
-  primaryClass  = {{cs.CL}},
-  url           = {{{PAPER_URL}}}
-}}
+{citation}
 ```
 """
