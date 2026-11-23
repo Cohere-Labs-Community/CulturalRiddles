@@ -179,7 +179,8 @@ def import_submission(args) -> int:
         raise ValueError("Import requires --approved after maintainer review.")
     result = other + incoming
     CANONICAL.write_text(
-        "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in result), encoding="utf-8"
+        "".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) + "\n" for r in result),
+        encoding="utf-8",
     )
     community_metadata = pd.read_csv(METADATA).set_index("community", drop=False)
     values = {
@@ -285,7 +286,8 @@ def corrections(args) -> int:
             history.append(entry)
             known.add(key)
     CANONICAL.write_text(
-        "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in result), encoding="utf-8"
+        "".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) + "\n" for r in result),
+        encoding="utf-8",
     )
     LEDGER.parent.mkdir(parents=True, exist_ok=True)
     with LEDGER.open("w", encoding="utf-8", newline="") as stream:
