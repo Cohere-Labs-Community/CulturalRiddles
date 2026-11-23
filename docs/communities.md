@@ -31,6 +31,7 @@ Check this list before you start. To add a community that is not here, open an [
 | `french_canada` | French | Canada | 100 |
 | `french_france` | French | France | 100 |
 | `german_germany` | German | Germany | 100 |
+| `greek_greece` | Greek | Greece | 100 |
 | `gujarati_india` | Gujarati | India | 100 |
 | `hungarian_hungary` | Hungarian | Hungary | 100 |
 | `indonesian_indonesia` | Indonesian | Indonesia | 100 |
