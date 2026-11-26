@@ -182,7 +182,9 @@ def import_submission(args) -> int:
         "".join(json.dumps(r, ensure_ascii=False, separators=(",", ":")) + "\n" for r in result),
         encoding="utf-8",
     )
-    community_metadata = pd.read_csv(METADATA).set_index("community", drop=False)
+    community_metadata = pd.read_csv(METADATA, dtype=str, keep_default_na=False).set_index(
+        "community", drop=False
+    )
     values = {
         "language_code": _text(meta.get("language_code", "")),
         "language": _text(meta.get("language", "")),
