@@ -26,7 +26,9 @@ Check this list before you start. To add a community that is not here, open an [
 | `chinese_simplified_china` | Simplified Chinese | China | 100 |
 | `chinese_singapore` | Chinese | Singapore | 100 |
 | `dutch_netherlands` | Dutch | Netherlands | 100 |
+| `english_australia` | English | Australia | 100 |
 | `english_canada` | English | Canada | 100 |
+| `english_uk` | English | United Kingdom | 100 |
 | `english_usa` | English | United States | 100 |
 | `french_canada` | French | Canada | 100 |
 | `french_france` | French | France | 100 |
